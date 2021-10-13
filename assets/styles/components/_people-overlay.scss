@@ -1,0 +1,128 @@
+.team-popups-holder{
+    position: fixed; bottom: 0; left: 0;
+    width: 100%; height: 100%;
+    @include transform($y: 100%);
+    transition: left 0ms, transform 1000ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-color: #fff;
+    z-index: 9998;
+    overflow: auto;
+    @include breakpoint(640){
+        padding-top: 110px;
+        z-index: 9997;
+    }
+    &.opened{
+        @include transform();
+    }
+    .popup-wrapper{
+        position: absolute; opacity: 0;  z-index: 1; overflow: hidden;
+        width: 100%; height: 100%;
+        @include transition(all 300ms 800ms ease);
+        @include transform($y: -50px);
+        @include box-sizing();
+        @include breakpoint(768){
+        }
+        @include breakpoint(640){
+			overflow: auto;
+            padding: 0 25px;
+        }
+        &.active{
+            opacity: 1; z-index: 2;
+            @include transform();
+        }
+        article{
+			overflow: auto;
+			max-height: calc(100vh - 12.5vw);
+			padding-right: 40px;
+			h6 {
+				margin-bottom: 10px;
+				font-family: $font-book; font-size: 16px; line-height: 22px; color: #525A5F; text-transform: uppercase;
+			}
+			h4 {
+				margin-bottom: 20px;
+				font-family: $font-medium; font-size: 22px; line-height: 32px; color: black; text-transform: uppercase;
+			}
+			p {
+				margin-bottom: 22px;
+				font-size: 16px; line-height: 22px; color: #525A5F;
+			}
+			@include breakpoint(640){
+				max-height: inherit;
+				padding-left: 0;
+			}
+        }
+        .img-holder{
+            .has-bgr{
+                display: block;
+                width: 100%; height: 420px;
+				@include bgr();
+            }
+        }
+		.popup-holder {
+			max-width: 1000px;
+			margin: 0 auto; padding-top: 20vh;
+			@include breakpoint(640){
+				padding-top: 75px;
+			}
+		}
+        .popup{
+            @include flexbox();
+            @include breakpoint(640){
+                flex-wrap: wrap;    
+            }
+            aside{
+                width: 360px;
+				padding-right: 80px;
+                @include breakpoint(640){
+                    width: 100%;
+					padding: 0; margin-bottom: 40px;
+                }
+            }    
+            article{
+                flex: 1;
+                @include box-sizing();  
+                @include breakpoint(640){
+                    flex: auto;
+                    width: 100%;
+                    padding: 0 !important;
+                }
+            }
+        }
+    }
+    .exit{
+        position: absolute; 
+        top: 80px; right: 40px;
+        width: 30px; height: 30px;
+        cursor: pointer;
+        z-index: 3;
+        @include breakpoint(640){
+            top: 20px; right: 20px;
+        }
+        span{
+            display: block;
+            height: 2px; width: 20px;
+            position: absolute;
+            top: 50%; left: 50%;
+            @include transform($x: -50%, $y: -50%, $r: 45deg);    
+            background-color: black;
+            &:nth-child(2){
+                @include transform($x: -50%, $y: -50%, $r: -45deg);   
+            }
+        }    
+    }
+    .social-share{
+		padding-left: 0;	
+        li{
+			display: inline-block;
+			margin: 0 30px 20px 0; padding: 0;
+			list-style-type: none;
+			&:before {
+				display: none;
+			}
+			svg{
+				path{
+					fill: #8A9399;
+				}
+			}
+        }
+    }
+}

@@ -1,0 +1,308 @@
+// 
+// 
+// STANDARD MIXING
+// 
+// 
+
+//RESPONSIVE
+    @mixin breakpoint($point){
+        @if $point == 1920{
+            @media (max-width: 2200px){@content ;}
+        } @else if $point == 1440{
+            @media (max-width: 1440px){@content ;}
+        } @else if $point == 1400{
+            @media (max-width: 1400px){@content ;}
+        } @else if $point == 1366{
+            @media (max-width: 1366px){@content ;}
+        } @if $point == 1200{
+            @media (max-width: 1200px){@content ;}
+        } @else if $point == 1024{
+            @media (max-width: 1024px){@content ;}
+        } @else if $point == 960{
+            @media (max-width: 960px){@content ;}
+        } @else if $point == 768{
+            @media (max-width: 768px){@content ;}
+        } @else if $point == ipadpro{
+            @media (max-width: 1024px){@content ;}
+        } @else if $point == 640{
+            @media (max-width: 640px){@content ;}
+        } @else if $point == medium-mobile{
+            @media (max-width: 375px){@content ;}
+        } @else if $point == small-mobile{
+            @media (max-width: 320px){@content ;}
+        }
+    }
+    
+//ELEMENTS FOR MIXINS
+    //Standard Vendors
+        $vendors: "-webkit-", "-moz-";
+    //Other Vendors
+        $ms-vendor: "-ms-";
+        $o-vendor: "-o-";
+
+//BEHAVIOR
+    //Transform
+            @mixin transform($x: 0px, $y: 0px, $z: 0px, $r: 0deg, $sx: 1, $sy: 1){
+            @each $vendor in $vendors {
+                #{$vendor}transform: translateX($x) translateY($y) translateZ($z) rotate($r) scale($sx, $sy);
+            }
+            #{$ms-vendor}transform: translateX($x) translateY($y) translateZ($z) rotate($r) scale($sx, $sy);
+            #{$o-vendor}transform: translateX($x) translateY($y) translateZ($z) rotate($r) scale($sx, $sy);
+            transform: translateX($x) translateY($y) translateZ($z) rotate($r) scale($sx, $sy);
+        }
+
+
+    //IE and Edge transform when you need calc in value - $x: calc(50% -5 px) = $x: 50%, $x1: - 5px
+        @mixin ms-transform($x: 0px, $x1: 0px, $y: 0px, $y1: 0px, $z: 0px, $r: 0deg, $sx: 1, $sy: 1){
+            #{$ms-vendor}transform: translateX($x) translateX($x1) translateY($y) translateY($y1) translateZ($z) rotate($r) scale($sx, $sy);            
+        }
+
+    //Transition
+        // @mixin transition($property: all, $duration: 1000ms, $delay: 0ms, $easing: ease-in-out){
+        //     @each $vendor in $vendors {
+        //         #{$vendor}transition: $property $duration $delay $easing;
+        //     }
+        //     #{$ms-vendor}transition: $property $duration $delay $easing;
+        //     #{$o-vendor}transition: $property $duration $delay $easing;
+        //     transition: $property $duration $delay $easing;
+        // }
+
+        @mixin transition($transition...) {
+            -moz-transition:    $transition;
+            -o-transition:      $transition;
+            -webkit-transition: $transition;
+            transition:         $transition;
+        }
+        @mixin transition-property($property...) {
+            -moz-transition-property:    $property;
+            -o-transition-property:      $property;
+            -webkit-transition-property: $property;
+            transition-property:         $property;
+        }
+        @mixin transition-duration($duration...) {
+            -moz-transition-duration:    $duration;
+            -o-transition-duration:      $duration;
+            -webkit-transition-duration: $duration;
+            transition-duration:         $duration;
+        }
+        @mixin transition-timing-function($timing...) {
+            -moz-transition-timing-function:    $timing;
+            -o-transition-timing-function:      $timing;
+            -webkit-transition-timing-function: $timing;
+            transition-timing-function:         $timing;
+        }
+        @mixin transition-delay($delay...) {
+            -moz-transition-delay:    $delay;
+            -o-transition-delay:      $delay;
+            -webkit-transition-delay: $delay;
+            transition-delay:         $delay;
+        }
+    //Transform origin
+        @mixin origin($origin){
+            @each $vendor in $vendors {
+                #{$vendor}transform-origin: $origin;
+            }
+            #{$ms-vendor}transform-origin: $origin;
+            #{$o-vendor}transform-origin: $origin;
+            transform-origin: $origin;
+        }
+
+    //Backface-visibility - by default is hidden enter visible to change
+        @mixin visibility($visibility: hidden){
+            @each $vendor in $vendors {
+                #{$vendor}backface-visibility: $visibility;
+            }
+            #{$o-vendor}backface-visibility: $visibility;
+            backface-visibility: $visibility;
+        }
+
+    //Box-sizing - by default is border-box to change enter value: content-box | padding-box
+        @mixin box-sizing($sizing: border-box){
+            @each $vendor in $vendors {
+                #{$vendor}box-sizing: $sizing;
+            }
+            box-sizing: $sizing;
+        }
+
+    //Clearfix
+        @mixin micro-clearfix{
+            &:before,
+            &:after {
+                content: "";
+                display: table;
+            }
+            &:after {
+                clear: both;
+            }
+        }
+
+//IMAGES MANIPULATION
+    //Background size - by default is cover to change enter value: auto | length | cover | contain | initial | inherit
+        @mixin bgr-size ($bgsize: cover) {
+            @each $vendor in $vendors {
+                #{$vendor}background-size: $bgsize;
+            }
+            #{$o-vendor}background-size: $bgsize;
+            background-size: $bgsize;
+        }
+    //Background standard setings
+        @mixin bgr($repeat: no-repeat, $position: 50% 50%, $color: transparent, $size: cover){
+            background-repeat: $repeat;
+            background-position: $position;
+            background-color: $color;
+            @include bgr-size($size);
+        }
+
+//PSEUDO ELEMENTS
+    //Standard call for pseudo element
+        @mixin pseudo($display: block, $pos: absolute, $content: ''){
+            content : $content;
+            display : $display;
+            position: $pos;
+        }
+
+//POSITIONS
+    //position reset
+        @mixin position-reset(){
+            position: relative;
+            top: auto; right: auto; bottom: auto; left: auto; 
+        }
+        @mixin margin-auto(){
+            margin-left: auto; margin-right: auto;
+        }
+//FLEX
+    //flexbox
+        @mixin flexbox(){
+            @each $vendor in $vendors {
+                display: #{$vendor}box;
+            }
+            display: #{$ms-vendor}flexbox;
+            display: -webkit-flex;
+            display: flex;
+        }
+    //flex flow (direction and flow together) - by default is row and wrap to change enter value for direction : row-reverse | column | column-reverse and for flow: wrap | wrap-reverse
+        @mixin flex-flow($direction: row, $flow: nowrap){
+            @each $vendor in $vendors {
+                #{$vendor}flex-flow: $direction $flow;
+            }
+            #{$ms-vendor}flex-flow: $direction $flow;
+            flex-flow: $direction $flow;
+        }
+    //flex item
+        @mixin flex($grow: 0, $shrink: 1, $basis: auto, $none: false){
+            @if $none{
+                 @each $vendor in $vendors {
+                    #{$vendor}box-flex: none;
+                }
+                -webkit-flex:  none;
+                #{$ms-vendor}flex: none;
+                flex: none;
+            }
+            @else {
+                @each $vendor in $vendors {
+                    #{$vendor}box-flex: $grow $shrink $basis;
+                }
+                -webkit-flex:  $grow $shrink $basis;
+                #{$ms-vendor}flex: $grow $shrink $basis;
+                flex: $grow $shrink $basis;
+            }
+        }
+    //Justify-content - by default is flex to change enter value: flex-start | flex-end | center | space-between | space-around | space-evenly
+        @mixin justify($justify: flex-start){
+             @each $vendor in $vendors {
+                #{$vendor}justify-content: $justify;
+            }
+            #{$ms-vendor}justify-content: $justify;
+            justify-content: $justify;
+            #{$ms-vendor}flex-pack: $justify;
+        }
+    //Aligne-item - by default is stretch to change enter value: flex-start | flex-end | center | baseline 
+        @mixin align-item($align-item: stretch){
+             @each $vendor in $vendors {
+                #{$vendor}align-items: $align-item;
+            }
+            #{$ms-vendor}align-items: $align-item;
+            align-items: $align-item;
+        }
+    //Align-self - by default is auto to change enter value: flex-start | flex-end | center | baseline | stretch
+        @mixin align-self($align-selfe: auto){
+             @each $vendor in $vendors {
+                #{$vendor}align-self: $align-selfe;
+            }
+            #{$ms-vendor}align-self: $align-selfe;
+            align-self: $align-selfe;
+        }
+    //Align-content - by default is stretch to change enter value: flex-start | flex-end | center | space-between | space-around 
+        @mixin align($align: stretch){
+             @each $vendor in $vendors {
+                #{$vendor}align-content: $align;
+            }
+            #{$ms-vendor}align-content: $align;
+            align-content: $align;
+        }
+    //Order
+        @mixin order($order: 1){
+            @each $vendor in $vendors {
+                #{$vendor}box-ordinal-group: $order;
+            }
+            #{$ms-vendor}flex-order: $order;
+            -webkit-order: $order;  
+            order: $order;
+        }
+
+//COLORS
+    //Gradients
+        @mixin gradient($start-color, $end-color, $orientation){
+            background: $start-color;
+            @if $orientation == vertical{
+                background: -moz-linear-gradient(top,  $start-color 0%, $end-color 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start-color), color-stop(100%,$end-color));
+                background: -webkit-linear-gradient(top,  $start-color 0%,$end-color 100%);
+                background: -o-linear-gradient(top,  $start-color 0%,$end-color 100%);
+                background: -ms-linear-gradient(top,  $start-color 0%,$end-color 100%);
+                background: linear-gradient(to bottom,  $start-color 0%,$end-color 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=0 );
+            } @else if $orientation == horizontal{
+                background: -moz-linear-gradient(left,  $start-color 0%, $end-color 100%);
+                background: -webkit-gradient(linear, left top, right top, color-stop(0%,$start-color), color-stop(100%,$end-color));
+                background: -webkit-linear-gradient(left,  $start-color 0%,$end-color 100%);
+                background: -o-linear-gradient(left,  $start-color 0%,$end-color 100%);
+                background: -ms-linear-gradient(left,  $start-color 0%,$end-color 100%);
+                background: linear-gradient(to right,  $start-color 0%,$end-color 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=1 );
+            } @else {
+                background: -moz-radial-gradient(center, ellipse cover,  $start-color 0%, $end-color 100%);
+                background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$start-color), color-stop(100%,$end-color));
+                background: -webkit-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+                background: -o-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+                background: -ms-radial-gradient(center, ellipse cover,  $start-color 0%,$end-color 100%);
+                background: radial-gradient(ellipse at center,  $start-color 0%,$end-color 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=1 );
+                }
+        }
+
+//SHADOW
+    //box-shadow
+        @mixin box-shadow($x: 0, $y: 0, $b: 0, $s: 0, $color: transparent, $op: 0){
+            @each $vendor in $vendors {
+                #{$vendor}box-shadow: $x $y $b $s rgba($color, $op);
+            }
+            box-shadow:  $x $y $b $s rgba($color, $op);
+        }
+
+// 
+// 
+// SITE SPECIFIC MIXING PLEASE ADD UNDER SAME FOLDER CUSTOM.SCSS
+// 
+// 
+
+
+//TYPE OF COMMENTS
+    /* This comment is
+    * several lines long.
+    * since it uses the CSS comment syntax,
+    * it will appear in the CSS output. */
+
+    // These comments are only one line long each.
+    // They won't appear in the CSS output,
+    // since they use the single-line comment syntax.

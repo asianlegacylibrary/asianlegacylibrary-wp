@@ -1,0 +1,53 @@
+/* apply a natural box layout model to all elements
+*, *:before, *:after {
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
+ } */
+
+/*
+|------------------------------------------------------------
+| Help Classes
+|------------------------------------------------------------
+*/
+
+.display-none { display: none; }
+.display-block { display: block; }
+.display-inline { display: inline; }
+.display-inline-block { display: inline-block; }
+
+.left { float: left; }
+.right { float: right; }
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.text-justify { text-align: justify; }
+
+.bold { font-weight: bold; }
+.italic { font-style: italic; }
+.capitalize { text-transform: capitalize; }
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+
+.fixed { position: fixed; }
+
+
+/*
+|------------------------------------------------------------
+| Clearfix
+|------------------------------------------------------------
+*/
+
+.clearfix {
+    zoom:1;
+    &:before, &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+    &:after {
+        clear: both;
+    }
+}

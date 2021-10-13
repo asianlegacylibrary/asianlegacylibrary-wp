@@ -1,0 +1,212 @@
+/*
+FOOTER
+-------------------------------------------- */
+.pre-footer {
+	position: relative; z-index: 1;
+	max-width: 1100px;
+	// margin: 100px auto -200px;
+	margin: 200px auto -200px;
+	a {
+		display: flex; justify-content: flex-end;
+		height: 310px;
+		background-color: $color-chartreuse;
+		@include transition(300ms ease-in-out);
+		span {
+			display: block; align-self: flex-end; position: relative;
+			width: 250px;
+			padding-bottom: 70px; padding-right: 100px;
+			font-family: $font-medium; font-size: 22px; line-height: 27px; color: #000; text-transform: uppercase;
+			@include transition(300ms ease-in-out);
+			&:after {
+				content: "";
+				position: absolute; left: 0; bottom: 25px;
+				width: 100%; height: 10px;
+				background: url(../img/icon-arrow-dark-long.svg) 0 50% no-repeat;
+				@include transition(300ms ease-in-out);
+			}
+		}
+		&:hover {
+			background-color: black;
+			span {
+				color: $color-chartreuse;
+				&:after {
+					@include transform($x: 15px);
+					background: url(../img/icon-arrow-light-long.svg) 0 50% no-repeat;
+				}
+			}
+		}
+	}
+	@include breakpoint(1024) {
+		padding-left: 60px; padding-right: 60px; margin-bottom: -100px;
+		a {
+			height: 180px;
+			span {
+				width: 80px;
+				padding-bottom: 40px;
+				font-size: 14px; line-height: 17px;
+				&:after {
+					bottom: 15px;
+					background-size: 80% auto;
+				}
+			}
+		}
+	}
+	@include breakpoint(640) {
+		padding-left: 0; padding-right: 0; margin-bottom: 0; margin-top: 50px;
+	}
+}
+footer {
+	padding: 300px 30px 62px;
+	background-color: $color-yankees-blue;
+	@include breakpoint(1024) {
+		padding-top: 200px;
+	}
+	@include breakpoint(640) {
+		padding: 60px 0;
+	}
+	.wrapper {
+		max-width: 980px;
+	}
+	.logo-footer {
+		@include breakpoint(640) {
+			width: 190px; height: auto;
+		}
+	}
+	.footer-columns {
+		@include flexbox(); justify-content: space-between;
+		padding-top: 77px;
+		@include breakpoint(768) {
+			flex-wrap: wrap;
+			padding-top: 43px;
+		}
+		.col {
+			margin-bottom: 77px;
+			@include breakpoint(768) {
+				flex: auto;
+				margin-bottom: 36px;
+			}
+			p {
+				font-size: 18px; line-height: 24px; color: #96A7B6;
+				@include breakpoint(640) {
+					font-size: 16px;
+				}
+				a {
+					// text-decoration: underline; 
+					position: relative;
+					@include transition(350ms ease-in-out);
+					color: #96A7B6;
+					&:after{
+						content: "";
+						width: 100%; height: 1px;
+						background-color: #96A7B6;
+						position: absolute;
+						bottom: 1px; left: 0;
+						@include transition(350ms ease-in-out);
+					}
+					&:hover {
+						text-decoration: none;
+						color: $color-white;
+						&:after{
+							// width: 0px;
+						}
+					}
+					&.tel{
+						&:after{
+							content: none;
+						}
+					}
+				}
+				strong {
+					font-family: $font-medium; color: $color-white;
+				}
+			}
+			.usa-icon{
+				a{
+					&:after{
+						content: none;
+					}
+					svg{
+						path{
+							@include transition(all 300ms ease-in-out);
+						}
+					}
+					&:hover{
+						svg{
+							path{
+								stroke: $color-white;
+							}
+						}
+					}
+				}
+			}
+			.social-nav {
+				padding-top: 8px; margin-left: -5px;
+				li {
+					display: inline-block;
+					margin-right: 12px;
+					a {
+						display: block;
+						width: 24px; height: 24px;
+						text-indent: -9999px;
+						background-position: 50% 50%; background-repeat: no-repeat;
+						@include transition(opacity 300ms ease-in-out);
+						opacity: 0.7;
+						&:hover {
+							opacity: 1;
+						}
+					}
+					&.facebook {
+						a {
+							background-image: url(../img/ic_facebook.svg);
+						}
+					}
+					&.twitter {
+						a {
+							background-image: url(../img/ic_twitter.svg);
+						}
+					}
+					&.google {
+						a {
+							background-image: url(../img/ic_google.svg);
+						}
+					}
+					&.instagram {
+						a {
+							background-image: url(../img/ic_instagram.svg);
+						}
+					}
+					&.linkedin {
+						a {
+							background-image: url(../img/ic_linkedin.svg);
+						}
+					}
+				}
+			}
+			&:last-child {
+				@include breakpoint(768) {
+					width: 100%;
+				}
+			}
+		}
+	}
+	p {
+		&.copy {
+			font-size: 16px; line-height: 24px; color: #96A7B6;
+			@include breakpoint(640) {
+				font-size: 12px;
+			}
+		}
+	}
+	.footer-logo-holder{
+		display: inline-block;
+		cursor: pointer;
+	}
+}
+
+body{
+	&:not(.home){
+		footer .footer-columns .col p span{
+			display: none;	
+		}
+	}
+}

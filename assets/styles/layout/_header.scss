@@ -1,0 +1,791 @@
+/*
+= HEADER AND NAVIGATION
+------------------------------------------------------------------------------------- */
+
+	header {
+		position: fixed; left: 0px; top: 0px; z-index: 9998;
+		width: 100%; height: 120px;
+		@include transition(300ms ease-in-out);
+		.holder {
+			position: relative; overflow: hidden; z-index: 2;
+			padding: 0 120px;
+			.logo {
+				float: left; position: relative; opacity: 0;
+				width: 126px; height: 64px;
+				margin-top: 40px;
+				text-indent: -9999px;
+				outline: none;
+				pointer-events: none;
+				@include transform($y: -120px);
+				@include visibility();
+				@include transition(1000ms 2000ms cubic-bezier(0.215, 0.610, 0.355, 1.000));				
+				&:before,
+				&:after {
+					content: "";
+					display: block; position: absolute; left: 0px; top: 0px;
+					width: 100%; height: 100%;
+					background: url(../img/logo-light.svg) center no-repeat; background-size: 100% 100%;
+					@include transition(350ms ease-in-out);
+				}
+				&:after {
+					opacity: 0;
+					background-image: url(../img/logo-dark.svg);
+				}
+			}
+			nav {
+				float: right; position: relative; opacity: 0;
+				pointer-events: none;
+				@include transform($y: -120px);
+				@include visibility();
+				@include transition(1000ms 2000ms cubic-bezier(0.215, 0.610, 0.355, 1.000));				
+				.main-nav {
+					overflow: hidden; padding-top: 22px;
+					li {
+						float: left;
+						a {
+							display: block; position: relative;
+							padding: 38px 15px; 
+							font-family: $font-medium; text-transform: uppercase; color: $color-chartreuse; font-size: 16px; line-height: 22px;
+							@include transition(300ms ease-in-out);
+							&:after {
+								content: "";
+								display: block; position: absolute; left: 0px; bottom: 0px;
+								width: 0px; height: 4px;
+								background: $color-black;
+								@include transition(width 350ms ease-in-out);
+							}
+						}
+						&.active {
+							a {
+								color: $color-white;
+								&:after {
+									width: 100%;
+								}
+							}
+						}
+						&.right-to-left {
+							a {
+								&:after {
+									left: auto; right: 0px;
+								}
+							}
+						}
+					}
+				}
+			}
+			.nav-trigger {
+				float: right; position: relative; opacity: 0; display: none;
+				width: 40px; height: 30px;
+				margin-top: 35.5px;
+				text-indent: -9999px;
+				outline: none;
+				@include transform($y: -120px);
+				@include visibility();
+				@include transition(1000ms 2000ms cubic-bezier(0.215, 0.610, 0.355, 1.000));	
+				span {
+					display: block; position: absolute; left: 0; opacity: 1;
+					height: 2px; width: 100%;
+					background: $color-white;
+					border-radius: 1px;
+					@include transition(300ms ease-in-out);
+					&:first-child {
+						top: 0px;
+					}
+					&:nth-child(2) {
+						top: 14px; 
+					}
+					&:last-child {
+						top: 28px;
+					}
+				}
+			}
+			&:before {
+				content: "";
+				display: block; position: absolute; left: 0px; top: 0px;
+				width: 100%; height: 100%;
+				background: $color-chartreuse;
+				@include transform($y: -100%);
+				@include transition(300ms ease-in-out);
+
+			}
+		}
+		&:before {
+			// content: "";
+			display: block; position: absolute; left: 0px; top: 0px;
+			width: 100%; height: 240px;
+			background: linear-gradient(0deg, rgba($color-black, 0) 11.7%, #213A4A 100%);
+			pointer-events: none;
+		}
+		&.nav-opened {
+			.holder {
+				.nav-trigger {
+					span {
+						&:first-child {
+							top: 6px; 
+							@include transform($r: 135deg);
+						}
+						&:nth-child(2) {
+							opacity: 0;
+							@include transform($x: -60px);
+						}
+						&:last-child {
+							top: 6px;
+							@include transform($r: -135deg);
+						}
+					}
+				}
+			}
+		}
+		
+		@include breakpoint(1024) {
+			.holder {
+				padding: 0 60px;
+			}
+		}
+	}
+
+	body{
+		&.going-down{
+			header{
+				@include transform($y: -100%);
+			}
+			
+		}
+		&.going-up{
+			header{			
+				.holder{
+					&:before{
+						@include breakpoint(1024){
+							@include transform();
+						}
+					}
+					.logo{
+						@include breakpoint(1024){
+							&:before{
+								opacity: 0;
+							}
+							&:after{
+								opacity: 1;
+							}
+						}
+					}
+					.nav-trigger {
+						span{
+							@include breakpoint(1024){
+								background: $color-black;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.tablet {
+		header {
+			.holder {
+				padding: 0 40px;
+			}
+		}
+	}
+	
+
+	.desktop {
+		header {
+			.sub-nav {
+				position: absolute; left: 0px; top: 120px; overflow: hidden;
+				width: 100%; height: 84px;
+				background: $color-black;
+				@include box-sizing();
+				@include transform($y: -204px);
+				@include visibility();
+				@include transition(300ms ease-in-out);
+				> ul {
+					overflow: hidden; position: relative;
+					height: 100%; width: 100%;
+					> li {
+						overflow: hidden; position: absolute; left: 0px; top: 0px;
+						height: 100%; width: 100%;
+						padding-right: 105px;
+						@include box-sizing();
+						@include visibility();
+						@include transition(350ms ease-in-out);
+						ul {
+							float: right; position: relative; 
+							li {
+								float: left; 
+								// position: relative;
+								a {
+									position: relative;
+									display: block;
+									padding: 0 30px;
+									line-height: 84px; color: $color-white; font-size: 16px; font-family: $font-book;
+									&:after {
+										content: "";
+										display: block; position: absolute; left: 30px; bottom: 0px;
+										width: 0px; height: 4px;
+										background: $color-chartreuse;
+										@include transition(width 350ms ease-in-out);
+									}
+									&:hover{
+										&:after {
+											width: calc(100% - 60px);
+										}
+									}
+								}
+								div {
+									display: block; opacity: 0; position: absolute; left: 0px; bottom: 0px;
+    								width: 100%; height: 4px;
+    								background: $color-chartreuse;
+    								will-change: left, width, opacity;
+    								@include visibility();
+    								@include transform();
+    								@include transition(250ms ease-in-out);
+								}
+								&.active {
+									a {
+										&:after {
+											width: 100%;
+										}
+									}
+								}
+								&.right-to-left {
+									a {
+										&:after {
+											left: auto; right: 0px;
+										}
+									}
+								}    							
+							}
+						}
+					}
+				}
+				&.opened {
+					@include transform();
+				}
+			}		
+		}
+		@include breakpoint(1024) {
+			header {
+				.sub-nav {
+					> ul {
+						> li {
+							padding-right: 45px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.sticky-header {
+		header {
+			.holder {
+				.logo {
+					&:before {
+						opacity: 0;
+					}
+					&:after {
+						opacity: 1;
+					}
+				}
+				nav {
+					.main-nav {
+						li {
+							a {
+								color: $color-black;
+							}
+						}
+					}
+				}
+				&:before {
+					@include transform();
+				}
+			}
+		}
+	}
+
+	.init-anim {
+		header {
+			.holder {
+				.logo,
+				nav,
+				.nav-trigger {
+					opacity: 1;
+					pointer-events: all;
+					@include transform();
+				}
+			}
+		}
+	}
+
+	.tablet,
+	.mobile {
+		header {
+			.holder {
+				.logo {
+					z-index: 5;
+					margin: 40px 0 30px 0;
+				}
+				.nav-trigger {
+					display: block; z-index: 5;
+				}
+				nav {
+					position: initial !important;
+					transform: none !important;
+					.main-nav {
+						position: fixed; right: 0px; top: 0px; z-index: 3; overflow: hidden;
+						width: 100%; height: 100%;
+						padding: 90px 40px 0;
+						background: $color-black;
+						@include box-sizing();
+						@include visibility();
+						@include transform($x: 100%);
+						@include transition(500ms cubic-bezier(0.645, 0.045, 0.355, 1));
+						@include breakpoint(640){
+							padding: 100px 40px 0;
+						}
+						li {
+							float: none; opacity: 0;
+							padding: 0px;
+							border-bottom: 1px solid #525a5f;
+							@include visibility();
+							@include transform($x: -150%);
+							@include transition(500ms cubic-bezier(0.645, 0.045, 0.355, 1));	
+							a {
+								position: relative;
+								padding: 30px 0;
+								font-size: 16px; line-height: 22px; color: $color-white;
+								&:after {
+									content: "";
+									display: none; position: absolute; top: 50%; width: 7px; height: 7px; right: 3px; left: auto;
+									border-bottom: 2px solid $color-chartreuse; border-right: 2px solid $color-chartreuse;
+									@include transform($y: -50%, $r: -45deg);
+								}
+							}	
+							&.with-sub-nav {
+								a {
+									&:after {
+										display: block;
+									}
+								}
+							}
+							&:last-child {
+								border-bottom: none;
+							}					
+						}
+						&:before {
+							content: "";
+							display: block; position: absolute; left: 0px; top: 0px;
+							width: 100%; height: 85px;
+							background: $color-chartreuse;
+							@include breakpoint(1024){
+								height: 134px;
+							}
+							@include breakpoint(640){
+								height: 100px;
+							}
+						}
+					}
+				}
+				.sub-nav {
+					z-index: 4; position: fixed; right: 0px; top: 0px;
+					height: 100%; width: 100%;
+					padding: 90px 40px 0;
+					background: $color-black;
+					@include box-sizing();
+					@include visibility();
+					@include transform($x: 100%);
+					@include transition(500ms cubic-bezier(0.645, 0.045, 0.355, 1));
+					.back-btn {
+						display: block; position: relative;
+						position: relative;
+						padding: 30px 0 30px 35px;
+						font-size: 16px; line-height: 22px; color: $color-white; text-transform: uppercase; color: $color-chartreuse;
+						border-bottom: 1px solid #525a5f;
+						&:before {
+							content: "";
+							display: block; position: absolute; left: 3px; top: 50%;
+							width: 10px; height: 10px;
+							border-left: 2px solid $color-chartreuse; border-bottom: 2px solid $color-chartreuse;
+							@include transform($y: -50%, $r: 45deg);
+						}
+					}
+					ul {
+						position: absolute; top: 173px; left: 0px; right: 0px; bottom: 0px; overflow: hidden; overflow-y: scroll;
+						-webkit-overflow-scrolling: touch; 
+						padding: 0 40px 0 60px;
+						li {
+							opacity: 0;
+							border-bottom: 1px solid #525a5f;
+							@include visibility();
+							@include transform($x: 100%);
+							@include transition(500ms cubic-bezier(0.645, 0.045, 0.355, 1));
+							a {
+								display: block;
+								padding: 30px 0;
+								font-size: 16px; line-height: 22px; color: $color-white;
+							}
+							&:last-child {
+								border-bottom: none;
+							}
+						}
+					}
+					&:before {
+						content: "";
+						display: block; position: absolute; left: 0px; top: 0px;
+						width: 100%; height: 85px;
+						background: $color-chartreuse;
+					}
+				}
+			}
+			&:after {
+				content: "";
+				display: block; position: fixed; left: -9999px; top: 0px; opacity: 0;
+				width: 100%; height: 100%;
+				background: rgba(0, 0, 0, 0.4);
+				@include transition(opacity 500ms cubic-bezier(0.645, 0.045, 0.355, 1), left 10ms 500ms);
+			}		
+			&.nav-opened {
+				.holder {
+					.logo {
+						&:before {
+							opacity: 0;
+						}
+						&:after {
+							opacity: 1;
+						}
+					}
+					nav {
+						.main-nav {
+							@include transform();
+							li {
+								opacity: 1;
+								@include transform();
+							}
+						}
+					}
+					.nav-trigger {
+						span {
+							background-color: $color-black;
+						}
+					}
+				}
+				&:after {
+					left: 0px; opacity: 1;
+					@include transition(opacity 500ms 0ms cubic-bezier(0.645, 0.045, 0.355, 1));
+				}
+			}	
+			&.sub-nav-opened {
+				.holder {
+					nav {
+						.main-nav {
+							li {
+								opacity: 0;
+								@include transform($x: -50%);
+							}
+						}
+					}
+					.sub-nav {
+						ul {
+							li {
+								opacity: 1;
+								@include transform();
+							}
+						}
+					}
+				}
+			}	
+		}
+		body {
+			&:not(.light) {
+				header {
+					background-color: $color-chartreuse;
+					.holder {
+						.logo {
+							&:before {
+								opacity: 0;
+							}
+							&:after {
+								opacity: 1;
+							}
+						}
+						.nav-trigger {
+							span {
+								background: black;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.mobile {
+		header {
+			height: 100px;
+			.holder {
+				padding: 0 30px;
+				.logo {
+					margin: 20px 0;
+					width: 106px; height: 54px; 
+				}
+				.nav-trigger {
+					margin-top: 35px;
+					&.open{
+						span{
+							left: 50%; top: 50%;
+							width: 27px;
+							&:first-child {
+								@include transform($x: -50%, $y: -50%, $r: 135deg); 
+							}
+							&:nth-child(2) {
+								opacity: 0;
+								@include transform($x: -60px);
+							}
+							&:last-child {
+								@include transform($x: -50%, $y: -50%, $r: -135deg);
+							}
+						}
+					}
+				}
+				.sub-nav{
+					padding: 100px 40px 0; 
+					&:before{
+						height: 100px;
+					
+					}
+					ul{
+						top: 182px;
+					}
+				}				
+			}
+		}
+		body {
+			&.home {
+				header {
+					&:before {
+						content: "";
+						background: linear-gradient(0deg, rgba(255, 255, 255, 0) 11.7%, rgba(10, 31, 45, 0.515625) 57.23%, #0D2231 100%);
+					}
+				}
+			}
+		}
+	}
+
+	.tablet {
+		header {
+			.holder {
+				nav {
+					.main-nav {
+						width: 50%; 
+						padding-top: 155px;
+						&:before {
+							height: 145px;
+						}
+					}
+				}
+				.sub-nav {
+					width: 50%;
+					padding-top: 155px;
+					ul {
+						top: 228px;
+					}
+					&:before {
+						height: 145px;
+					}
+				}
+				.nav-trigger {
+					margin-top: 65px;
+				}
+			}
+			&.nav-opened {
+				.holder {
+					.logo {
+						&:before {
+							opacity: 1;
+						}
+						&:after {
+							opacity: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	// Header variations for other pages
+	body {
+		&:not(.home) {
+			header {
+				.holder {
+					.logo,
+					nav,
+					.nav-trigger {
+						@include transition(800ms 0s cubic-bezier(0.215, 0.610, 0.355, 1.000));
+					}
+				}
+			}
+		}
+	}
+	.desktop {
+		body {
+			&:not(.home) {
+				&.light {
+					header {
+						.holder {
+							nav {
+								.main-nav {
+									li {
+										&.current_page_item,
+										&.current_page_ancestor {
+											a {
+												color: $color-white;
+												/*&:after {
+													width: 100%;
+													background-color: $color-white;
+												}*/
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				&.sticky-header {
+					header {
+						.holder {
+							nav {
+								.main-nav {
+									li {
+										&.current_page_item,
+										&.current_page_ancestor,
+										&.current-page-ancestor {
+											a {
+												color: $color-black;
+												/*&:after {
+													width: 100%;
+													background-color: $color-black;
+												}*/
+											}
+										}
+									}
+								}
+							}
+							&:before {
+								@include transform();
+							}
+						}
+					}
+				}
+			}
+		}
+		body:not(.light){
+			header {
+				.holder {
+					.logo {
+						&:before {
+							opacity: 0;
+						}
+						&:after {
+							opacity: 1;
+						}
+					}
+					nav {	
+						.main-nav {
+							li {
+								a {
+									color: #525A5F;
+									&:after {
+										background: $color-black;
+									}
+								}
+								&.active {
+									a {
+										color: $color-black;
+									}
+								}
+								&.current_page_item,
+								&.current_page_ancestor,
+								&.current-page-ancestor {
+									a {
+										color: $color-black; 
+										/*&:after {
+											width: 100%;
+										}*/
+									}
+								}
+							}
+						}
+					}
+				}
+				&:before {
+					display: none;
+				}
+			}
+			&.sticky-header {
+				header {
+					.holder {
+						.logo {
+							&:before {
+								opacity: 0;
+							}
+							&:after {
+								opacity: 1;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	header {
+		&.stay-in-view {
+			-webkit-transform: none !important;
+			-moz-transform: none !important;
+			-ms-transform: none !important;
+			-o-transform: none !important;
+			transform: none !important;
+			.holder {
+				.logo {
+					&:before {
+						opacity: 0 !important;
+					}
+					&:after {
+						opacity: 1 !important;
+					}
+				}
+				nav {
+					.main-nav {
+						li {
+							a {
+								color: $color-black !important;
+							}
+							&.current_page_item,
+							&.current_page_ancestor,
+							&.current-page-ancestor {
+								a {
+									color: $color-black !important;
+									/*&:after {
+										width: 100% !important;
+										background-color: $color-black !important;
+									}*/
+								}
+							}
+						}
+					}
+				}
+				&:before {
+					-webkit-transform: none !important;
+					-moz-transform: none !important;
+					-ms-transform: none !important;
+					-o-transform: none !important;
+					transform: none !important;
+				}
+			}
+		}
+	}
+

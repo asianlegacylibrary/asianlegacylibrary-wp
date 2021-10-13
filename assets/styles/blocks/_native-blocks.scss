@@ -1,0 +1,273 @@
+/*
+= NATIVE BLOCKS
+------------------------------------------------------------------------------------- */
+.inner-page-content {  
+	.wrapper {
+		> h2,
+		> h3,
+		> h4,
+		> h5,
+		> h6,
+		> p,
+		> ol,
+		> ul {
+			margin: 0 80px 120px;
+			@include breakpoint(1024) {
+				margin: 0 0 60px 0;
+			}
+			@include breakpoint(640) {
+				margin: 0 0 30px 0; 
+			}
+			&.mb-s {
+				margin-bottom: 60px;
+				@include breakpoint(640) {
+					margin-bottom: 30px; 
+				}
+			}
+		}
+		
+		> h2,
+		> h3 {
+			// padding-left: 70px;
+			padding-left: 56px;
+			@include breakpoint(768) {
+				padding-left: 0;
+			}
+			&.line {
+				position: relative;
+				&:before {
+					content: "";
+					position: absolute; left: 0; top: 0;
+					width: 4px; height: 100%;
+					background-color: black;
+					@include breakpoint(768) {
+						left: -30px;
+					}
+				}
+			}
+			&.wide {
+				padding-left: 0; margin-left: 0;
+			}
+		}
+		> h4{
+			&.line {
+				margin-left: 55px;
+			}
+		}
+	}
+}
+
+.wp-block-image,
+.wp-block-media-text,
+.wp-block-columns {
+	// margin-bottom: 120px;
+	margin-bottom: 180px;
+	&.mb-0{
+		margin-bottom: 0;
+	}
+	&.mb-60, &.has-media-on-the-right{
+		margin-bottom: 60px;
+	}
+	@include breakpoint(1024) {
+		margin-bottom: 60px;
+	}
+}
+
+
+/* IMAGE
+---------------------------------------*/
+.wp-block-image {
+	margin-left: auto; margin-right: auto;
+	@include breakpoint(640) {
+		margin-left: -30px; margin-right: -30px;
+	}
+	img {
+		display: block;
+		width: 100%; height: auto;
+		margin: 0 auto;
+	}
+	&.wide{
+		margin-left: -120px; margin-right: -120px;
+		@include breakpoint(768) {
+			margin-left: -60px; margin-right: -60px;
+		}
+		@include breakpoint(640) {
+			margin-left: -30px; margin-right: -30px;
+		}
+		img {
+			width: 100%;
+		}
+	}
+	&.mobile-large {
+		@include breakpoint(640) {
+			img {
+				width: 240%; max-width: inherit;
+				margin-left: -80%;
+			}
+		}
+	}
+	figcaption {
+		display: block; position: relative; z-index: 2;
+		margin: 0; padding: 20px 0;
+		background-color: #F9F9F9;
+	}
+}
+
+
+/* MEDIA TEXT
+---------------------------------------*/
+.wp-block-media-text {
+	padding-right: 80px; 
+	@include breakpoint(1024) {
+		grid-template-columns: 50% 50% !important;
+		padding: 0;
+	}
+	.wp-block-media-text__media {
+		padding: 0;
+		@include breakpoint(1024) {
+			align-self: start !important;
+			margin-left: -60px; margin-right: 30px;
+		}
+		@include breakpoint(640) {
+			margin-left: -30px; margin-right: -30px; padding: 0 !important;
+		}
+		img {
+			display: block;
+			width: 100%; height: auto;
+		}
+	}
+	.wp-block-media-text__content {
+		padding: 0; padding-left: 80px;
+		@include breakpoint(1024) {
+			padding: 0;
+		}
+		@include breakpoint(640) {
+			padding: 30px 0;
+		}
+		h2,
+		h3 {
+			padding-left: 0;
+		}
+		
+	}
+	&.has-media-on-the-right {
+		padding-right: 0; padding-left: 80px;
+		@include breakpoint(1024) {
+			padding: 0;
+		}
+		.wp-block-media-text__media {
+			@include breakpoint(1024) {
+				margin-right: -90px; margin-left: 90px; padding: 0 !important;
+			}
+			@include breakpoint(640) {
+				margin-left: -30px; margin-right: -30px;
+			}
+		}
+		.wp-block-media-text__content {
+			padding-left: 0; padding-right: 80px;
+			@include breakpoint(1024) {
+				padding: 0;
+			}
+			@include breakpoint(640) {
+				padding: 30px 0;
+			}
+		}
+	}
+	// Variations
+	&.image-top-offset {
+		.wp-block-media-text__media {
+			@include transform($y: 160px);
+			// margin-bottom: 260px;
+			margin-bottom: 270px;
+			@include breakpoint(1024) {
+				margin-bottom: 0;
+				@include transform();
+			}
+		}
+	}
+	&.narrow {
+		.wp-block-media-text__content {
+			padding-right: 120px;
+			@include breakpoint(1440){
+				padding-right: 80px;
+			}
+			@include breakpoint(1366){
+				padding-right: 60px;
+			}
+			@include breakpoint(1024){
+				padding-right: 0px;
+			}
+		}
+	}
+	&.space-top {
+		padding-top: 100px;
+	}
+	&.tablet-wrap {
+		@include breakpoint(768) {
+			display: flex; flex-direction: column-reverse;
+		}
+	}
+} 
+
+
+/* BUTTONS
+---------------------------------------*/
+.wp-block-buttons {
+	margin-top: 60px;
+	.wp-block-button {
+		.wp-block-button__link {
+			position: relative; display: block;
+			padding: 0 0 10px; margin: 0;
+			font-family: $font-medium; font-size: 16px; line-height: 22px; color: black;
+			background: none;
+			border: 0; border-radius: 0;
+			&:after {
+				// content: "";
+				position: absolute; left: 0; bottom: 0;
+				width: 0; height: 4px;
+				background-color: black;
+				@include transition(all 300ms ease-in-out);
+			}
+			&:hover {
+				&:after {
+					// width: 100%;
+				}
+			}
+		}
+	}
+}
+
+
+/* COLUMNS
+---------------------------------------*/
+.wp-block-columns {
+	margin-left: 80px; margin-right: 80px;
+	@include breakpoint(768) {
+		display: block;
+		margin-left: 0; margin-right: 0;
+	}
+	.wp-block-column:not(:first-child) {
+		margin-left: 80px;
+		@include breakpoint(768) {
+			margin-left: 0; margin-right: 0;
+		} 
+	}
+	.wp-block-column {
+		h2,
+		h3 {
+			padding-left: 0;
+			&.line {
+				padding-left: 70px;
+			}
+		}
+	}
+	&.no-margin-bottom {
+		margin-bottom: 0;
+	}
+	&.top-margin {
+		margin-top: 120px;
+	}
+	+ .no-margin-bottom {
+		margin-top: -40px;
+	}
+}

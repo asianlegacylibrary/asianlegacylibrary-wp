@@ -1,0 +1,48 @@
+// Import variables
+@import '../abstracts/main.scss';
+@import '../base/_typography.scss';
+@import '../components/main.scss'; 
+
+@import '../blocks/_dark-content.scss'; 
+@import '../blocks/_image-heading.scss';
+@import '../blocks/_page-hero.scss';
+@import '../blocks/_slider.scss';
+@import '../blocks/_native-blocks.scss';
+
+body.block-editor-page {
+	// Reset
+	.editor-styles-wrapper{
+		background-color: #ffffff;
+	}
+	a {
+		text-decoration: none;
+	}
+	.wp-block {
+		max-width: 100%;
+		&.editor-post-title {
+			max-width: 90%;
+		}
+	}
+	.block-editor-block-list__layout {
+		max-width: 90%; 
+		margin: 0px auto;
+	}
+	.wp-block-image {
+		&.wide {
+			margin-left: auto !important; margin-right: auto !important;
+			img {
+				width: 100% !important;
+			}
+		}
+	}
+}
+
+ul {
+	li {
+		margin-bottom: inherit;
+		
+		&:before {
+			display: none;
+		}
+	}
+}

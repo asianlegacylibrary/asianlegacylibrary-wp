@@ -1,0 +1,645 @@
+/*
+= NEWS STYLES
+------------------------------------------------------------------------------------- */
+.news-outer {
+	.news-top {
+		position: relative;
+		padding-top: 220px; 
+		background-color: $color-white;
+		@include breakpoint(640) {
+			padding-top: 150px;
+		}
+		.news-top-inner {
+			position: relative;
+			max-width: 1220px;
+			margin: 0 auto; padding: 0 60px 46px 60px;
+			box-sizing: border-box;
+			@include breakpoint(640) {
+				padding-left: 30px; padding-right: 30px;
+			}
+			h1 {
+				font-family: $font-medium; font-size: 50px; line-height: 64px; opacity: 1;
+				@include transition(opacity 300ms ease-in-out);
+				a {
+					color: #000;
+					@include transition(color 300ms ease-in-out);
+					&:hover {
+						color: $color-roman-silver;
+					}
+				}
+				span {
+					font-family: $font-book; text-transform: none; color: #8A9399;
+				}
+			}
+			.search-outer {
+				position: absolute; top: 0; right: 10%;
+				width: 10%;
+				background-color: $color-white;
+				@include transition(all 300ms ease-in-out);
+				.search-form {
+					position: relative;
+					.search-field {
+						position: relative; opacity: 0; visibility: hidden;
+						@include transition(all 300ms 100ms ease-in-out); 
+						width: 59%; height: 64px;
+						// padding: 0 0 0 50px; 
+						padding: 0 0 0 110px;
+						margin: 0;
+						font-size: 50px;
+						background: none;
+						border: 0;
+						outline: none;
+						-webkit-appearance: none;
+						@include breakpoint(768) {
+							width: 90%;
+						}
+						@include breakpoint(640) {
+							padding-left: 30px;
+							font-size: 24px;
+						}
+						&::placeholder {
+							opacity: 0.4;
+						}
+					}
+					.search-trigger {
+						position: absolute; left: 100%; top: 50%;
+						@include transform($y: -50%);
+						@include breakpoint(640) {
+							left: calc(100% - 20px);
+						}
+					}
+					.search-close {
+						position: absolute; left: 63%; bottom: 7px; z-index: 2; opacity: 0; visibility: hidden;
+						@include transition(all 300ms 100ms ease-in-out);
+						width: 50px; height: 50px;
+						text-indent: -9999px;
+						@include breakpoint(768) {
+							left: 100%;
+						}
+						@include breakpoint(640) {
+							left: calc(100% - 25px);
+						}
+						&:before,
+						&:after {
+							content: "";
+							position: absolute; left: 50%; top: 50%;
+							width: 20px; height: 2px;
+							background-color: black;
+							@include transition(all 300ms ease-in-out);
+						}
+						&:before {
+							@include transform($x: -50%, $y: -50%, $r: 45deg);
+						}
+						&:after {
+							@include transform($x: -50%, $y: -50%, $r: -45deg);
+						}
+						&:hover {
+							&:before,
+							&:after {
+								background-color: rgba(0,0,0,0.7);
+							}
+						}
+					}
+				}
+			}
+			// Search open
+			&.search-active {
+				h1 {
+					opacity: 0;
+				}
+				.search-outer {
+					width: 90%;
+					@include breakpoint(640) {
+						width: 80%;
+					}
+					.search-form {
+						.search-field,
+						.search-close {
+							opacity: 1; visibility: visible;
+						}
+						.search-trigger {
+							left: 65px;
+							@include breakpoint(1024) {
+								left: 10px;
+							}
+							@include breakpoint(640) {
+								left: -10px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.news-content {
+		@include flexbox(); flex-wrap: wrap;
+		max-width: 1100px;
+		margin: 0 auto; 
+		padding: 66px 60px 0px 60px; 
+		// padding: 66px 60px 200px 60px; 
+		@include breakpoint(768) {
+			display: block;
+			padding-bottom: 0;
+		}
+		@include breakpoint(640) {
+			padding-left: 30px; padding-right: 30px;
+		}
+		main {
+			flex: 0 0 61%;
+			@include breakpoint(768) {
+				padding-bottom: 30px; margin-bottom: 60px;
+				border-bottom: #ccc solid 1px;
+			}
+			@include breakpoint(640) {
+				padding-bottom: 30px; margin-bottom: 60px;
+				border-bottom: 0;
+			}
+		}
+		aside {
+			flex: 1;
+			padding-left: 60px;
+			@include breakpoint(768) {
+				padding-left: 0;
+			}
+			.widget {
+				margin-bottom: 60px;
+				> h3 {
+					margin-bottom: 20px;
+					font-size: 22px; line-height: 32px; color: #000;
+				}
+				.category-list {
+					li {
+						margin-bottom: 19px;
+						font-family: $font-medium; font-size: 16px; line-height: 22px; text-transform: uppercase;
+						a {
+							display: block; position: relative;
+							// padding-left: 20px;
+							color: #525A5F;
+							@include transition(all 300ms ease-in-out);
+							/*&:after {
+								content: "";
+								position: absolute; right: 5px; top: 0; opacity: 0;
+								width: 67px; height: 20px;
+								background: url(../img/arrow-dark-right.svg) 100% 50% no-repeat; background-size: 100% auto;
+								@include transition(all 200ms ease-in-out);
+							}*/
+							&:hover {
+								color: black; 
+								// text-indent: 13px;
+								/*&:after {
+									right: 0; opacity: 1;
+								}*/
+							}
+						}
+						&:last-child {
+							margin-bottom: 0;
+						}
+					}
+				}
+				.tag-list {
+					li {
+						display: inline-block;
+						margin: 0 35px 30px 0;
+						font-size: 16px; line-height: 22px; 
+						a {
+							color: #525A5F;
+							@include transition(color 300ms ease-in-out);
+							&:hover {
+								color: black;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	// Single post
+	&.single-news-post {
+		.news-top {
+			position: relative;
+			background-color: transparent;
+			&:before {
+				content: "";
+				position: absolute; left: 0; top: 0;
+				width: 100%; height: 120px;
+				background-color: $color-white;
+			}
+			.news-top-inner {
+				padding-right: 34%; padding-bottom: 10px;
+				@include breakpoint(1440){
+					// padding-right: 
+				}
+				@include breakpoint(768) {
+					padding-right: 0;
+				}
+				h1 {
+					font-size: 32px; line-height: 48px;
+				}
+				.meta {
+					display: block;
+					margin-bottom: 20px;
+					font-size: 16px; line-height: 22px; color: #525A5F;
+				}
+			}
+		}
+		.news-content {
+			padding-top: 0;
+			main {
+				.entry {
+					margin-bottom: 30px;
+					.featured-image,
+					.wp-block-image {
+						margin-bottom: 25px;
+						img {
+							display: block;
+							width: 100%; height: auto;
+						}
+						figcaption {
+							position: relative; z-index: 2;
+							margin: 0; padding: 20px 0;
+							font-size: 16px; line-height: 22px; color: #525A5F; text-align: left;
+							background-color: #F9F9F9;
+						}
+					}
+					blockquote{
+						padding: 30px 40px;
+						margin: 100px 0 50px 0;
+						@include box-sizing();
+						background-color: $color-white;
+						p{
+							font-size: 26px; line-height: 38px;
+						}
+					}
+				}
+				.share-post {
+					@include flexbox(); justify-content: flex-end; 
+					margin-bottom: 30px;
+					p {
+						margin-right: 10px;
+						font-family: $font-medium; font-size: 18px; line-height: 24px; text-transform: uppercase;
+					}
+					ul {
+						li {
+							display: inline-block;
+							margin-left: 10px;
+							a {
+								display: block; opacity: 1;
+								@include transition(opacity 200ms ease-in-out);
+								img {
+									display: block;
+								}
+								&:hover {
+									opacity: 0.7;
+								}
+							}
+							&:first-child{
+								margin-left: 6px;
+							}
+						}
+					}
+				}
+				.related-posts {
+					h3 {
+						margin-bottom: 30px;
+						font-size: 22px; line-height: 32px; color: #000;
+					}
+				}
+				.back-btn {
+					display: block;
+					margin: 0 auto;
+					font-family: $font-medium; font-size: 16px; line-height: 22px; text-transform: uppercase; text-align: center; color: #000;
+					@include breakpoint(768) {
+						margin-bottom: 40px;
+					}
+					&:before {
+						// content: "";
+						display: inline-block;
+						width: 15px; height: 22px;
+						margin-right: 5px;
+						vertical-align: middle;
+						background: url(../img/arrow-right-small.svg) 0 0 no-repeat;
+						@include transition(all 200ms ease-in-out);
+					}
+					&:hover {
+						&:before {
+							@include transform($x: -5px);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.aside-post-list {
+	li {
+		overflow: hidden;
+		margin-bottom: 32px;
+		.thumb-outer {
+			float: left;
+			width: 70px;
+			margin-right: 20px;
+			figure {
+				width: 70px; height: 70px;
+				margin-top: 7px;
+				background: url(../img/logo-light.svg) 50% 50% no-repeat $color-lavender-gray; background-size: 80% auto;
+				&.has-image {
+					width: auto; height: auto;
+					background: none;
+					img {
+						display: block;
+						max-width: 100%; height: auto;
+					}
+				}
+			}
+		}
+		hgroup {
+			overflow: hidden;
+			h4 {
+				margin-bottom: 14px;
+				font-family: $font-medium; font-size: 18px; line-height: 30px; text-transform: uppercase;
+				a {
+					color: #000;
+					@include transition(color 300ms ease-in-out);
+					&:hover {
+						color: $color-roman-silver;
+					}
+				}
+			}
+			.meta {
+				font-size: 14px; line-height: 22px; color: #525A5F;
+			}
+		}
+	}
+}
+
+// Blog item
+.blog-roll {
+	@include flexbox(); flex-wrap: wrap;
+	margin: 0 -20px -60px -20px;
+	@include breakpoint(640) {
+		display: block;
+	}
+	article {
+		flex: 0 0 calc(50% - 40px);
+		padding: 0 20px; margin-bottom: 60px;
+		figure {
+			position: relative;
+			margin-bottom: 20px;
+			a {
+				display: block; position: relative;
+				height: 200px;
+				background: url(../img/logo-light.svg) 50% 50% no-repeat $color-lavender-gray;
+			}
+			&.has-image {
+				a {
+					background-position: 50% 50%; background-repeat: no-repeat; background-size: cover; 
+					/*&:before {
+						content: "";
+						position: absolute; left: 0; top: 0; opacity: 0;
+						width: 100%; height: 100%;
+						background-color: rgba($color-yankees-blue, 0.5);
+						@include transition(opacity 300ms ease-in-out);
+						mix-blend-mode: overlay;
+					}
+					&:hover {
+						&:before {
+							opacity: 1;
+						}
+					}*/
+				}
+			}
+		}
+		.meta {
+			display: block;
+			margin-bottom: 20px;
+			font-size: 16px; line-height: 22px; color: #525A5F;
+		}
+		h3 {
+			font-family: $font-medium; font-size: 22px; line-height: 32px; text-transform: uppercase;
+			a {
+				color: #000;
+				@include transition(color 300ms ease-in-out);
+				&:hover {
+					// color: $color-roman-silver;
+				}
+			}
+		}
+		p {
+			display: none;
+			margin-top: 10px;
+			font-size: 18px; line-height: 30px; color: #525A5F;
+			@include breakpoint(640) {
+				font-size: 16px; line-height: 22px;
+			}
+		}
+	}
+	&.regular {
+		article {
+			&:first-child,
+			&:nth-child(3n+1) {
+				flex: 0 0 calc(100% - 40px);
+				figure {
+					a {
+						height: 400px;
+						@include breakpoint(640) {
+							height: 200px;
+						}
+					}
+				}
+				h3 {
+					font-size: 32px; line-height: 48px;
+					@include breakpoint(640) {
+						font-size: 22px; line-height: 32px;
+					}
+				}
+				p {
+					display: block;
+				}
+			}
+		}
+	}
+	&.three-cols {
+		@include breakpoint(768) {
+			display: block;
+		}
+		article {
+			flex: 0 0 calc(33.333% - 40px);
+			figure {
+				a {
+					@include breakpoint(768) {
+						height: 300px;
+					}
+					@include breakpoint(640) {
+						height: 200px;
+					}
+				}
+			}
+			h3 {
+				padding-left: 0 !important;
+			}
+		}
+	}
+}
+
+.stories-outer {
+	padding: 0 80px;
+	@include breakpoint(768) {
+		padding: 0;
+	}
+	.stories-title-line {
+		margin-bottom: 30px;
+		@include flexbox(); justify-content: space-between; align-items: center;
+		h4 {
+			margin: 0;
+			font-size: 22px; line-height: 32px;
+		}
+		.btn {
+			position: relative; display: block;
+			padding: 10px 0; margin: 0;
+			font-family: $font-medium; font-size: 16px; line-height: 22px; color: black;
+			background: none;
+			border: 0; border-radius: 0;
+			&:after {
+				content: "";
+				position: absolute; left: 0; bottom: 0;
+				width: 0; height: 4px;
+				background-color: black;
+				@include transition(all 300ms ease-in-out);
+			}
+			&:hover {
+				&:after {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+.single-post{
+	.news-outer.single-news-post .news-content main .entry .featured-image figcaption, .news-outer.single-news-post .news-content main .entry .wp-block-image figcaption {
+		text-align: right;
+		padding-bottom: 0;
+	}
+}
+
+// Mobile Filters 
+.filter-trigger,
+.close-aside,
+.widget-mobile-only {
+	display: none;
+}
+html.mobile {
+	.widget-mobile-only {
+		display: block;
+		padding: 30px;
+		h3 {
+			margin-bottom: 20px;
+		}
+	}
+	.news-outer {
+		.news-top-inner {
+			padding-bottom: 0;
+			h1 {
+				margin-bottom: 40px;
+			}
+			.mobile-filter-outer {
+				position: relative;
+				height: 70px;
+				margin-left: -30px; margin-right: -30px;
+				background-color: #F9F9F9;
+				.search-outer {
+					right: auto; left: 35px; top: 10px;
+					background-color: transparent;
+					.search-trigger {
+						left: -10px;
+					}
+				}
+				.filter-trigger {
+					position: absolute; top: 25px; right: 30px; display: block;
+				}
+			}
+			&.search-active {
+				h1 {
+					opacity: 1;
+				}
+				.mobile-filter-outer {
+					.filter-trigger {
+						opacity: 0;
+					}
+				}
+			}
+		}
+		.news-content {
+			position: relative;
+			padding-top: 0;
+			aside {
+				position: absolute; top: -70px; right: -120%; z-index: 100;
+				width: 100%; height: 100vh;
+				background-color: #F6F8FA;
+				@include transition(all 400ms cubic-bezier(0.33, 1, 0.68, 1));
+				.close-aside {
+					position: absolute; top: 30px; right: 30px; display: block;
+					width: 20px; height: 20px;
+					text-indent: -9999px;
+					&:after,
+					&:before {
+						content: "";
+						position: absolute; left: 50%; top: 50%;
+						@include transform($x: -50%, $y:-50%);
+						width: 20px; height: 1px;
+						background-color: black;
+					}
+					&:after {
+						@include transform($x: -50%, $y:-50%, $r: -45deg);
+					}
+					&:before {
+						@include transform($x: -50%, $y:-50%, $r: 45deg);
+					}
+				}
+				.widget {
+					padding: 30px; margin-bottom: 10px;
+					&.widget-recent-posts {
+						display: none;
+					}
+					.category-list {
+						li {
+							display: inline-block;
+							margin: 0 40px 20px 0;
+						}
+					}
+				}
+				&.active {
+					right: 0;
+				}
+			}
+		}
+	}
+}
+
+.load-more {
+	display: block;
+	margin: 100px auto 30px auto;
+	font-family: $font-medium; text-align: center; font-size: 16px; line-height: 22px; text-transform: uppercase;
+	cursor: pointer;
+}
+
+/* Animations
+body.blog {
+	.news-outer {
+		.news-top {
+			opacity: 0;
+			@include transform($y: 50px);
+			@include transition(800ms 0s cubic-bezier(0.215, 0.610, 0.355, 1.000));
+		}
+	}
+}
+body.init-anim {
+	.news-outer {
+		.news-top {
+			opacity: 1;
+			@include transform();
+		}
+	}
+}*/

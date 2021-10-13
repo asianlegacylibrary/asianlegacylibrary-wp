@@ -1,0 +1,150 @@
+/*
+= SUPPORT FORM STYLE
+------------------------------------------------------------------------------------- */
+.wpsd-master-wrapper {
+	max-width: 1260px;
+	padding-left: 40px; padding-right: 40px; margin: 0 auto 100px;
+	font-family: $font-book;
+	box-sizing: border-box;
+	@include breakpoint(1024) {
+		padding-left: 0; padding-right: 0;
+	}
+	// Typography
+	.wpsd-donation-form-label,
+	.wpsd_card_label_con {
+		font-family: $font-medium; font-size: 22px; line-height: 32px; font-weight: normal;
+	}
+	button, 
+	input, 
+	select, 
+	textarea {
+		font-family: $font-book;
+	}
+	.wpsd-wrapper-content {
+		.flex-row {
+			@include breakpoint(768) {
+				display: block;
+			}
+			.flex-column {
+				margin: 0 40px;
+				@include breakpoint(640) {
+					margin: 0;
+				}
+			}
+		}
+		.wpsd-text-field, 
+		.wpsd-select-field {
+			font-family: $font-book !important; font-size: 18px !important; letter-spacing: normal; color: black;
+			border-bottom: rgba(0,0,0,0.5) solid 2px;
+			&::placeholder {
+				font-family: $font-book; font-size: 18px !important; letter-spacing: normal; color: #525A5F;
+			}
+		}
+		.wpsd-text-field {
+			padding-left: 4px;
+		}
+		.wpsd-select-field {
+			color: #525A5F;
+			-webkit-appearance: auto; -moz-appearance: auto;
+		}
+		.wpsd_card_label_con {
+			padding: 40px 0 0 0;
+		}
+		#card-element {
+			border-bottom: rgba(0,0,0,0.5) solid 2px;
+		}
+		.wpsd-metadata {
+			padding-top: 20px;
+			font-family: $font-medium; font-size: 18px; line-height: 30px; color: black; font-weight: normal;
+		}
+		#wpsd_donate_amount {
+			.wpsd_radio_con {
+				.label_text {
+					position: relative; display: inline-block;
+					font-family: $font-book; font-size: 22px; color: #525A5F; line-height: 32px; text-transform: uppercase;
+					border: 0 !important;
+					@include breakpoint(640) {
+						font-size: 18px; line-height: 30px;
+					}
+					&:after {
+						content: "";
+						position: absolute; left: 0; bottom: 0;
+						width: 0; height: 4px;
+						background-color: black;
+						@include transition(all 300ms ease-in-out);
+					}
+				}
+				input {
+					&:checked ~ .label_text {
+						font-family: $font-medium; color: black;
+						&:after {
+							width: 100%;
+						}
+					}
+				}
+			}
+			.nudge-pad {
+				padding: 60px 70px;
+				background: #F3F3F9;
+				@include breakpoint(640) {
+					padding: 40px;
+				}
+				.wpsd-donation-form-label {
+					font-family: $font-book; font-size: 32px; line-height: 48px;
+					@include breakpoint(640) {
+						font-size: 26px; line-height: 38px;
+					}
+				}
+			}
+			.nudge-pad-no-top {
+				background: #F3F3F9;
+				padding: 0 70px 30px 70px;
+				@include breakpoint(640) {
+					padding: 0 40px 20px;
+				}
+				.wpsd_radio_con {
+					.label_text {
+						font-size: 18px; line-height: 30px;
+					}
+				}
+			}
+			.wpsd-donate-button {
+				display: block;
+				padding: 40px 30px 60px 69%;
+				font-family: $font-medium !important; font-size: 22px; line-height: 32px; font-weight: normal; text-align: left; white-space: normal;
+				background: url(../img/arrow-dark-right.svg) 83% 70% no-repeat $color-chartreuse;
+				border: 0;
+				box-sizing: border-box;
+				@include transition(all 300ms ease-in-out);
+				@include breakpoint(1024) {
+					padding-left: 66%;
+				}
+				@include breakpoint(768) {
+					padding-left: 71%;
+				}
+				@include breakpoint(640) {
+					padding-left: 61%;
+					font-size: 14px; line-height: 18px;
+				}
+				&:hover {
+					background-position: 85% 70%;
+				}
+			}
+			#wpsd_donate_submit {
+				+ div {
+					padding-top: 60px;
+					p {
+						padding: 0;
+						font-family: $font-book; font-size: 18px; line-height: 30px; color: #525A5F; font-weight: normal;
+						a {
+							font-family: $font-medium; color: black; text-decoration: underline;
+							&:hover {
+								text-decoration: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

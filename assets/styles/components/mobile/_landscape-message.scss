@@ -1,0 +1,13 @@
+/*
+= LANDSCAPE MESSAGE
+------------------------------------------------------------------------------------- */
+
+    .landscape-message {
+        position: fixed; left: 0; top: 0; z-index: 9999; display: none !important;
+        width: 100%; height: 200%;
+        background: url(../img/bgr-landscape-message.jpg) center no-repeat #000000; background-size: contain;
+        @include transform($y: -25%);
+    }	
+    .mobile.landscape {
+        .landscape-message {display: block !important;}
+    } 

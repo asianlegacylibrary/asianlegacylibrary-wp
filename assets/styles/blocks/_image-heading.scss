@@ -1,0 +1,111 @@
+/*
+= DARK CONTENT WRAPPER
+------------------------------------------------------------------------------------- */
+.image-heading-outer {
+	position: relative;
+	// padding: 60px 0 120px;
+	padding: 0 0 120px;
+	@include breakpoint(768) {
+		margin-left: -30px; margin-right: -30px;
+	}
+	@include breakpoint(640) {
+		padding: 0 0 100px;
+	}
+	.block-bgr {
+		position: relative; z-index: 1;
+		width: 100%; height: 500px;
+		background-position: 50% 50%; background-repeat: no-repeat; background-size: cover;
+		@include breakpoint(768) {
+			height: 300px;
+		}
+		@include breakpoint(640) {
+			height: 400px;
+		}
+		> span {
+			position: absolute; left: 0; top: 0;
+			width: 100%; height: 100%;
+			background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+		}
+	}
+	hgroup {
+		position: absolute; left: 60px; bottom: 60px; z-index: 2;
+		@include breakpoint(768) {
+			left: 30px;
+		}
+		@include breakpoint(640) {
+			left: 0;
+			width: 100%;
+		}
+		h3 {
+			display: inline-block; position: relative;
+			// padding: 40px 60px 100px 60px;
+			padding: 70px 275px 120px 60px;
+			font-size: 64px; line-height: 74px; color: $color-chartreuse; font-weight: 400;
+			margin-bottom: 0;
+			@include breakpoint(768) {
+				font-size: 50px; line-height: 64px;
+			}
+			@include breakpoint(640) {
+				display: block;
+				font-size: 44px; line-height: 56px;
+				padding: 30px 30px 60px 30px;
+			}
+			&:after {
+				content: "";
+				position: absolute; left: 0; top: 0; right: 0; bottom: 0;
+				border: $color-chartreuse solid 3px;
+				@include breakpoint(640) {
+					border-left: 0; border-right: 0;
+				}
+			}
+		}
+	}
+	// Variations
+	&.wide{
+		margin-left: -120px; margin-right: -120px;
+		hgroup {
+			left: 180px;
+		}
+		@include breakpoint(768) {
+			margin-left: -60px; margin-right: -60px;
+			hgroup {
+				left: 30px;
+			}
+		}
+		@include breakpoint(640) {
+			margin-left: -30px; margin-right: -30px;
+			hgroup {
+				left: 0;
+			}
+		}
+	}
+	&.pull-top {
+		margin-top: -200px;
+		@include breakpoint(1024) {
+			margin-top: -60px;
+		}
+		@include breakpoint(768) {
+			margin-top: 0;
+		}
+	}
+	&.offset-bottom {
+		hgroup {
+			h3 {
+				padding-bottom: 220px;
+				@include breakpoint(768) {
+					padding-bottom: 115px;
+				}
+				@include breakpoint(640) {
+					padding-bottom: 80px;
+				}
+			}
+		}
+	}
+	&.narrow{
+		hgroup {
+			h3 {
+				padding-right: 115px;
+			}
+		}
+	}
+}

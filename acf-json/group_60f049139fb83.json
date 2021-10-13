@@ -1,0 +1,45 @@
+{
+    "key": "group_60f049139fb83",
+    "title": "Different Footer CTA",
+    "fields": [
+        {
+            "key": "field_60f049213f8f3",
+            "label": "Different Footer CTA",
+            "name": "different_footer_cta",
+            "type": "true_false",
+            "instructions": "Check this field if u want to have different footer cta.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 2,
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "wpml_field_group_language": "en",
+    "modified": 1634108537
+}

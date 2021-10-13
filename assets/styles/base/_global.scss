@@ -1,0 +1,272 @@
+/*
+= GLOBAL STYLES
+------------------------------------------------------------------------------------- */
+
+	html,
+	body {
+		&.home,
+		&.overlay-active {
+			overflow: hidden; position: relative;
+			width: 100%; height: 100%;
+		}
+		//background: #122F43;
+		&:not(.home) {
+			overflow-x: hidden; position: relative;
+			background-color: #F9F9F9;
+		}
+	}
+
+	.switching {
+		pointer-events: none;
+	}
+
+	/* 
+	+ Preloading */
+
+		.loading-holder {
+			position: fixed; top: 0; left: 0; z-index: 9999;
+			width: 100%; height: 100%;
+			background: $color-yankees-blue;
+			.loader-overlay {
+				position: absolute; top: 0; left: 0;
+				width: 100%; height: 100%;
+				background: $color-yankees-blue;
+			}
+			.loader {
+				position: absolute; top: 0; left: 0;	
+				width: 100%; height: 100%;
+			}
+			#loader {
+				position: absolute; left: 50%; top: 50%; z-index: 2;
+				width: 17.36vw; height: 6.94vw;
+				@include transform($x: -50%, $y: -50%);
+			}
+			.progress-notification {
+				display: none;
+			}
+			.progress-bar {
+				position: absolute; top: 0;
+				width: 100%; height: 0;
+			}
+			.progress-loaded {
+				position: relative;
+				width: 0; height: 100%;
+				border-bottom: 2px solid $color-yankees-blue;
+			}
+			@include breakpoint(960) {
+				#loader {
+					width: 50vw; height: 20vw;
+				}			
+			}
+		}
+
+	.wrapper {
+		max-width: 1260px;
+		padding-left: 30px; padding-right: 30px;
+		margin-left: auto; margin-right: auto;
+		box-sizing: border-box;
+		@include breakpoint(768) {
+			padding-left: 60px; padding-right: 60px;
+		}
+		@include breakpoint(640) {
+			padding-left: 30px; padding-right: 30px;
+		}
+	}
+
+	.segmenter,
+	.segmenter1,
+	.segmenter2,
+	.segmenter3,
+	.segmenter4,
+	.segmenter5,
+	.segmenter6,
+	.segmenter7,
+	.segmenter8,
+	.segmenter9,
+	.segmenter10 {
+		position: fixed; left: 0px; top: 0px; opacity: 0;  z-index: 2;
+		width: 100%; height: 100%;
+		background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;
+		@include visibility();
+		@include transform($y: 100%);
+		@include transition(2000ms cubic-bezier(0.645, 0.045, 0.355, 1.000));
+	}
+
+	//.desktop {
+		.segmenter,
+		.segmenter1,
+		.segmenter2,
+		.segmenter3,
+		.segmenter4,
+		.segmenter5,
+		.segmenter6,
+		.segmenter7,
+		.segmenter8,
+		.segmenter9,
+		.segmenter10 {
+			background: none !important;
+		}
+	//}
+
+	.segmenter2,
+	.segmenter4,
+	.segmenter6,
+	.segmenter8,
+	.segmenter10 {
+		z-index: 1; opacity: 0.2;
+		 -webkit-filter: grayscale(100%);
+  		filter: grayscale(100%);
+		@include transform($y: -100%);
+	}
+
+	.segmenter1,
+	.segmenter3,
+	.segmenter5,
+	.segmenter7,
+	.segmenter9 {
+		opacity: 1;
+	}
+
+	.tablet,
+	.mobile {
+		// .segmenter {
+		// 	background: none !important;
+		// }
+		.segmenter2,
+		.segmenter4,
+		.segmenter6,
+		.segmenter8,
+		.segmenter10 {
+			opacity: 0.2;
+			-webkit-filter: none;
+			filter: none;
+		}
+		.segmenter1,
+		.segmenter3,
+		.segmenter5,
+		.segmenter7,
+		.segmenter9 {
+			display: none !important;
+		}
+	}
+
+	.segmenter-pieces, 
+	.segmenter-piece-wrap, 
+	.segmenter-piece-parallax, 
+	.segmenter-piece {
+	    position: absolute; top: 0; left: 0;
+	    width: 100%; height: 100%;
+	    -webkit-transform-style: preserve-3d;
+	    transform-style: preserve-3d;
+	}
+
+	.segmenter-piece-wrap {
+		opacity: 0;
+		@include visibility();
+		@include transform();
+	}
+
+	.segmenter-background, 
+	.segmenter-piece, 
+	.segmenter {
+    	background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;
+    }
+
+    .segmenter-shadow {
+    	position: absolute; opacity: 0;
+    	box-shadow: 0px 20px 50px #000;
+	}
+
+	.segmenter-background {
+		opacity: 0;
+	}
+
+	.segmenter-pieces {
+	    -webkit-perspective: 400px;
+    	perspective: 400px;
+	}
+
+
+// Image ovarlay effects
+@keyframes noise-anim {
+	0% { @include transform($x: 0%, $y: 0%); }
+	10% { @include transform($x: -5%, $y: -5%); }
+	20% { @include transform($x: -10%, $y: 5%); }
+	30% { @include transform($x: 5%, $y: -10%); }
+	40% { @include transform($x: -5%, $y: 15%); }
+	50% { @include transform($x: -10%, $y: 5%); }
+	60% { @include transform($x: 15%, $y: 0%); }
+	70% { @include transform($x: 0%, $y: 10%); }
+	80% { @include transform($x: -15%, $y: 0%); }
+	90% { @include transform($x: 10%, $y: 5%); }
+	100% { @include transform($x: 5%, $y: 0%); }
+}
+
+.with-effect,
+body:not(.single-post) .wp-block-image,
+.wp-block-media-text__media,
+//figure.has-image a,
+.featured-image {
+	position: relative; display: inline-block; overflow: hidden;
+	img {
+		display: block;
+	}
+	&:before {
+		content: "";
+		display: block; position: absolute; left: 0px; top: 0px;
+		width: 100%; height: 100%;
+		background: url(../img/mask-landscape.png) left top no-repeat; background-size: cover;
+		mix-blend-mode: multiply;
+	}
+	&:after {
+		content: "";
+		position: absolute; top: -50%; left: -50%; right: -50%; bottom: -50%;
+		width: 200%; height: 200vh;
+		background: url(../img/noise.png) left top repeat; 
+		animation: noise-anim 200ms infinite;
+	}
+	&.square {	
+		&:before {
+			background-image: url(../img/mask-square.png);
+		}
+	}
+	&.portrait {
+		&:before {
+			background-image: url(../img/mask-portrait.png);
+		}
+	}
+	&.no-effects {
+		&:before,
+		&:after {
+			display: none;
+		}&:before,
+		&:after {
+			display: none;
+		}
+	}
+}
+.wp-block-image,
+figure.has-image a,
+.featured-image {
+	display: block;
+}
+.wp-block-media-text__media {
+	&:before {
+		background-image: url(../img/mask-portrait.png);
+	}
+}
+.square {
+	.wp-block-media-text__media {
+		&:before {
+			background-image: url(../img/mask-square.png);
+		}
+	}
+}
+.no-effects {
+	.wp-block-media-text__media {
+		&:before,
+		&:after {
+			display: none;
+		}
+	}
+}

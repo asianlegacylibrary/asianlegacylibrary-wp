@@ -1,0 +1,336 @@
+/*
+= TYPOGRAPHY
+------------------------------------------------------------------------------------- */
+@font-face {
+	font-family: 'foliobold';
+	src: url('../webfonts/folio-bold-webfont.woff2') format('woff2'),
+		 url('../webfonts/folio-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'foliomedium';
+	src: url('../webfonts/folio-medium-webfont.woff2') format('woff2'),
+		 url('../webfonts/folio-medium-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'foliobook';
+	src: url('../webfonts/folio-book-webfont.woff2') format('woff2'),
+		 url('../webfonts/folio-book-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'foliolight';
+	src: url('../webfonts/folio-light-webfont.woff2') format('woff2'),
+		 url('../webfonts/folio-light-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+$font-bold: 	'foliobold', 'Noto Sans', Arial, Helvetica, sans-serif;
+$font-medium: 	'foliomedium', 'Noto Sans', Arial, Helvetica,  sans-serif;
+$font-book: 	'foliobook', 'Noto Sans', Arial, Helvetica,  sans-serif;
+$font-light: 	'foliolight', 'Noto Sans', Arial, Helvetica,  sans-serif;
+
+body:not(.wp-admin) {
+	font-family: $font-book; font-size: 18px; line-height: 30px;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1 {
+	font-size: 96px; line-height: 100px; text-transform: uppercase; font-family: $font-medium;
+	@include breakpoint(1920) {
+		font-size: 80px; line-height: 84px;
+	}
+	@include breakpoint(768) {
+		font-size: 60px; line-height: 64px;
+	}
+	@include breakpoint(640) {
+		font-size: 40px; line-height: 56px;
+	}
+}
+
+.entry {
+	h2 {
+		margin-bottom: 30px;
+		font-family: $font-book; font-size: 32px; line-height: 48px; color: #000;
+	}
+	h3 {
+		margin-bottom: 30px;
+		font-family: $font-medium; font-size: 30px; line-height: 44px; color: #000;
+	}
+	h4 {
+		margin-bottom: 30px;
+		font-family: $font-medium; font-size: 28px; line-height: 38px; color: #000;
+	}
+	h5 {
+		margin-bottom: 30px;
+		font-family: $font-medium; font-size: 22px; line-height: 30px; color: #000;
+	}
+	h6 {
+		margin-bottom: 30px;
+		font-family: $font-medium; font-size: 18px; line-height: 30px; color: #000;
+	}
+	p {
+		margin-bottom: 30px;
+		font-size: 18px; line-height: 30px; color: #525A5F;
+		strong {
+			font-family: $font-medium;
+		}
+		em,
+		i {
+			font-style: italic;
+		}
+		a {
+			text-decoration: underline; color: #000;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+	ul,
+	ol {
+		padding-left: 30px; 
+		li {
+			margin-bottom: 30px;
+			font-size: 18px; line-height: 30px; color: #525A5F;
+			strong,
+			&::marker {
+				font-family: $font-medium; font-size: 20px; color: #000;
+			}
+		}
+	}
+	ul {
+		list-style-type: none;
+		li {
+			position: relative;
+			&:before {
+				content: "";
+				position: absolute; left: -25px; top: 15px;
+				width: 8px; height: 8px;
+				background-color: #000;
+				border-radius: 50%;
+			}
+		}
+	}
+	ol {
+		list-style-type: decimal-leading-zero;
+	}
+}
+
+.page-entry,
+.block-editor-writing-flow {
+	h2,
+	h3 {
+		margin-bottom: 60px; padding-left: 70px;
+		font-family: $font-medium; font-size: 50px; line-height: 64px; color: #000;
+		@include breakpoint(768) {
+			padding-left: 0;
+			font-size: 32px; line-height: 44px;
+		}
+		&.line {
+			position: relative;
+			padding-left: 70px;
+			@include breakpoint(768){
+				padding-left: 35px; 
+			}
+			&:before {
+				content: "";
+				position: absolute; left: 0; top: 0;
+				width: 4px; height: 100%;
+				background-color: black;
+				@include breakpoint(768) {
+					// left: -30px;
+				}
+			}
+		}
+		&.boxed {
+			position: relative;
+			padding-top: 70px; padding-bottom: 40px;
+			font-size: 64px; line-height: 74px;
+			@include breakpoint(768) {
+				font-size: 50px; line-height: 64px;
+			}
+			@include breakpoint(640) {
+				padding: 60px 30px 30px !important; margin: -60px -30px 50px;
+				font-size: 48px; line-height: 58px;
+			}
+			&:before {
+				content: "";
+				position: absolute; left: -40%; top: 0;
+				width: 150%; height: 100%;
+				border: $color-chartreuse solid 3px;
+				@include breakpoint(640) {
+					border-left: 0; border-right: 0;
+				}
+			}
+		}
+		&.top-left {
+			margin-top: -100px; margin-left: -240px;
+			padding: 60px 60px 140px 60px !important;
+			&:before {
+				left: 0;
+				width: 100%;
+			}
+			@include breakpoint(768) {
+				padding: 30px 30px 60px 30px !important;
+			}
+			@include breakpoint(640) {
+				padding: 60px 30px 30px !important; margin: -70px -30px 60px;
+			}
+		}
+		&.right-moved,
+		&.moved-left {
+			&:before {
+				left: 0; right: 0;
+				width: auto; height: auto;
+			}
+		}
+		&.right-moved {
+			margin-left: 45%; margin-bottom: 180px; padding: 100px 60px 60px;
+			@include breakpoint(640) {
+				padding: 30px !important; margin: 200px -30px 60px;
+			}
+			&:before {
+				// top: -120px; 
+				top: -160px;
+				bottom: 0;
+				@include breakpoint(640) {
+					top: 0;
+				}
+			}
+		}
+		&.moved-left {
+			margin-right: 45%; margin-top: 450px; margin-bottom: -160px; padding: 80px 110px 110px 70px;
+			@include breakpoint(768) {
+				margin-right: 15%;
+			}
+			@include breakpoint(640) {
+				padding: 30px 30px 60px 30px !important; margin: 180px -30px -135px;
+			}
+			&:before {
+				bottom: 0px; top: 0;
+				@include breakpoint(640) {
+					bottom: 0;
+				}
+			}
+		}
+		&.caps{
+			text-transform: uppercase;
+		}
+		&.heading-alone{
+			padding-left: 0 !important;
+			max-width: 900px;
+			margin-left: 70px !important;
+			@include breakpoint(640) {
+				margin-left: 0 !important;
+			}
+			&.line {
+				&:before {
+					left: -70px !important;
+				}
+			}
+		}
+	}
+	h4 {
+		margin-bottom: 40px;
+		font-family: $font-book; font-size: 32px; line-height: 48px; color: #000;
+		@include breakpoint(768) {
+			font-size: 26px; line-height: 38px;
+		}
+		&.line {
+			position: relative;
+			&:before {
+				content: "";
+				position: absolute; left: -55px; top: 0;
+				width: 4px; height: 100%;
+				background-color: black;
+			}
+		}
+	}
+	h5 {
+		margin-bottom: 30px;
+		font-family: $font-medium; font-size: 22px; line-height: 30px; color: #000;
+	}
+	h6 {
+		margin-bottom: 30px;
+		font-family: $font-medium; font-size: 18px; line-height: 30px; color: #000;
+	}
+	p {
+		margin-bottom: 30px;
+		font-size: 18px; line-height: 30px; color: #525A5F;
+		&:last-child{
+			margin-bottom: 0;
+		}
+		@include breakpoint(768) {
+			font-size: 16px; line-height: 28px;
+		}
+		strong {
+			font-family: $font-medium; color: black;
+		}
+		em,
+		i {
+			font-style: italic;
+		}
+		a {
+			text-decoration: underline; color: #000;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+	ul,
+	ol {
+		padding-left: 30px; 
+		li {
+			margin-bottom: 30px;
+			font-size: 18px; line-height: 30px; color: #525A5F;
+			strong,
+			&::marker {
+				font-family: $font-medium; font-size: 20px; color: #000;
+			}
+		}
+	}
+	ul {
+		list-style-type: none;
+		li {
+			position: relative;
+			&:before {
+				content: "";
+				position: absolute; left: -25px; top: 15px;
+				width: 8px; height: 8px;
+				border-radius: 50%;
+				background-color: #000;
+			}
+		}
+	}
+	ol {
+		list-style-type: decimal-leading-zero;
+	}
+	.dark-content-outer {
+		p {
+			strong {
+				color: $color-white;
+			}
+		}
+	}
+}
+
+// Language font adjustments
+html:not([lang="en-US"]) {
+	h1 {
+		font-weight: 700;
+	}
+}
+

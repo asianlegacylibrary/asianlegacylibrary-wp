@@ -1,0 +1,189 @@
+/*
+= PAGE HERO BLOCK STYLES
+------------------------------------------------------------------------------------- */
+.page-hero {
+	&:not(.extended) {
+		hgroup {
+			z-index: 3;
+			padding-bottom: 110px;
+			@include breakpoint(640) {
+				padding-bottom: 70px;
+			}
+			.wrapper {
+				padding-right: 10%; padding-left: 100px;
+				@include breakpoint(768) {
+					padding-left: 60px; padding-right: 60px;
+				}
+				@include breakpoint(640) {
+					padding-left: 30px; padding-right: 30px;
+				}
+			}
+			h1 {
+				margin-bottom: 20px;
+				font-size: 50px; line-height: 64px;
+				@include breakpoint(640) {
+					font-size: 40px; line-height: 56px;
+				}
+			}
+			p {
+				margin: 0;
+				font-size: 32px; line-height: 48px; color: black;
+				@include breakpoint(640) {
+					font-size: 26px; line-height: 38px;
+				}
+			}
+			.hero-cols-outer {
+				h1 {
+					margin-bottom: 60px;
+					@include breakpoint(640) {
+						margin-bottom: 30px;
+					}
+				}
+			}
+			.hero-cols {
+				@include flexbox(); justify-content: space-between;
+				margin: 0 -40px;
+				@include breakpoint(640) {
+					display: block;
+					margin: 0;
+				}
+				.col {
+					flex: 0 0 50%;
+					padding: 0 40px; margin-bottom: 40px;
+					box-sizing: border-box;
+					@include breakpoint(640) {
+						padding: 0; margin-bottom: 30px;
+					}
+					h3 {
+						padding: 0;
+						font-family: $font-book; font-size: 32px; line-height: 48px; color: black;
+						@include breakpoint(640) {
+							margin-bottom: 30px;
+						}
+					}
+					p {
+						padding-top: 9px; margin-bottom: 30px;
+						font-size: 18px; line-height: 30px; color: #525A5F;
+						&:last-child {
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	&.extended {
+		position: relative;
+		// height: 100vh;
+		height: 640px;
+		padding-top: 0; margin-bottom: 80px;
+		background-color: $color-yankees-blue;
+		@include breakpoint(768) {
+			height: 60vh;
+		}
+		&.mb-l {
+			margin-bottom: 120px;
+			@include breakpoint(768) {
+				margin-bottom: 80px;
+			}
+		}
+		hgroup {
+			position: absolute; left: 50%; top: 50%; z-index: 3;
+			width: 100%;
+			@include transform($x: -50%,$y: -50%);
+			padding: 0 130px;
+			h1,
+			p {
+				color: $color-white;
+			}
+		}
+		.scroll-indicator {
+			position: absolute; right: 120px; top: 50%; opacity: 0; z-index: 5;
+			width: 33px;
+			font-size: 12px; line-height: 18px; text-align: center; color: $color-white;
+			@include transform($y: -50%);
+			@include visibility();
+			@include transition(800ms 800ms cubic-bezier(0.215, 0.610, 0.355, 1.000));
+			&:before {
+				content: "";
+				position: absolute; left: 0; top: 20px;
+				width: 0; height: 1px;
+				background-color: rgba(255,255,255,0.4);
+				@include transition(all 200ms 0s ease-in-out);
+			}
+			span {
+				display: block; overflow: hidden; position: relative;
+				width: 30px; height: 30px;
+				margin-top: 10px;
+				border: 1px solid $color-white; border-radius: 50%;
+				&:after {
+					content: "";
+					display: block; position: absolute; left: 50%; top: 50%;
+					width: 8px; height: 8px;
+					background: url(../img/arrow-light-down.svg) center no-repeat; background-size: 100% 100%;
+					@include transform($x: -50%, $y: -50%);
+					animation: scroll-anim 2000ms infinite;
+				}
+			}
+			@include breakpoint(1200) {
+				display: none;
+			}
+			&:hover {
+				&:before {
+					width: 100%;
+				}
+			}
+		}
+		.bgr {
+			position: absolute; left: 0; top: 0; bottom: 0; right: 0; z-index: 1;
+			background-position: 50% 50%; background-repeat: no-repeat; background-size: cover; 
+		}
+	}
+	&.smaller-hero{
+		height: 800px;
+	}
+}
+
+
+
+// Animations
+body.page {
+	.page-hero {
+		hgroup {
+			.wrapper {
+				opacity: 0;
+				@include transform($y: 50px);
+				@include transition(800ms 0s cubic-bezier(0.215, 0.610, 0.355, 1.000));
+			}
+		}
+		.bgr {
+			opacity: 0;
+			@include transition(800ms 0s cubic-bezier(0.215, 0.610, 0.355, 1.000));
+		}
+		.segmenter {
+			position: absolute; opacity: 1; overflow: hidden;
+			@include transform();
+			&:after {
+				content: "";
+				position: absolute; top: -50%; left: -50%; right: -50%; bottom: -50%; z-index: 10;
+				width: 200%; height: 200vh;
+				background: url(../img/noise.png) left top repeat; 
+				animation: noise-anim 200ms infinite;
+			}
+		}
+	}
+	&.init-anim {
+		.page-hero {
+			hgroup {
+				.wrapper {
+					opacity: 1;
+					@include transform();
+				}
+			}
+			.bgr,
+			.scroll-indicator {
+				opacity: 1;
+			}
+		}
+	}
+}
