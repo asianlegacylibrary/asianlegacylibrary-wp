@@ -520,9 +520,12 @@ h1 {
 .block-editor-writing-flow .dark-content-outer p strong {
   color: #ffffff; }
 
-html:not([lang="en-US"]) h1 {
-  font-weight: 700; }
-
+/* Language font adjustments
+html:not([lang="en-US"]) {
+	h1 {
+		font-weight: 700;
+	}
+}*/
 /*
 = GLOBAL STYLES
 ------------------------------------------------------------------------------------- */

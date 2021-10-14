@@ -31,6 +31,7 @@
 <body <?php body_class(); ?>>
 	
 	<div class="loading-holder"></div>
+	<div class="landscape-message"></div>
 
 	<header>
 		<div class="holder">

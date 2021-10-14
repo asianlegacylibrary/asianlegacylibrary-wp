@@ -13,7 +13,7 @@ if (!is_active_sidebar('sidebar-1')) {
 	<a href="#" class="close-aside">Close</a>
 
 	<div class="widget widget-cats">
-		<h3>Categories</h3>
+		<h3><?php _e('Categories','all_wp_theme'); ?></h3>
 		<ul class="category-list">
 		<?php
 		$categories = get_categories( array(
@@ -41,7 +41,7 @@ if (!is_active_sidebar('sidebar-1')) {
 	));
 	if ($lastest->have_posts()) : ?>
 		<div class="widget widget-recent-posts">
-			<h3>Most Recent Stories</h3>
+			<h3><?php _e('Most Recent Stories','all_wp_theme'); ?></h3>
 			<ul class="aside-post-list">
 				<?php 
 					while ($lastest->have_posts()) : $lastest->the_post(); 
@@ -67,7 +67,7 @@ if (!is_active_sidebar('sidebar-1')) {
 
 	<div class="widget tags">
 
-		<h3>Tags</h3>
+		<h3><?php _e('Tags','all_wp_theme'); ?></h3>
 
 		<?php
 		$tags = get_tags(array(
