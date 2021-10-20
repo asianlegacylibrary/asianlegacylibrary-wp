@@ -1346,6 +1346,18 @@ select:-webkit-autofill:active {
 .mobile.landscape .landscape-message {
   display: block !important; }
 
+.mobile.landscape body.page-id-13 .landscape-message,
+.mobile.landscape body.page-id-1662 .landscape-message,
+.mobile.landscape body.page-id-1756 .landscape-message,
+.mobile.landscape body.page-id-1469 .landscape-message,
+.mobile.landscape body.page-id-1682 .landscape-message,
+.mobile.landscape body.parent-pageid-13 .landscape-message,
+.mobile.landscape body.parent-pageid-1662 .landscape-message,
+.mobile.landscape body.parent-pageid-1756 .landscape-message,
+.mobile.landscape body.parent-pageid-1469 .landscape-message,
+.mobile.landscape body.parent-pageid-1682 .landscape-message {
+  display: none !important; }
+
 /*
 = HEADER AND NAVIGATION
 ------------------------------------------------------------------------------------- */

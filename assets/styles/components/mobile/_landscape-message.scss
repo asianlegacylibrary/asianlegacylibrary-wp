@@ -10,4 +10,16 @@
     }	
     .mobile.landscape {
         .landscape-message {display: block !important;}
+		body.page-id-13,
+		body.page-id-1662,
+		body.page-id-1756,
+		body.page-id-1469,
+		body.page-id-1682,
+		body.parent-pageid-13,
+		body.parent-pageid-1662,
+		body.parent-pageid-1756,
+		body.parent-pageid-1469,
+		body.parent-pageid-1682 {
+			.landscape-message {display: none !important;}
+		}
     } 
