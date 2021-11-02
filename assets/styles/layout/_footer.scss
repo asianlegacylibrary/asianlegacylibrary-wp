@@ -183,6 +183,7 @@ footer {
 				}
 			}
 			&:last-child {
+				flex: 0 0 152px;
 				@include breakpoint(768) {
 					width: 100%;
 				}
@@ -203,7 +204,7 @@ footer {
 				}
 			}
 			a {
-				color: $color-chartreuse; font-family: $font-medium;
+				color: #96A7B6;
 				@include transition(color 200ms ease-in-out);
 				&:hover {
 					color: white;
