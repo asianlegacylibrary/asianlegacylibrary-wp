@@ -189,9 +189,26 @@ footer {
 			}
 		}
 	}
-	p {
-		&.copy {
+	.footer-bottom {
+		@include flexbox(); justify-content: space-between;
+		@include breakpoint(768) {
+			display: block;
+		}
+		p {
 			font-size: 16px; line-height: 24px; color: #96A7B6;
+			&.created {
+				flex: 0 0 152px;
+				@include breakpoint(768) {
+					padding-top: 10px;
+				}
+			}
+			a {
+				color: $color-chartreuse; font-family: $font-medium;
+				@include transition(color 200ms ease-in-out);
+				&:hover {
+					color: white;
+				}
+			}
 			@include breakpoint(640) {
 				font-size: 12px;
 			}

@@ -2374,13 +2374,37 @@ footer {
       @media (max-width: 768px) {
         footer .footer-columns .col:last-child {
           width: 100%; } }
-  footer p.copy {
-    font-size: 16px;
-    line-height: 24px;
-    color: #96A7B6; }
-    @media (max-width: 640px) {
-      footer p.copy {
-        font-size: 12px; } }
+  footer .footer-bottom {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between; }
+    @media (max-width: 768px) {
+      footer .footer-bottom {
+        display: block; } }
+    footer .footer-bottom p {
+      font-size: 16px;
+      line-height: 24px;
+      color: #96A7B6; }
+      footer .footer-bottom p.created {
+        flex: 0 0 152px; }
+        @media (max-width: 768px) {
+          footer .footer-bottom p.created {
+            padding-top: 10px; } }
+      footer .footer-bottom p a {
+        color: #e6fa05;
+        font-family: "foliomedium", "Noto Sans", Arial, Helvetica, sans-serif;
+        -moz-transition: color 200ms ease-in-out;
+        -o-transition: color 200ms ease-in-out;
+        -webkit-transition: color 200ms ease-in-out;
+        transition: color 200ms ease-in-out; }
+        footer .footer-bottom p a:hover {
+          color: white; }
+      @media (max-width: 640px) {
+        footer .footer-bottom p {
+          font-size: 12px; } }
   footer .footer-logo-holder {
     display: inline-block;
     cursor: pointer; }

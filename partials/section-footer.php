@@ -51,7 +51,10 @@
 				</ul>
 			</div>
 		</div>
-		<p class="copy"><?php echo $bottom_copyright_text; ?></p>
+		<div class="footer-bottom">
+			<p class="copy"><?php echo $bottom_copyright_text; ?></p>
+			<p class="created"><?php _e('created by','all_wp_theme'); ?> <a href="https://noformat.com" target="_blank">noformat</a></p>
+		</div>
 	</div>
 
 </footer>
