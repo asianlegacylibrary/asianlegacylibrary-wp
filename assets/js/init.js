@@ -2082,4 +2082,3 @@
 		$('html').removeClass('overlay-active');
 		return false;
 	});
-

@@ -48,7 +48,12 @@
 
 	<header>
 		<div class="holder">
-			<a href="<?php bloginfo('url'); ?>" class="logo"><?php _e('Asian Legacy Library','all_wp_theme'); ?></a>
+			
+			<a href="<?php echo home_url(); ?>" class="logo">
+				<span class="lottie logo-1" data-animation-path="<?php echo get_template_directory_uri() ?>/pictures/logo-white.json" data-anim-loop="true"></span>
+				<span class="lottie logo-2" data-animation-path="<?php echo get_template_directory_uri() ?>/pictures/logo-black.json" data-anim-loop="true"></span>
+			</a>
+			
 			<nav>
 				<ul class="main-nav">
 					<?php wp_nav_menu(array('menu' => 'Main Menu', 'container' => false, 'items_wrap' => '%3$s')); ?>
