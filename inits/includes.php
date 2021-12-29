@@ -24,6 +24,8 @@ function enqueueStylesAndScripts() {
     wp_enqueue_script('device');
     wp_register_script('preloading', THEME_ASSETS . 'js/libs/jquery.preloading.js', FALSE, '1.11.0', TRUE);
     wp_enqueue_script('preloading');
+    wp_register_script('lottie', THEME_ASSETS . 'js/libs/lottie.min.js', FALSE, '1.11.0', TRUE);
+    wp_enqueue_script('lottie');
     wp_register_script('swipe', THEME_ASSETS . 'js/libs/jquery.swipe.js', FALSE, '1.11.0', TRUE);
     wp_enqueue_script('swipe');
     wp_register_script('anime', THEME_ASSETS . 'js/libs/anime.min.js', FALSE, '1.11.0', TRUE);
@@ -34,8 +36,6 @@ function enqueueStylesAndScripts() {
     wp_enqueue_script('test');
     wp_register_script('loadmore', THEME_ASSETS . 'js/load-more.js', FALSE, '1.11.0', TRUE);
     wp_enqueue_script('loadmore');
-    wp_register_script('lottie', '//cdnjs.cloudflare.com/ajax/libs/bodymovin/5.8.1/lottie.min.js', FALSE, '1.11.0', TRUE);
-    wp_enqueue_script('lottie');
 	
     wp_register_script('init', THEME_ASSETS . 'js/init.js', array(), false, true);
     wp_enqueue_script('init');

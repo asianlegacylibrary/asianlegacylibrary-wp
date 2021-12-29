@@ -17,10 +17,14 @@
         ?>
 		<section class="<?php if ($row_index == 1) echo 'active' ?>">
 			<?php if($image_identifier_1) : ?>
-			<div class="<?php echo $image_identifier_1; ?>" style="background-image: url(<?php echo $block_image['url']; ?>)"></div>
+			<div class="sliced front <?php if ($row_index == 1) echo 'initialized' ?>">
+  				<img src="<?php echo $block_image['url']; ?>" class="sliced-img"/>
+			</div>
 			<?php endif; ?>
 			<?php if($image_identifier_2) : ?>
-			<div class="<?php echo $image_identifier_2; ?>" style="background-image: url(<?php echo $block_image['url']; ?>)"></div>
+			<div class="sliced back">
+  				<img src="<?php echo $block_image['url']; ?>" class="sliced-img"/>
+			</div>
 			<?php endif; ?>
 			<div class="decoration">
 				<div class="texts-holder">

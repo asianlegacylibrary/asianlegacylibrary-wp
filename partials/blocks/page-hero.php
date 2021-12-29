@@ -53,7 +53,9 @@ $hero_column_title			= get_field('hero_column_title');
 		<?php _e('Scroll','all_wp_theme'); ?>
 		<span></span>
 	</a>
-	<div class="segmenter" style="background-image:url('<?php echo $hero_background_image['url']; ?>')"></div>
+	<div class="sliced front initialized">
+  		<img src="<?php echo $hero_background_image['url']; ?>" class="sliced-img"/>
+	</div>
 	<?php endif; ?>
 </section><!-- / Page Hero -->
 

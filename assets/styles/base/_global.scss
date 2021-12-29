@@ -73,117 +73,144 @@
 		}
 	}
 
-	.segmenter,
-	.segmenter1,
-	.segmenter2,
-	.segmenter3,
-	.segmenter4,
-	.segmenter5,
-	.segmenter6,
-	.segmenter7,
-	.segmenter8,
-	.segmenter9,
-	.segmenter10 {
-		position: fixed; left: 0px; top: 0px; opacity: 0;  z-index: 2;
-		width: 100%; height: 100%;
-		background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;
-		@include visibility();
-		@include transform($y: 100%);
-		@include transition(2000ms cubic-bezier(0.645, 0.045, 0.355, 1.000));
-	}
-
-	//.desktop {
-		.segmenter,
-		.segmenter1,
-		.segmenter2,
-		.segmenter3,
-		.segmenter4,
-		.segmenter5,
-		.segmenter6,
-		.segmenter7,
-		.segmenter8,
-		.segmenter9,
-		.segmenter10 {
-			background: none !important;
-		}
-	//}
-
-	.segmenter2,
-	.segmenter4,
-	.segmenter6,
-	.segmenter8,
-	.segmenter10 {
-		z-index: 1; opacity: 0.2;
-		 -webkit-filter: grayscale(100%);
-  		filter: grayscale(100%);
-		@include transform($y: -100%);
-	}
-
-	.segmenter1,
-	.segmenter3,
-	.segmenter5,
-	.segmenter7,
-	.segmenter9 {
-		opacity: 1;
-	}
-
-	.tablet,
-	.mobile {
-		// .segmenter {
-		// 	background: none !important;
-		// }
-		.segmenter2,
-		.segmenter4,
-		.segmenter6,
-		.segmenter8,
-		.segmenter10 {
-			opacity: 0.2;
-			-webkit-filter: none;
-			filter: none;
-		}
-		.segmenter1,
-		.segmenter3,
-		.segmenter5,
-		.segmenter7,
-		.segmenter9 {
-			display: none !important;
-		}
-	}
-
-	.segmenter-pieces, 
-	.segmenter-piece-wrap, 
-	.segmenter-piece-parallax, 
-	.segmenter-piece {
-	    position: absolute; top: 0; left: 0;
+	.sliced {
+	    position: absolute; left: 0px; top: 0px; opacity: 1; z-index: 2; overflow: hidden;
 	    width: 100%; height: 100%;
-	    -webkit-transform-style: preserve-3d;
-	    transform-style: preserve-3d;
+	    img {
+	    	display: block; position: absolute; left: 50%; top: 50%;
+	    	min-width: 100%; min-height: 100%;
+	    	@include transform($x: -50%, $y: -50%);
+	    }
+		.tile { 
+		    float: left; opacity: 0; overflow: hidden;
+		    @include visibility();
+		    @include transition(1500ms cubic-bezier(0.645, 0.045, 0.355, 1.000));
+		    @include transition-property(opacity, transform);
+		    &:nth-of-type(6) {
+		    	@include transition-delay(100ms);
+		    }
+		    &:nth-of-type(13) {
+		    	@include transition-delay(200ms);
+		    }
+		    &:nth-of-type(12) {
+		    	@include transition-delay(300ms);
+		    }
+		    &:nth-of-type(7) {
+		    	@include transition-delay(400ms);
+		    }
+		    &:nth-of-type(11) {
+		    	@include transition-delay(500ms);
+		    }    
+		    &:nth-of-type(8) {
+		    	@include transition-delay(600ms);
+		    }
+		    &:nth-of-type(5) {
+		    	@include transition-delay(700ms);
+		    }
+		    &:nth-of-type(4) {
+		    	@include transition-delay(800ms);
+		    }    
+		    &:nth-of-type(9) {
+		    	@include transition-delay(900ms);
+		    }
+		    &:nth-of-type(2) {
+		    	@include transition-delay(1000ms);
+		    }
+		    &:nth-of-type(14) {
+		    	@include transition-delay(1100ms);
+		    }
+		    &:nth-of-type(16) {
+		    	@include transition-delay(1200ms);
+		    }
+		    &:nth-of-type(3) {
+		    	@include transition-delay(1300ms);
+		    }
+		    &:nth-of-type(15) {
+		    	@include transition-delay(1400ms);
+		    }
+		    &:nth-of-type(10) {
+		    	@include transition-delay(1500ms);
+		    }
+		    &:first-of-type {
+		    	@include transition-delay(1600ms);
+		    }    
+		}    
+	    &.back {
+	    	opacity: 0.2;
+	    }
+	    &.front {
+	    	.tile {
+	    		@include transform($y: 100vh);
+	    	}
+	    }
+		&.initialized {
+	    	.tile {
+	    		@include transform();
+	    	}
+	    }
 	}
 
-	.segmenter-piece-wrap {
-		opacity: 0;
-		@include visibility();
-		@include transform();
+	.init-anim {
+		.bgrs-holder {
+			.active {
+				.sliced {
+					.tile {
+						opacity: 1;
+					    &:first-of-type {
+					    	opacity: 0.5;
+					    }
+					    &:nth-of-type(3),
+					    &:nth-of-type(9) {
+					    	opacity: 0.6;
+					    }
+					    &:nth-of-type(5),
+					    &:nth-of-type(10) {
+					    	opacity: 0.8;
+					    }
+					    &:nth-of-type(8),
+					    &:nth-of-type(11),
+					    &:nth-of-type(13),
+					    &:nth-of-type(14),
+					    &:nth-of-type(16) {
+					    	opacity: 0.7;
+					    }
+					}				
+					&.front {
+						.tile {
+							@include transform();
+						}
+					}
+				}
+			}
+			.up {
+				.sliced {
+					&.front {
+						.tile {
+							@include transform($y: -100%);
+						}
+					}
+				}
+			}
+			.down {
+				.sliced {
+					&.front {
+						.tile {
+							@include transform($y: 100%);
+						}
+					}
+				}
+			}
+		}
 	}
 
-	.segmenter-background, 
-	.segmenter-piece, 
-	.segmenter {
-    	background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;
-    }
-
-    .segmenter-shadow {
-    	position: absolute; opacity: 0;
-    	box-shadow: 0px 20px 50px #000;
-	}
-
-	.segmenter-background {
-		opacity: 0;
-	}
-
-	.segmenter-pieces {
-	    -webkit-perspective: 400px;
-    	perspective: 400px;
+	.portrait {
+		.sliced {
+		    img {
+		    	top: 0px; 
+		    	min-height: initial; min-width: initial; height: 100%; width: auto;
+		    	@include transform($x: -50%);
+		    }
+		}
 	}
 
 

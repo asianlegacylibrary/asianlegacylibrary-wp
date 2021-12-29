@@ -12,436 +12,54 @@
         return { width: e[a + 'Width'] };
     };
 
-    if ($('body').hasClass('home')) {
-        
-        var segmenter,
-            segmenter1,
-            segmenter2,
-            segmenter3,
-            segmenter4,
-            segmenter5,
-            segmenter6,
-            segmenter7,
-            segmenter8,
-            segmenter9,
-            segmenter10;
+/*
+= SLICE IMAGES
+-------------------------------------------------------------------------------------- */
 
+    var _defaults = {
+        x: 4, 
+        y: 4
+    };
 
-        segmenter = new Segmenter(document.querySelector('.segmenter'), {
-            pieces: 16,
-            positions: [
-                {top: 0, left: 0, width: 25, height: 25},
-                {top: 50, left: 0, width: 25, height: 25},
-                {top: 75, left: 75, width: 25, height: 25},
-                {top: 0, left: 25, width: 25, height: 25},
-                {top: 50, left: 25, width: 25, height: 25},
-                {top: 0, left: 50, width: 25, height: 25},
-                {top: 25, left: 0, width: 25, height: 25},
-                {top: 0, left: 75, width: 25, height: 25},
-                {top: 25, left: 75, width: 25, height: 25},
-                {top: 75, left: 25, width: 25, height: 25},
-                {top: 50, left: 50, width: 25, height: 25},
-                {top: 25, left: 50, width: 25, height: 25},
-                {top: 50, left: 75, width: 25, height: 25},
-                {top: 75, left: 0, width: 25, height: 25},
-                {top: 25, left: 25, width: 25, height: 25},
-                {top: 75, left: 50, width: 25, height: 25}
-            ],
-            shadows: false,
-            parallax: false,
-            parallaxMovement: {min: 20, max: 20},
-            animation: {
-                duration: 1500,
-                easing: 'easeOutExpo',
-                delay: 100,
-                opacity: {min: 0.5, max: 1.0},
-                translateZ: {min: 0, max: 0}
-            },
-            onReady: function() {
-                    //segmenter.animate();
+    $.fn.sliced = function( options ) {
+        var o = $.extend( {}, _defaults, options );
+        return this.each(function() {
+            var $container = $(this);
+            $container.find('.tile').remove();
+            $container.find('img').show();
+            var width = $container.width(),
+                height = $container.height(),
+                $img = $container.find('img'),
+                n_tiles = o.x * o.y,
+                tiles = [], $tiles;
+            for ( var i = 0; i < n_tiles; i++ ) {
+                tiles.push('<div class="tile" />');
             }
+            $tiles = $( tiles.join('') );
+            var imgW = $img.width(),
+                imgH = $img.height(),
+                imgX = $img.position().left,
+                imgY = $img.position().top;
+            $img.hide().after( $tiles );
+            $tiles.css({
+                width: Math.floor(width / o.x),
+                height: Math.ceil(height / o.y),
+                backgroundImage: 'url('+ $img.attr('src') +')',
+                backgroundSize: imgW + 'px ' + imgH + 'px'
+            });
+            $tiles.each(function(i) {
+                var pos = $(this).position();
+                if ($(this).parents('.front').length && $('body').hasClass('home')) {
+                    pos.top -= $(window).height();
+                }
+                if ($(window).width() > $(window).height()) {
+                    pos.top += Math.abs(imgY);
+                }
+                pos.left += Math.abs(imgX);
+                $(this).css( 'backgroundPosition', -pos.left +'px '+ -pos.top +'px' );
+            });
         });
-
-        segmenter1 = new Segmenter(document.querySelector('.segmenter1'), {
-            pieces: 16,
-            positions: [
-                {top: 0, left: 0, width: 25, height: 25},
-                {top: 75, left: 0, width: 25, height: 25},
-                {top: 0, left: 25, width: 25, height: 25},
-                {top: 50, left: 50, width: 25, height: 25},
-                {top: 0, left: 75, width: 25, height: 25},
-                {top: 25, left: 0, width: 25, height: 25},
-                {top: 25, left: 50, width: 25, height: 25},
-                {top: 75, left: 50, width: 25, height: 25},
-                {top: 25, left: 75, width: 25, height: 25},
-                {top: 25, left: 25, width: 25, height: 25},
-                {top: 50, left: 0, width: 25, height: 25},
-                {top: 0, left: 50, width: 25, height: 25},
-                {top: 50, left: 25, width: 25, height: 25},
-                {top: 50, left: 75, width: 25, height: 25},
-                {top: 75, left: 25, width: 25, height: 25},
-                {top: 75, left: 75, width: 25, height: 25}
-            ],
-            shadows: false,
-            parallax: false,
-            parallaxMovement: {min: 10, max: 10},
-            animation: {
-                duration: 1500,
-                easing: 'easeOutExpo',
-                delay: 100,
-                opacity: 0.5,
-                //translateZ: {min: 0, max: 0},
-                translateY: {min: 0, max: 0}
-            },
-            onReady: function() {
-                    //segmenter1.animate();
-            }
-        });
-
-        segmenter2 = new Segmenter(document.querySelector('.segmenter2'), {
-            pieces: 16,
-            positions: [
-                {top: 0, left: 0, width: 25, height: 25},
-                {top: 50, left: 0, width: 25, height: 25},
-                {top: 75, left: 75, width: 25, height: 25},
-                {top: 0, left: 25, width: 25, height: 25},
-                {top: 50, left: 25, width: 25, height: 25},
-                {top: 0, left: 50, width: 25, height: 25},
-                {top: 25, left: 0, width: 25, height: 25},
-                {top: 0, left: 75, width: 25, height: 25},
-                {top: 25, left: 75, width: 25, height: 25},
-                {top: 75, left: 25, width: 25, height: 25},
-                {top: 50, left: 50, width: 25, height: 25},
-                {top: 25, left: 50, width: 25, height: 25},
-                {top: 50, left: 75, width: 25, height: 25},
-                {top: 75, left: 0, width: 25, height: 25},
-                {top: 25, left: 25, width: 25, height: 25},
-                {top: 75, left: 50, width: 25, height: 25}
-            ],
-            shadows: false,
-            parallax: false,
-            parallaxMovement: {min: 20, max: 20},
-            animation: {
-                duration: 2000,
-                easing: 'easeOutExpo',
-                delay: 100,
-                opacity: {min: 0.5, max: 1.0},
-                translateZ: {min: 0, max: 0}
-            },
-            onReady: function() {
-                    //segmenter2.animate();
-            }
-        });
-
-        segmenter3 = new Segmenter(document.querySelector('.segmenter3'), {
-            pieces: 16,
-            positions: [
-                {top: 0, left: 0, width: 25, height: 25},
-                {top: 50, left: 0, width: 25, height: 25},
-                {top: 75, left: 75, width: 25, height: 25},
-                {top: 0, left: 25, width: 25, height: 25},
-                {top: 50, left: 25, width: 25, height: 25},
-                {top: 0, left: 50, width: 25, height: 25},
-                {top: 25, left: 0, width: 25, height: 25},
-                {top: 0, left: 75, width: 25, height: 25},
-                {top: 25, left: 75, width: 25, height: 25},
-                {top: 75, left: 25, width: 25, height: 25},
-                {top: 50, left: 50, width: 25, height: 25},
-                {top: 25, left: 50, width: 25, height: 25},
-                {top: 50, left: 75, width: 25, height: 25},
-                {top: 75, left: 0, width: 25, height: 25},
-                {top: 25, left: 25, width: 25, height: 25},
-                {top: 75, left: 50, width: 25, height: 25}
-            ],
-            shadows: false,
-            parallax: false,
-            parallaxMovement: {min: 20, max: 20},
-            animation: {
-                duration: 1500,
-                easing: 'easeOutExpo',
-                delay: 100,
-                opacity: {min: 0.5, max: 1.0},
-                translateZ: {min: 0, max: 0}
-            },
-            onReady: function() {
-                    //segmenter.animate();
-            }
-        });
-        segmenter4 = new Segmenter(document.querySelector('.segmenter4'), {
-            pieces: 16,
-            positions: [
-                {top: 0, left: 0, width: 25, height: 25},
-                {top: 50, left: 0, width: 25, height: 25},
-                {top: 75, left: 75, width: 25, height: 25},
-                {top: 0, left: 25, width: 25, height: 25},
-                {top: 50, left: 25, width: 25, height: 25},
-                {top: 0, left: 50, width: 25, height: 25},
-                {top: 25, left: 0, width: 25, height: 25},
-                {top: 0, left: 75, width: 25, height: 25},
-                {top: 25, left: 75, width: 25, height: 25},
-                {top: 75, left: 25, width: 25, height: 25},
-                {top: 50, left: 50, width: 25, height: 25},
-                {top: 25, left: 50, width: 25, height: 25},
-                {top: 50, left: 75, width: 25, height: 25},
-                {top: 75, left: 0, width: 25, height: 25},
-                {top: 25, left: 25, width: 25, height: 25},
-                {top: 75, left: 50, width: 25, height: 25}
-            ],
-            shadows: false,
-            parallax: false,
-            parallaxMovement: {min: 20, max: 20},
-            animation: {
-                duration: 1500,
-                easing: 'easeOutExpo',
-                delay: 100,
-                opacity: {min: 0.5, max: 1.0},
-                translateZ: {min: 0, max: 0}
-            },
-            onReady: function() {
-                    //segmenter.animate();
-            }
-        });
-        segmenter5 = new Segmenter(document.querySelector('.segmenter5'), {
-            pieces: 16,
-            positions: [
-                {top: 0, left: 0, width: 25, height: 25},
-                {top: 50, left: 0, width: 25, height: 25},
-                {top: 75, left: 75, width: 25, height: 25},
-                {top: 0, left: 25, width: 25, height: 25},
-                {top: 50, left: 25, width: 25, height: 25},
-                {top: 0, left: 50, width: 25, height: 25},
-                {top: 25, left: 0, width: 25, height: 25},
-                {top: 0, left: 75, width: 25, height: 25},
-                {top: 25, left: 75, width: 25, height: 25},
-                {top: 75, left: 25, width: 25, height: 25},
-                {top: 50, left: 50, width: 25, height: 25},
-                {top: 25, left: 50, width: 25, height: 25},
-                {top: 50, left: 75, width: 25, height: 25},
-                {top: 75, left: 0, width: 25, height: 25},
-                {top: 25, left: 25, width: 25, height: 25},
-                {top: 75, left: 50, width: 25, height: 25}
-            ],
-            shadows: false,
-            parallax: false,
-            parallaxMovement: {min: 20, max: 20},
-            animation: {
-                duration: 1500,
-                easing: 'easeOutExpo',
-                delay: 100,
-                opacity: {min: 0.5, max: 1.0},
-                translateZ: {min: 0, max: 0}
-            },
-            onReady: function() {
-                    //segmenter.animate();
-            }
-        });
-        segmenter6 = new Segmenter(document.querySelector('.segmenter6'), {
-            pieces: 16,
-            positions: [
-                {top: 0, left: 0, width: 25, height: 25},
-                {top: 50, left: 0, width: 25, height: 25},
-                {top: 75, left: 75, width: 25, height: 25},
-                {top: 0, left: 25, width: 25, height: 25},
-                {top: 50, left: 25, width: 25, height: 25},
-                {top: 0, left: 50, width: 25, height: 25},
-                {top: 25, left: 0, width: 25, height: 25},
-                {top: 0, left: 75, width: 25, height: 25},
-                {top: 25, left: 75, width: 25, height: 25},
-                {top: 75, left: 25, width: 25, height: 25},
-                {top: 50, left: 50, width: 25, height: 25},
-                {top: 25, left: 50, width: 25, height: 25},
-                {top: 50, left: 75, width: 25, height: 25},
-                {top: 75, left: 0, width: 25, height: 25},
-                {top: 25, left: 25, width: 25, height: 25},
-                {top: 75, left: 50, width: 25, height: 25}
-            ],
-            shadows: false,
-            parallax: false,
-            parallaxMovement: {min: 20, max: 20},
-            animation: {
-                duration: 1500,
-                easing: 'easeOutExpo',
-                delay: 100,
-                opacity: {min: 0.5, max: 1.0},
-                translateZ: {min: 0, max: 0}
-            },
-            onReady: function() {
-                    //segmenter.animate();
-            }
-        });
-        segmenter7 = new Segmenter(document.querySelector('.segmenter7'), {
-            pieces: 16,
-            positions: [
-                {top: 0, left: 0, width: 25, height: 25},
-                {top: 50, left: 0, width: 25, height: 25},
-                {top: 75, left: 75, width: 25, height: 25},
-                {top: 0, left: 25, width: 25, height: 25},
-                {top: 50, left: 25, width: 25, height: 25},
-                {top: 0, left: 50, width: 25, height: 25},
-                {top: 25, left: 0, width: 25, height: 25},
-                {top: 0, left: 75, width: 25, height: 25},
-                {top: 25, left: 75, width: 25, height: 25},
-                {top: 75, left: 25, width: 25, height: 25},
-                {top: 50, left: 50, width: 25, height: 25},
-                {top: 25, left: 50, width: 25, height: 25},
-                {top: 50, left: 75, width: 25, height: 25},
-                {top: 75, left: 0, width: 25, height: 25},
-                {top: 25, left: 25, width: 25, height: 25},
-                {top: 75, left: 50, width: 25, height: 25}
-            ],
-            shadows: false,
-            parallax: false,
-            parallaxMovement: {min: 20, max: 20},
-            animation: {
-                duration: 1500,
-                easing: 'easeOutExpo',
-                delay: 100,
-                opacity: {min: 0.5, max: 1.0},
-                translateZ: {min: 0, max: 0}
-            },
-            onReady: function() {
-                    //segmenter.animate();
-            }
-        });
-        segmenter8 = new Segmenter(document.querySelector('.segmenter8'), {
-            pieces: 16,
-            positions: [
-                {top: 0, left: 0, width: 25, height: 25},
-                {top: 50, left: 0, width: 25, height: 25},
-                {top: 75, left: 75, width: 25, height: 25},
-                {top: 0, left: 25, width: 25, height: 25},
-                {top: 50, left: 25, width: 25, height: 25},
-                {top: 0, left: 50, width: 25, height: 25},
-                {top: 25, left: 0, width: 25, height: 25},
-                {top: 0, left: 75, width: 25, height: 25},
-                {top: 25, left: 75, width: 25, height: 25},
-                {top: 75, left: 25, width: 25, height: 25},
-                {top: 50, left: 50, width: 25, height: 25},
-                {top: 25, left: 50, width: 25, height: 25},
-                {top: 50, left: 75, width: 25, height: 25},
-                {top: 75, left: 0, width: 25, height: 25},
-                {top: 25, left: 25, width: 25, height: 25},
-                {top: 75, left: 50, width: 25, height: 25}
-            ],
-            shadows: false,
-            parallax: false,
-            parallaxMovement: {min: 20, max: 20},
-            animation: {
-                duration: 1500,
-                easing: 'easeOutExpo',
-                delay: 100,
-                opacity: {min: 0.5, max: 1.0},
-                translateZ: {min: 0, max: 0}
-            },
-            onReady: function() {
-                    //segmenter.animate();
-            }
-        });
-        segmenter9 = new Segmenter(document.querySelector('.segmenter9'), {
-            pieces: 16,
-            positions: [
-                {top: 0, left: 0, width: 25, height: 25},
-                {top: 50, left: 0, width: 25, height: 25},
-                {top: 75, left: 75, width: 25, height: 25},
-                {top: 0, left: 25, width: 25, height: 25},
-                {top: 50, left: 25, width: 25, height: 25},
-                {top: 0, left: 50, width: 25, height: 25},
-                {top: 25, left: 0, width: 25, height: 25},
-                {top: 0, left: 75, width: 25, height: 25},
-                {top: 25, left: 75, width: 25, height: 25},
-                {top: 75, left: 25, width: 25, height: 25},
-                {top: 50, left: 50, width: 25, height: 25},
-                {top: 25, left: 50, width: 25, height: 25},
-                {top: 50, left: 75, width: 25, height: 25},
-                {top: 75, left: 0, width: 25, height: 25},
-                {top: 25, left: 25, width: 25, height: 25},
-                {top: 75, left: 50, width: 25, height: 25}
-            ],
-            shadows: false,
-            parallax: false,
-            parallaxMovement: {min: 20, max: 20},
-            animation: {
-                duration: 1500,
-                easing: 'easeOutExpo',
-                delay: 100,
-                opacity: {min: 0.5, max: 1.0},
-                translateZ: {min: 0, max: 0}
-            },
-            onReady: function() {
-                    //segmenter.animate();
-            }
-        });
-        segmenter10 = new Segmenter(document.querySelector('.segmenter10'), {
-            pieces: 16,
-            positions: [
-                {top: 0, left: 0, width: 25, height: 25},
-                {top: 50, left: 0, width: 25, height: 25},
-                {top: 75, left: 75, width: 25, height: 25},
-                {top: 0, left: 25, width: 25, height: 25},
-                {top: 50, left: 25, width: 25, height: 25},
-                {top: 0, left: 50, width: 25, height: 25},
-                {top: 25, left: 0, width: 25, height: 25},
-                {top: 0, left: 75, width: 25, height: 25},
-                {top: 25, left: 75, width: 25, height: 25},
-                {top: 75, left: 25, width: 25, height: 25},
-                {top: 50, left: 50, width: 25, height: 25},
-                {top: 25, left: 50, width: 25, height: 25},
-                {top: 50, left: 75, width: 25, height: 25},
-                {top: 75, left: 0, width: 25, height: 25},
-                {top: 25, left: 25, width: 25, height: 25},
-                {top: 75, left: 50, width: 25, height: 25}
-            ],
-            shadows: false,
-            parallax: false,
-            parallaxMovement: {min: 20, max: 20},
-            animation: {
-                duration: 1500,
-                easing: 'easeOutExpo',
-                delay: 100,
-                opacity: {min: 0.5, max: 1.0},
-                translateZ: {min: 0, max: 0}
-            },
-            onReady: function() {
-                    //segmenter.animate();
-            }
-        });
-    } else if ($('.page-hero .segmenter').length) {
-        var segmenter;
-        segmenter = new Segmenter(document.querySelector('.segmenter'), {
-            pieces: 16,
-            positions: [
-                {top: 0, left: 0, width: 25, height: 25},
-                {top: 50, left: 0, width: 25, height: 25},
-                {top: 75, left: 75, width: 25, height: 25},
-                {top: 0, left: 25, width: 25, height: 25},
-                {top: 50, left: 25, width: 25, height: 25},
-                {top: 0, left: 50, width: 25, height: 25},
-                {top: 25, left: 0, width: 25, height: 25},
-                {top: 0, left: 75, width: 25, height: 25},
-                {top: 25, left: 75, width: 25, height: 25},
-                {top: 75, left: 25, width: 25, height: 25},
-                {top: 50, left: 50, width: 25, height: 25},
-                {top: 25, left: 50, width: 25, height: 25},
-                {top: 50, left: 75, width: 25, height: 25},
-                {top: 75, left: 0, width: 25, height: 25},
-                {top: 25, left: 25, width: 25, height: 25},
-                {top: 75, left: 50, width: 25, height: 25}
-            ],
-            shadows: false,
-            parallax: false,
-            parallaxMovement: {min: 20, max: 20},
-            animation: {
-                duration: 1500,
-                easing: 'easeOutExpo',
-                delay: 100,
-                opacity: {min: 0.5, max: 1.0},
-                translateZ: {min: 0, max: 0}
-            },
-            onReady: function() {
-                    //segmenter.animate();
-            }
-        });        
-    }
+    };
 
 /*
 = MAIN CONTROLLER
@@ -471,9 +89,6 @@
                 onComplete: function() {
                     $('.hero').addClass('active');
                     all.body.addClass('init-anim');
-                    if (all.body.hasClass('home') || $('.page-hero .segmenter').length) {
-                        segmenter.animate();          
-                    }
                     setTimeout(function() {
                         all.body.addClass('init-anim-finished');
                     })
@@ -551,60 +166,7 @@
                     all.activeSection = curr;
                     curr.show();
                     $('.bgrs-holder section').eq(curr.index()).show();
-                    if (all.body.hasClass('home')) {
-                        if (curr.index() == 0) {
-                            segmenter.animate();
-                        } else if (curr.index() == 1) {
-                            test = setTimeout(function() {
-                                segmenter2.animate();
-                                segmenter1.animate();
-                                clearTimeout(test);
-                                test = null;
-                            }, 750)
-                        } else if (curr.index() == 2) {
-                            test = setTimeout(function() {
-                                segmenter3.animate();
-                                segmenter4.animate();
-                                clearTimeout(test);
-                                test = null;
-                            }, 750)                            
-                        } else if (curr.index() == 3) {
-                            test = setTimeout(function() {
-                                segmenter5.animate();
-                                segmenter6.animate();
-                                clearTimeout(test);
-                                test = null;
-                            }, 750)
-                        } else if (curr.index() == 4) {
-                            test = setTimeout(function() {
-                                segmenter7.animate();
-                                segmenter8.animate();
-                                clearTimeout(test);
-                                test = null;
-                            }, 750)
-                        } else if (curr.index() == 5) {
-                            test = setTimeout(function() {
-                                segmenter9.animate();
-                                segmenter10.animate();
-                                clearTimeout(test);
-                                test = null;
-                            }, 750)
-                        }
-                    }
                     if (curr.index() > active.index()) {
-
-                        // if (curr.index() == 2) {
-                        //     segmenter3.animate();
-                        //     segmenter4.animate();
-
-                        // } else {
-                        //     test = setTimeout(function() {
-                        //         segmenter2.animate();
-                        //         segmenter1.animate();
-                        //         clearTimeout(test);
-                        //         test = null;
-                        //     }, 750)
-                        // }
                         active.find('.holder').each(function() {
                             var curr = $(this);
                             curr.css(all.delaySetter(curr.data('delay-up')));
@@ -666,77 +228,6 @@
                         sideNav.children().removeClass('faded')
                         clearTimeout(runningTimeout);
                         runningTimeout = null;
-                        if (all.body.hasClass('home')) {
-                            if (curr.index() > active.index()) {
-                                if (curr.index() == 1) {
-                                    segmenter.reset();
-                                } else if (curr.index() == 2) {
-                                    segmenter.reset();
-                                    segmenter1.reset();
-                                    segmenter2.reset();
-                                } else if (curr.index() == 3) {
-                                    segmenter.reset();
-                                    segmenter1.reset();
-                                    segmenter2.reset();
-                                    segmenter3.reset();
-                                    segmenter4.reset();
-                                } else if (curr.index() == 4) {
-                                    segmenter.reset();
-                                    segmenter1.reset();
-                                    segmenter2.reset();
-                                    segmenter3.reset();
-                                    segmenter4.reset();
-                                    segmenter5.reset();
-                                    segmenter6.reset();
-                                } else if (curr.index() == 5) {
-                                    segmenter.reset();
-                                    segmenter1.reset();
-                                    segmenter2.reset();
-                                    segmenter3.reset();
-                                    segmenter4.reset();
-                                    segmenter5.reset();
-                                    segmenter6.reset();
-                                    segmenter7.reset();
-                                    segmenter8.reset();
-                                }
-                            } else {
-                                if (curr.index() == 4) {
-                                    segmenter.reset();
-                                } else if (curr.index() == 3) {
-                                    segmenter7.reset();
-                                    segmenter8.reset();
-                                    segmenter9.reset();
-                                    segmenter10.reset();
-                                } else if (curr.index() == 2) {
-                                    segmenter5.reset();
-                                    segmenter6.reset();
-                                    segmenter7.reset();
-                                    segmenter8.reset();
-                                    segmenter9.reset();
-                                    segmenter10.reset();
-                                } else if (curr.index() == 1) {
-                                    segmenter3.reset();
-                                    segmenter4.reset();
-                                    segmenter5.reset();
-                                    segmenter6.reset();
-                                    segmenter7.reset();
-                                    segmenter8.reset();
-                                    segmenter9.reset();
-                                    segmenter10.reset();
-                                } else if (curr.index() == 0) {
-                                    segmenter10.reset();
-                                    segmenter9.reset();
-                                    segmenter1.reset();
-                                    segmenter2.reset();
-                                    segmenter3.reset();
-                                    segmenter4.reset();
-                                    segmenter5.reset();
-                                    segmenter6.reset();
-                                    segmenter7.reset();
-                                    segmenter8.reset();
-                                }
-                            }
-                        }
                     }, 2000)
                     sideNav.children().removeClass('active').eq(curr.index()).addClass('active');
                     sideNav.children().eq(active.index()).addClass('faded');
@@ -1051,6 +542,22 @@
                 $('.parallax').each(function(i) {
                    all.common.parallaxPosition($(this), i);
                 });
+
+            /*
+            + Slice images */
+
+                $('.sliced').each(function() {
+                    var curr = $(this),
+                        isHidden = false;
+                    if (curr.parents('section').is(':hidden')) {
+                        curr.parents('section').show();
+                        isHidden = true;
+                    }
+                    curr.sliced({ x: 4, y: 4 });
+                    if (isHidden) {
+                        curr.parents('section').hide();
+                    }
+                })
 
             },
         },   
@@ -1582,7 +1089,7 @@
 
     all.init();
 
-    all.resize();
+    //all.resize();
 
 
     // if ($('body').hasClass('home')) {
@@ -2082,3 +1589,4 @@
 		$('html').removeClass('overlay-active');
 		return false;
 	});
+
