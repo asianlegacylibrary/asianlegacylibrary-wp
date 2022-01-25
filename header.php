@@ -49,8 +49,8 @@
 	<header>
 		<div class="holder">
 			<a href="<?php echo home_url(); ?>" class="logo">
-				<span class="lottie logo-1" data-animation-path="<?php echo get_template_directory_uri() ?>/pictures/logo-white.json" data-anim-loop="true"></span>
-				<span class="lottie logo-2" data-animation-path="<?php echo get_template_directory_uri() ?>/pictures/logo-dark.json" data-anim-loop="true"></span>
+				<span class="lottie logo-1" id="logo-1"></span>
+				<span class="lottie logo-2" id="logo-2"></span>
 			</a>
 			<nav>
 				<ul class="main-nav">

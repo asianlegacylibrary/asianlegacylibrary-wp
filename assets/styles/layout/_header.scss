@@ -593,7 +593,16 @@
 					width: 270px; height: 78px; 
 				}
 				.nav-trigger {
-					margin-top: 35px;
+					margin-top: 44px;
+					width: 27px; height: 18px;
+					span {
+						&:nth-child(2) {
+							top: 8px;
+						}
+						&:last-child {
+							top: 16px;
+						}
+					}
 					&.open{
 						span{
 							left: 50%; top: 50%;

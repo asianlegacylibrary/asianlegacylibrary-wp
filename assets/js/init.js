@@ -82,6 +82,26 @@
         /*
         + Preloading */
 
+            var animation = bodymovin.loadAnimation({
+                container: document.getElementById('logo-1'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: false,
+                path: themeUrl + '/pictures/logo-white.json'
+            })
+
+            animation.goToAndStop(0, false);
+
+            var animation1 = bodymovin.loadAnimation({
+                container: document.getElementById('logo-2'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: false,
+                path: themeUrl + '/pictures/logo-dark.json'
+            })
+
+            animation1.goToAndStop(0, false);
+
             all.body.preloading({
                 beforeComplete: function() {
                     all.resize();
@@ -89,9 +109,17 @@
                 onComplete: function() {
                     $('.hero').addClass('active');
                     all.body.addClass('init-anim');
-                    setTimeout(function() {
-                        all.body.addClass('init-anim-finished');
-                    })
+                    if (all.body.hasClass('home')) {
+                        setTimeout(function() {
+                            all.body.addClass('init-anim-finished');
+                            animation.goToAndPlay(0, true);                   
+                            animation1.goToAndPlay(0, true);                   
+                        }, 2000)
+                    } else {
+                        all.body.addClass('init-anim-finished');     
+                        animation.goToAndPlay(0, true);                   
+                        animation1.goToAndPlay(0, true);                   
+                    }
                 }
             });
 
