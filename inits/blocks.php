@@ -63,24 +63,6 @@
 	}
 	add_filter( 'use_block_editor_for_post_type', 'all_filter_disable_block_editor_pt', 10, 2 );
 
-
-	/**
-	 * Remove gutenberg editor styles
-	 */
-	function remove_guten_wrapper_styles( $settings ) {
-		unset($settings['styles'][0]);
-		return $settings;
-	}
-	add_filter( 'block_editor_settings' , 'remove_guten_wrapper_styles' );
-	
-	/**
-	 * Disable the custom color picker.
-	 */
-	function my_gutenberg_disable_custom_colors() {
-		add_theme_support( 'editor-color-palette' );
-		add_theme_support( 'disable-custom-colors' );
-	}
-	add_action( 'after_setup_theme', 'my_gutenberg_disable_custom_colors' );
 	
 	/**
 	 * Register and enqueue a custom stylesheet in the WordPress admin.
