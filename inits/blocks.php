@@ -27,7 +27,8 @@
 				'acf/slider',
 				'acf/imageheading',
 				'acf/darkwrapper',
-				'acf/customvideo'
+				'acf/customvideo',
+				'acf/textualcontent'
 			);
 		}
 		
@@ -44,7 +45,8 @@
 				'core/quote',
 				'core/list',
 				'acf/slider',
-				'acf/customvideo'
+				'acf/customvideo',
+				'acf/textualcontent'
 			);
 		}
 		
@@ -145,6 +147,21 @@
 			'keywords'          => array( 'video', 'image', 'media' ),
 			'supports' 			=> array(
 				'align' => false,
+			),
+		));
+
+		acf_register_block_type(array(
+			'name'              => 'textualcontent',
+			'title'             => __('Text'),
+			'description'       => __('A custom text block.'),
+			'render_template'   => 'partials/blocks/text-content.php',
+			'post_types' 		=> array('page','post'),
+			'category'          => 'layout',
+			'icon'              => 'media-text',
+			'keywords'          => array( 'text' , 'content'),
+			'supports' 			=> array(
+                'align' => false,
+                'jsx' => true,
 			),
 		));
 		

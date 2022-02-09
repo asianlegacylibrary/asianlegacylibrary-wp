@@ -1,0 +1,108 @@
+// Text content block
+.text-content-outer {
+	margin-bottom: 140px;
+	@include breakpoint(768) {
+		margin-bottom: 80px;
+	}
+	.wrapper {
+		max-width: 1160px;
+	}
+	.text-content {
+		.wp-block-columns {
+			margin: 0;
+			.wp-block-column {
+				&:not(:first-child) {
+					margin-left: 80px;
+					@include breakpoint(768) {
+						margin-left: 0;
+					}
+				}
+				@include breakpoint(768) {
+					margin-bottom: 40px;
+				}
+			}
+			+ .wp-block-columns {
+				padding-top: 60px;
+			}
+		}
+	}
+	&.small-bottom-space {
+		margin-bottom: 60px;
+	}
+}
+
+
+// text style
+.text-entry {
+	h1 {
+		margin-bottom: 80px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	h2 {
+		margin-bottom: 60px; padding-left: 0;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	h3 {
+		margin-bottom: 40px; padding-left: 0;
+		font-family: $font-book; font-size: 32px; line-height: 48px; color: #000;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	h4 {
+		margin-bottom: 40px;
+		font-family: $font-medium;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	h5 {
+		margin-bottom: 10px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	h6 {
+		margin-bottom: 30px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	p {
+		margin-bottom: 30px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	ul,
+	ol {
+		padding-left: 25px; margin-bottom: 30px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		li {
+			margin-bottom: 10px;
+			font-size: 18px; line-height: 30px; color: #525A5F;
+		}
+	}
+	ul {
+		list-style-type: none;
+		li {
+			position: relative;
+			&:before {
+				content: "";
+				position: absolute; left: -25px; top: 12px;
+				width: 8px; height: 8px;
+				background-color: #000;
+				border-radius: 50%;
+			}
+		}
+	}
+	ol {
+		list-style-type: decimal-leading-zero;
+	}
+}

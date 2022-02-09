@@ -2125,3 +2125,7 @@ ul li {
   margin-bottom: inherit; }
   ul li:before {
     display: none; }
+
+.text-content-outer {
+  padding: 70px 0;
+  margin: 0; }
