@@ -5624,13 +5624,15 @@ body.page.init-anim .page-hero .sliced .tile {
   font-family: "foliobook", "Noto Sans", Arial, Helvetica, sans-serif;
   font-size: 32px;
   line-height: 48px;
-  color: #000; }
+  color: #000;
+  text-transform: none; }
   .text-entry h3:last-child {
     margin-bottom: 0; }
 
 .text-entry h4 {
   margin-bottom: 40px;
-  font-family: "foliomedium", "Noto Sans", Arial, Helvetica, sans-serif; }
+  font-family: "foliomedium", "Noto Sans", Arial, Helvetica, sans-serif;
+  text-transform: uppercase; }
   .text-entry h4:last-child {
     margin-bottom: 0; }
 

@@ -48,14 +48,14 @@
 	}
 	h3 {
 		margin-bottom: 40px; padding-left: 0;
-		font-family: $font-book; font-size: 32px; line-height: 48px; color: #000;
+		font-family: $font-book; font-size: 32px; line-height: 48px; color: #000; text-transform: none;
 		&:last-child {
 			margin-bottom: 0;
 		}
 	}
 	h4 {
 		margin-bottom: 40px;
-		font-family: $font-medium;
+		font-family: $font-medium; text-transform: uppercase;
 		&:last-child {
 			margin-bottom: 0;
 		}
