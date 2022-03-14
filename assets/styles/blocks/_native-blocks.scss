@@ -87,6 +87,7 @@
 		margin: 0 auto;
 	}
 	&.wide{
+        display: block !important;
 		margin-left: -120px; margin-right: -120px;
 		@include breakpoint(768) {
 			margin-left: -60px; margin-right: -60px;

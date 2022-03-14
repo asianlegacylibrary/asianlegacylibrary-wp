@@ -29,6 +29,13 @@
 	&.small-bottom-space {
 		margin-bottom: 60px;
 	}
+    &.lower-case-titles {
+        .text-entry {
+            h4 {
+                text-transform: none !important;
+            }
+        }
+    }
 }
 
 

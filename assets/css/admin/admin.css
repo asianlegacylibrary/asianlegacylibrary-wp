@@ -1925,6 +1925,7 @@ body.page.init-anim .page-hero .sliced .tile {
     height: auto;
     margin: 0 auto; }
   .wp-block-image.wide {
+    display: block !important;
     margin-left: -120px;
     margin-right: -120px; }
     @media (max-width: 768px) {

@@ -5606,6 +5606,8 @@ body.page.init-anim .page-hero .sliced .tile {
       padding-top: 60px; }
   .text-content-outer.small-bottom-space {
     margin-bottom: 60px; }
+  .text-content-outer.lower-case-titles .text-entry h4 {
+    text-transform: none !important; }
 
 .text-entry h1 {
   margin-bottom: 80px; }
@@ -5800,6 +5802,7 @@ body.page.init-anim .page-hero .sliced .tile {
     height: auto;
     margin: 0 auto; }
   .wp-block-image.wide {
+    display: block !important;
     margin-left: -120px;
     margin-right: -120px; }
     @media (max-width: 768px) {
