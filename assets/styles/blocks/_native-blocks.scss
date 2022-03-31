@@ -271,4 +271,9 @@
 	+ .no-margin-bottom {
 		margin-top: -40px;
 	}
+    &.images-no-margin {
+        .wp-block-image {
+            margin-bottom: 0;
+        }
+    }
 }

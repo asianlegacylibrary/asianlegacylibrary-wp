@@ -5977,3 +5977,5 @@ body.page.init-anim .page-hero .sliced .tile {
     margin-top: 120px; }
   .wp-block-columns + .no-margin-bottom {
     margin-top: -40px; }
+  .wp-block-columns.images-no-margin .wp-block-image {
+    margin-bottom: 0; }
