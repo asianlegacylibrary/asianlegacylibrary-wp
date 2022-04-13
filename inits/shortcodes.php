@@ -110,3 +110,27 @@ function storiesSection() {
 return $output;
 }
 add_shortcode('stories', 'storiesSection');
+
+// Email antispambot shortcode
+// [hide_email email=""]
+function hide_email_addresses_sc($atts, $content = null) {
+    $emailaddress_fields = shortcode_atts(array(
+        'id' => '',
+        'email' => ''
+    ),$atts);
+    $userid = $emailaddress_fields['id'];
+    $e_mail = $emailaddress_fields['email'];
+    if ($userid !=='' && $e_mail =='') {
+        $emailaddress = get_the_author_meta('user_email',$userid);
+        return '<a href="mailto:'.antispambot($emailaddress).'">'.antispambot($emailaddress).'</a>';
+    }
+    if ($userid =='' && $e_mail !=='') {
+        return '<a href="mailto:'.antispambot($e_mail).'">'.antispambot($e_mail).'</a>';
+    }
+    else {
+        return '';
+    }
+}
+add_shortcode('hide_email','hide_email_addresses_sc');
+// Enable shorcodes in ACF fields
+add_filter('acf/format_value/type=textarea', 'do_shortcode');
