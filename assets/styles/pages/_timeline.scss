@@ -1,0 +1,1304 @@
+/*
+= HOME PAGE
+------------------------------------------------------------------------------------- */
+
+	@keyframes blinking-anim {
+		0% { opacity: 0; }
+		25% { opacity: 1; }
+		50% { opacity: 0; }
+		75% { opacity: 1; }
+		100% { opacity: 0; }
+	} 
+
+	@keyframes blinking-anim-v2 {
+		0% { opacity: 0; }
+		33.33% { opacity: 1; }
+		66.66% { opacity: 0; }
+		100% { opacity: 1; }
+	} 
+
+	@keyframes filling-anim {
+		0% { opacity: 0; }
+		5%, 100% { opacity: 1; }
+	}
+
+	@keyframes filling-anim-v2 {
+		0%, 5% { opacity: 0; }
+		10%, 80% { opacity: 1; }
+		85% { opacity: 0; }
+		90%, 100% { opacity: 1; }
+	}
+
+	@keyframes filling-anim-v3 {
+		0%, 10% { opacity: 0; }
+		15%, 75% { opacity: 1; }
+		80%, 90% { opacity: 0; }
+		95%, 100% { opacity: 1; }
+	}
+
+	@keyframes filling-anim-v4 {
+		0%, 15% { opacity: 0; }
+		20%, 70% { opacity: 1; }
+		75%, 100% { opacity: 0; }
+	}
+
+	@keyframes filling-anim-v4 {
+		0%, 20% { opacity: 0; }
+		25%, 65% { opacity: 1; }
+		70%, 100% { opacity: 0; }
+	}
+
+	@keyframes filling-anim-v5 {
+		0%, 25% { opacity: 0; }
+		30%, 60% { opacity: 1; }
+		65%, 100% { opacity: 0; }
+	}
+
+	@keyframes filling-anim-v6 {
+		0%,
+		30% { opacity: 0; }
+		35%, 55% { opacity: 1; }
+		60%, 100% { opacity: 0; }
+	}
+
+	@keyframes filling-anim-v7 {
+		0%,
+		35% { opacity: 0; }
+		40%, 50% { opacity: 1; }
+		55%, 100% { opacity: 0; }
+	}
+
+	@keyframes filling-anim-v8 {
+		0%,
+		40% { opacity: 0; }
+		45% { opacity: 1; }
+		50%, 100% { opacity: 0; }
+	}
+
+	.timeline-holder {
+		position: fixed; left: 0px; top: 0px;
+		width: 100%; height: 100%;
+		background: $color-yankees-blue;
+		section {
+			position: absolute; left: 0px; top: 0px; overflow: hidden;
+			width: 100%; height: 100%;
+			.bgr {
+				position: absolute; left: 0px; top: 0px;
+				width: 100%; height: 100%;
+				background-position: center; background-repeat: no-repeat; background-size: cover;
+			}
+			.decoration {
+				position: absolute; left: 0px; top: 0px; z-index: 3;
+				width: 100%; height: 100%;
+				p {
+					position: absolute; opacity: 1;
+					width: 120px;
+					color: $color-white; font-size: 11px; line-height: 15px;
+					filter: blur(1.3px);
+					@include visibility();
+					@include transform();
+					@include transition(2000ms cubic-bezier(0.645, 0.045, 0.355, 1.000));
+					span {
+						opacity: 0;
+						@include visibility();
+						@include transform();
+						@include transition(250ms ease-in-out);
+					}
+				}
+				.boxes-holder,
+				.progresses-holder {
+					position: absolute; left: 0px; top: 0px;
+					width: 100%; height: 100%;
+					@include visibility();
+					@include transform();
+					@include transition(2000ms cubic-bezier(0.645, 0.045, 0.355, 1.000));
+					div {
+						position: absolute; 
+						&.box {
+							width: 14px; height: 14px; opacity: 0;
+							border: 1px solid $color-white;
+							filter: blur(1px);
+							@include visibility();
+							@include transform();
+						}
+						&.progress {
+							opacity: 0.65;
+							width: 32px;
+							span {
+								float: left; opacity: 0;
+								width: 12px; height: 12px;
+								margin-right: 4px; margin-bottom: 4px;
+								background: $color-white;
+								border-radius: 1px;
+								filter: blur(0.65px);
+								@include visibility();
+								@include transform();
+								&:last-child {
+									margin-right: 0px;
+								}
+							}
+						}
+					}
+				}
+				.stars-holder {
+					position: absolute; left: 50px; top: 40px; right: 50px; bottom: 40px;
+					.star {
+						display: block; position: absolute; 
+						width: 8px; height: 8px;
+						background: url(../img/star.png) center no-repeat;
+						filter: blur(1px);
+						@include transition(500ms 3000ms cubic-bezier(0.645, 0.045, 0.355, 1.000));
+						&:nth-child(1) {
+							left: 0px; top: 0px;
+						}
+						&:nth-child(2) {
+							left: calc(16.66% * 1); top: 0px;
+						}
+						&:nth-child(3) {
+							left: calc(16.66% * 2); top: 0px;
+						}
+						&:nth-child(4) {
+							left: calc(16.66% * 3); top: 0px;
+						}
+						&:nth-child(5) {
+							left: calc(16.66% * 4); top: 0px;
+						}
+						&:nth-child(6) {
+							left: calc(16.66% * 5); top: 0px;
+						}
+						&:nth-child(7) {
+							right: 0px; top: 0px;
+						}
+						&:nth-child(1) {
+							left: 0px; top: 0px;
+						}
+						&:nth-child(2) {
+							left: calc(16.66% * 1); top: 0px;
+						}
+						&:nth-child(3) {
+							left: calc(16.66% * 2); top: 0px;
+						}
+						&:nth-child(4) {
+							left: calc(16.66% * 3); top: 0px;
+						}
+						&:nth-child(5) {
+							left: calc(16.66% * 4); top: 0px;
+						}
+						&:nth-child(6) {
+							left: calc(16.66% * 5); top: 0px;
+						}
+						&:nth-child(7) {
+							right: 0px; top: 0px;
+						}
+
+						&:nth-child(8) {
+							left: 0px; top: 25%;
+						}
+						&:nth-child(9) {
+							left: calc(16.66% * 1); top: 25%;
+						}
+						&:nth-child(10) {
+							left: calc(16.66% * 2); top: 25%;
+						}
+						&:nth-child(11) {
+							left: calc(16.66% * 3); top: 25%;
+						}
+						&:nth-child(12) {
+							left: calc(16.66% * 4); top: 25%;
+						}
+						&:nth-child(13) {
+							left: calc(16.66% * 5); top: 25%;
+						}
+						&:nth-child(14) {
+							right: 0px; top: 25%;
+						}
+
+						&:nth-child(15) {
+							left: 0px; top: 50%;
+						}
+						&:nth-child(16) {
+							left: calc(16.66% * 1); top: 50%;
+						}
+						&:nth-child(17) {
+							left: calc(16.66% * 2); top: 50%;
+						}
+						&:nth-child(18) {
+							left: calc(16.66% * 3); top: 50%;
+						}
+						&:nth-child(19) {
+							left: calc(16.66% * 4); top: 50%;
+						}
+						&:nth-child(20) {
+							left: calc(16.66% * 5); top: 50%;
+						}
+						&:nth-child(21) {
+							right: 0px; top: 50%;
+						}
+
+						&:nth-child(22) {
+							left: 0px; top: 75%;
+						}
+						&:nth-child(23) {
+							left: calc(16.66% * 1); top: 75%;
+						}
+						&:nth-child(24) {
+							left: calc(16.66% * 2); top: 75%;
+						}
+						&:nth-child(25) {
+							left: calc(16.66% * 3); top: 75%;
+						}
+						&:nth-child(26) {
+							left: calc(16.66% * 4); top: 75%;
+						}
+						&:nth-child(27) {
+							left: calc(16.66% * 5); top: 75%;
+						}
+						&:nth-child(28) {
+							right: 0px; top: 75%;
+						}
+
+						&:nth-child(29) {
+							left: 0px; bottom: 0px;
+						}
+						&:nth-child(30) {
+							left: calc(16.66% * 1); bottom: 0px;
+						}
+						&:nth-child(31) {
+							left: calc(16.66% * 2); bottom: 0px;
+						}
+						&:nth-child(32) {
+							left: calc(16.66% * 3); bottom: 0px;
+						}
+						&:nth-child(33) {
+							left: calc(16.66% * 4); bottom: 0px;
+						}
+						&:nth-child(34) {
+							left: calc(16.66% * 5); bottom: 0px;
+						}
+						&:nth-child(35) {
+							right: 0px; bottom: 0px;
+						}
+
+
+
+					}
+				}
+			}
+			.decoration {
+				p {
+					&:first-of-type {
+						left: 72.8%; top: 18.75%;
+					}
+					&:nth-of-type(2) {
+						left: 10.1466%; top: 61.875%;
+					}
+					&:nth-of-type(3) {
+						left: 52.77%; top: 87.5%;
+					}
+					&:nth-of-type(4) {
+						left: 40.5%; top: 27.5%;
+					}
+				}
+				.progresses-holder {
+					.progress {
+						&:first-of-type {
+							left: 6.25%; top: 21.875%;
+							@include transform($sx: 0.65, $sy: 0.65);
+						}
+						&:nth-of-type(2) {
+							left: 57.6388%; top: 13.125%;
+							@include transform($sx: 0.5, $sy: 0.5);
+						}
+						&:nth-of-type(3) {
+							left: 86.11%; top: 38.125%;
+							@include transform($sx: 0.5, $sy: 0.5);
+						}
+						&:nth-of-type(4) {
+							left: 39.5833%; top: 87.25%;	
+						}
+					}
+				}
+			}
+			.pieces {
+				position: absolute; left: 0px; top: 0px; z-index: 3;
+				width: 100%; height: 100%;
+				span {
+					display: block; position: absolute; overflow: hidden;
+					background-position: center center; background-repeat: no-repeat; background-size: cover;
+				}
+				.first {
+					right: calc(50% + 354px); bottom: calc(50% + 54px);
+					width: 145px; height: 125px;
+				}
+				.last {
+					left: calc(50% + 315px); bottom: calc(50% - 72px);
+					width: 194px; height: 120px;
+				}
+			}
+			.sliced {
+				overflow: hidden; left: 50%; top: 50%;
+				width: 876px; height: 492px;
+				//background: $color-yankees-blue;
+				@include transform($x: -50%, $y: -50%);
+			}
+			hgroup {
+				position: absolute; right: calc(50% + 20px); top: calc(50% - 50px); z-index: 4;
+				width: 580px;
+				h3 {
+					height: 224px;
+					color: transparent; font-family: $font-book; font-size: 224px; line-height: 224px; letter-spacing: -0.025em; -webkit-text-stroke-color: #E3F607; -webkit-text-stroke-width: 2px;
+				}
+				h4 {
+					position: absolute; left: calc(100% - 120px); bottom: 40px;
+					width: 375px;
+					span {
+						display: block; overflow: hidden;
+						//margin-bottom: 3px; 
+						strong {
+							display: block;
+							//padding: 5px 15px;
+							font-family: $font-medium; font-size: 28px; line-height: 32px; color: $color-white;
+							//background: $color-white;
+						}
+					}
+				}
+			}	
+			.holder {
+				
+			}		
+			&.active {
+				.decoration {
+					@include transition(2000ms cubic-bezier(.645,.045,.355,1));
+					p {
+						span {
+							opacity: 1;
+						}
+					}
+					.stars-holder {
+						.star {
+							@include transform($r: 360deg);
+						}
+					}
+					.boxes-holder {
+						.box {
+							animation: blinking-anim 1000ms ease-in-out forwards;
+							&:nth-last-of-type(2),
+							&:last-of-type {
+								animation-name: blinking-anim-v2;
+							}
+						}
+					}
+					.progresses-holder {
+						.progress {
+							span {
+								animation: filling-anim 2500ms 1500ms ease-in-out forwards;
+								&:first-child {
+									animation: filling-anim 2500ms 1500ms ease-in-out forwards;
+								}
+								&:nth-child(2) {
+									animation-name: filling-anim-v2;
+								}
+								&:nth-child(3) {
+									animation-name: filling-anim-v3;
+								}
+								&:nth-child(4) {
+									animation-name: filling-anim-v4;
+								}
+								&:nth-child(5) {
+									animation-name: filling-anim-v5;
+								}
+								&:nth-child(6) {
+									animation-name: filling-anim-v6;
+								}
+								&:nth-child(7) {
+									animation-name: filling-anim-v7;
+								}
+								&:last-child {
+									margin-right: 0px;
+									animation-name: filling-anim-v8;
+								}									
+							}
+						}
+					}
+				}
+			}
+			&.decade {
+				@include transform($y: 100%);
+				@include transition(2000ms cubic-bezier(.645,.045,.355,1));
+				.holder {
+					position: absolute; left: 0px; top: 0px;
+					width: 100%; height: 100%;
+					text-transform: uppercase;
+					background-position: center; background-size: cover; background-repeat: no-repeat; background-color: $color-white; background-image: url(../../pictures/1.jpg);
+					@include transform($y: -50%);
+					@include transition(2000ms cubic-bezier(.645,.045,.355,1));
+					h3 {
+						position: absolute; left: 194px; top: 156px;
+						font-size: 50px; line-height: 64px; font-family: $font-medium;
+						@include transform($y: 200px);
+						@include transition(2000ms cubic-bezier(.645,.045,.355,1));
+					}
+					article {
+						position: absolute; right: 240px; bottom: 160px;
+						width: 545px;
+						font-family: $font-book;
+						h4 {
+							position: relative;
+							min-height: 86px;
+							font-size: 32px; line-height: 43px;
+						}
+						h5 {
+							position: relative;
+							margin-bottom: 15px;
+							font-size: 15px;
+						}
+						&:before {
+							display: block; position: absolute; top: -120px; right: 0px;
+							-webkit-text-stroke-width: 3px; -webkit-text-stroke-color: #E3F607; color: transparent; font-size: 478px; line-height: 478px; letter-spacing: -50px;
+						}
+					}
+				}
+				&.active {
+					@include transform();
+					.holder {
+						@include transform();
+						h3 {
+							@include transform();
+						}
+					}
+				}
+				&.up {
+					@include transform($y: -100%);
+					.holder {
+						@include transform($y: 50%);
+						h3 {
+							@include transform($y: -200px);
+						}
+					}
+				}
+				&.down {
+					@include transform($y: 100%);
+					.holder {
+						@include transform($y: -50%);
+						h3 {
+							@include transform($y: 200px);
+						}
+					}
+				}
+				.clipper {
+					position: absolute; left: 0px; bottom: 0px; overflow: hidden;
+					width: 100%; height: 80px;
+					background: $color-yankees-blue;
+
+				}
+			}
+			&.year {
+				//background: $color-yankees-blue;
+				@include transition(2000ms cubic-bezier(.645,.045,.355,1));
+				.bgr,
+				.decoration {
+					opacity: 0; 
+					@include transform($sx: 1.5, $sy: 1.5);
+					@include transition(2000ms cubic-bezier(.645,.045,.355,1));
+				}
+				.trigger {
+					@include transform($sx: 0, $sy: 0);
+					@include transition(1000ms 1000ms cubic-bezier(.645,.045,.355,1));
+					span {
+					}
+				}
+				.pieces {
+					opacity: 0; 
+					@include transform($sx: 1.5, $sy: 1.5);
+					@include transition(2000ms cubic-bezier(.645,.045,.355,1));
+				}
+				.sliced {
+					@include transform($sx: 1.2, $sy: 1.2, $x: -50%, $y: -50%);
+					@include transition(2000ms cubic-bezier(.645,.045,.355,1));			
+					&:after {
+						opacity: 0;
+					}		
+				}
+				hgroup {
+					h3 {
+						opacity: 0;
+						@include transition(2000ms cubic-bezier(.645,.045,.355,1));	
+					}
+					h4 {	
+						span {
+							@include transform($y: 100%);
+							@include transition(2000ms cubic-bezier(.645,.045,.355,1));			
+							strong {
+								@include transform($y: -100%);
+								@include transition(2000ms cubic-bezier(.645,.045,.355,1));			
+							}
+						}
+					}
+				}
+				.holder {
+					//position: absolute; left: 
+					.trigger {
+						position: absolute; left: 0%; top: calc(50% + 246px); z-index: 10; display: block; overflow: hidden;
+						width: 78px; height: 78px;
+						border-radius: 50%;
+						@include transform($x: -50%, $y: -50%, $sx: 0, $sy: 0);
+						//@include transition(500ms 250ms cubic-bezier(.645,.045,.355,1));
+						span {
+							display: block; position: absolute; left: 0px; top: 0px;
+							width: 100%; height: 100%;
+							background: #E6FA05;
+							border-radius: 50%;
+							transition: 1000ms cubic-bezier(.645,.045,.355,1) !important;
+							//@include transition(1000ms cubic-bezier(.645,.045,.355,1));
+							&:after {
+								content: "";
+								display: block; position: absolute; left: 50%; top: 50%;
+								width: 36px; height: 22px;
+								background: url(../img/icon-view-1.svg) center no-repeat; background-size: 100% 100%;
+								@include transform($x: -50%, $y: -50%);
+							}
+						}
+					}
+					position: absolute; left: 50%; top: 0;
+					width: 590px; height: 100vh;
+					padding: 0 75px 0 0;
+					@include box-sizing();
+					.content {
+						position: absolute; left: 0%; top: calc(50% + 246px); overflow: auto; z-index: 10;
+						width: 100%; height: 100vh;
+						padding: 284px 0 calc((100vh - 492px) / 2) 0;
+						border-radius: 39px;
+						@include box-sizing();
+						@include visibility();
+						@include transform($x: -50%, $y: -50%, $sx: 0, $sy: 0);
+						@include transition(1000ms cubic-bezier(.645,.045,.355,1));
+						article {
+							position: relative;
+							width: calc(100% - 75px);
+							padding: 56px 122px 56px 70px;
+							//width: 150px; height: 150px;
+							background: $color-white;
+							border-radius: 39px;
+							@include  box-sizing();
+							@include visibility();
+							@include transform();
+							@include transition(border-radius 1000ms cubic-bezier(.645,.045,.355,1), opacity 500ms 500ms cubic-bezier(.645,.045,.355,1));
+							p {
+								margin-bottom: 30px;
+								font-size: 18px; line-height: 30px; color: #525A5F; font-family: $font-book;
+								&:last-child {
+									margin-bottom: 0px;
+								}
+							}
+							.close-btn {
+								display: block; position: absolute; right: 0px; bottom: 0px;
+								width: 150px; height: 150px;
+								color: $color-white; font-family: $font-book; font-size: 18px; line-height: 150px; text-align: center;
+								background: $color-black;
+								border-radius: 50%;
+								@include visibility();
+								@include transform($x: 50%, $y: 50%);
+							}
+						}
+						&::-webkit-scrollbar {
+						    width: 0;
+						    background: transparent;
+						}
+					}
+					&.opened {
+						.trigger {
+							pointer-events: none;
+							span {
+								opacity: 0;
+								background-color: $color-white;
+							}
+						}
+						.content {
+							//width: 590px; height: 100vh;
+							border-radius: 0px;
+							@include transform($x: -115px, $y: calc(-50% - 246px), $sx: 1, $sy: 1);
+							//border-radius: 0px;
+							//transform: translateX(-115px) translateY(calc(-50% - 246px)) scale(1, 1) !important;
+							article {
+								border-radius: 0px;
+							}
+						}
+					}
+				}
+
+
+				&.active {
+					.bgr,
+					.decoration,
+					.pieces  {
+						opacity: 1;
+						@include transform();
+						@include transition(2000ms 1000ms cubic-bezier(.645,.045,.355,1));		
+					}
+					.sliced {
+						@include transform($x: -50%, $y: -50%);
+						@include transition(2000ms 1000ms cubic-bezier(.645,.045,.355,1));	
+						&:after {
+							opacity: 1;
+							@include transition(2000ms 1000ms cubic-bezier(.645,.045,.355,1));	
+						}	
+					}
+					.trigger {
+						@include transform($x: -50%, $y: -50%);
+						@include transition(2000ms 1000ms cubic-bezier(.645,.045,.355,1));
+						span {
+							//@include transform();
+							//@include transition(2000ms 1000ms cubic-bezier(.645,.045,.355,1));		
+						}
+					}
+					hgroup {
+						h3 {
+							opacity: 1;
+							
+						}
+						h4 {	
+							span {
+								@include transform();
+								@include transition(500ms 2000ms cubic-bezier(.645,.045,.355,1));		
+								strong {
+									@include transform();
+									@include transition(500ms 2000ms cubic-bezier(.645,.045,.355,1));		
+								}
+							}
+						}
+					}
+				}
+				&.up {
+					opacity: 0;
+					@include origin(center top);
+					@include transform($sx: 0.5, $sy: 0.5, $y: -50%);
+					.sliced {
+						.tile {
+//							opacity: 1;
+						}
+					}
+					.trigger {
+						@include transform($x: -50%, $y: -50%, $sx: 0, $sy: 0);
+						@include transition(750ms cubic-bezier(.645,.045,.355,1));		
+						span {
+						}
+					}
+					hgroup {
+						opacity: 0;
+						@include transform($y: -50%);
+						@include transition(750ms cubic-bezier(.645,.045,.355,1));	
+					}
+				}
+				&.down {
+					opacity: 0;
+					@include origin(center bottom);
+					@include transform($sx: 0.5, $sy: 0.5, $y: 50%);
+					.sliced {
+						.tile {
+//							opacity: 1;
+						}
+					}
+					.trigger {
+							@include transform($sx: 0, $sy: 0, $x: -50%, $y: -50%);
+							@include transition(750ms cubic-bezier(.645,.045,.355,1));		
+						span {
+						}
+					}
+					hgroup {
+						opacity: 0;
+						@include transform($y: 50%);
+						@include transition(750ms cubic-bezier(.645,.045,.355,1));	
+					}
+				}
+			}
+		}
+	}
+
+	.timeline-bullets {
+		position: absolute; right: 50px; top: 50%;
+		width: 5px; height: 492px;
+		@include transform($y: -50%);
+		.progress {
+			position: absolute; left: 0px; top: 0px;
+			width: 100%; height: 100%;
+			background: #E3F607;
+			@include transform($sy: 0);
+			@include origin(center top);
+			@include transition(2000ms cubic-bezier(.645,.045,.355,1));		
+		}
+		ul {
+			position: absolute; left: 0px; top: 0px; z-index: 3;
+			width: 100%; height: 100%;
+			cursor: pointer;
+			li {
+				position: absolute; left: 50%; top: 0px;
+				width: 32px; height: 32px;
+				cursor: pointer;
+				@include transform($x: -50%, $y: -50%);
+				span {
+					display: block; position: absolute; right: calc(100% + 12px); top: 50%;
+					width: 160px;
+					text-align: right;
+					pointer-events: none;
+					@include transform($y: calc(-50% + 27px));
+					@include transition(500ms cubic-bezier(.645,.045,.355,1));		
+					strong {
+						display: block;
+						margin-bottom: 5px;
+						font-family: $font-medium; font-size: 12px; color: $color-white;
+						@include origin(right center);
+						@include transition(500ms cubic-bezier(.645,.045,.355,1));		
+
+					}
+					em {
+						display: block; opacity: 0;
+						font-style: normal; text-transform: uppercase; font-size: 14px; font-family: $font-book; color: $color-white;
+						@include transition(500ms cubic-bezier(.645,.045,.355,1));		
+					}
+				}
+				&:before {
+					content: "";
+					display: block; position: absolute; left: 0px; top: 0px;
+					width: 100%; height: 100%;
+					background: #E3F607;
+					border-radius: 50%;
+					@include transition(500ms cubic-bezier(.645,.045,.355,1));	
+				}
+				&:after {
+					content: "";
+					display: block; position: absolute; left: 50%; top: 50%;
+					width: 10px; height: 10px;
+					background: $color-yankees-blue;
+					border-radius: 50%;
+					@include transform($x: -50%, $y: -50%);
+					@include transition(500ms cubic-bezier(.645,.045,.355,1));	
+				}	
+				&:nth-child(2) {
+					top: 50%;
+					span {
+						//@include transform($y: calc(-50% + 11px));
+						@include transform($y: calc(-50% + 19px));
+					}
+				}
+				&:nth-child(3) {
+					top: 100%;
+				}
+				&.active {
+					span {
+						@include transform($x: -15px, $y: -50%);
+						strong {
+							color: #E3F607;
+							@include transform($sx: 1.66, $sy: 1.66);
+						}
+						em {
+							opacity: 1;
+						}
+					}
+					&:before {
+						@include transform($sx: 1.6875, $sy: 1.6875);
+					}
+					&:after {
+						@include transform($x: -50%, $y: -50%, $sx: 1.6875, $sy: 1.6875);
+					}
+				}
+			}
+		}
+		&:before {
+			content: "";
+			display: block; position: absolute; left: 0px; top: 0px;
+			width: 100%; height: 100%;
+			background: #0A1F2D;
+		}
+		&.dark {
+			ul {
+				li {
+					span {
+						strong {
+							color: $color-black;
+						}
+						em {
+							color: $color-black;
+						}
+
+					}
+				}
+			}
+		}
+	}
+
+	.switching {
+		.timeline-bullets {
+			ul {
+				li {
+					span {
+						@include transition(2000ms cubic-bezier(.645,.045,.355,1));		
+						strong,
+						em {
+							@include transition(2000ms cubic-bezier(.645,.045,.355,1));		
+						}
+					}
+					&:before,
+					&:after {
+						@include transition(2000ms cubic-bezier(.645,.045,.355,1));	
+					}
+				}
+			}
+		}
+	}
+
+	.desktop {
+		.timeline-bullets {
+			ul {
+				li {
+					&:hover {
+						span {
+							@include transform($x: -15px, $y: -50%);
+							strong {
+								color: #E3F607;
+								@include transform($sx: 1.66, $sy: 1.66);
+							}
+							em {
+								opacity: 1;
+							}
+						}
+						&:before {
+							@include transform($sx: 1.6875, $sy: 1.6875);
+						}
+						&:after {
+							@include transform($x: -50%, $y: -50%, $sx: 1.6875, $sy: 1.6875);
+						}
+					}
+				}
+			}
+			&.dark {
+				ul {
+					li {
+						&:hover {
+							span {
+								strong {
+									color: $color-black;
+								}
+								em {
+									color: $color-black;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	//.init-anim {
+		.active {
+			.sliced {
+				.tile {
+					opacity: 1;
+				    &:first-of-type {
+				    	opacity: 0.5;
+				    }
+				    &:nth-of-type(4),
+				    &:nth-of-type(17) {
+				    	opacity: 0.6;
+				    }
+				    &:nth-of-type(5),
+				    &:nth-of-type(10) {
+				    	opacity: 0.8;
+				    }
+				    &:nth-of-type(8),
+				    &:nth-of-type(11),
+				    &:nth-of-type(13),
+				    &:nth-of-type(20) {
+				    	opacity: 0.7;
+				    }
+				}	
+			}
+		}
+	//}
+
+	
+
+	@keyframes pera {
+		0% {
+			opacity: 0;
+			@include transform();
+		}
+		50% {
+			opacity: 1;
+			@include transform($x: 50vh, $y: -100vh);
+		}
+		100% {
+			opacity: 0;
+			@include transform($x: 100vh, $y: -200vh);
+		}
+	}
+
+	.glow {
+		position: absolute; left: 0px; top: 0px; z-index: 5;
+		width: 100%; height: 100%;
+		pointer-events: none;
+		mix-blend-mode: overlay;
+		span {
+			display: block; position: absolute; opacity: 1;
+			width: 200vh; height: 200vh;
+			background: radial-gradient(closest-side, #ffffff, transparent);
+			@include transition(3000ms ease-in-out);
+			&.left {
+				left: -200vh; bottom: -200vh;
+			}
+			&.right {
+				right: -200vh; bottom: -200vh;
+			}
+		}
+	}
+
+
+	.year {
+		&:nth-of-type(2n + 1) {
+			// hgroup {
+			// 	top: calc(50% - 150px);
+			// 	h4 {
+			// 		top: 70px; bottom: 0px; left: calc(100% - 170px);
+			// 	}
+			// }
+		}
+	}
+
+	.decade {
+		&.first {
+			.holder {
+				article {
+					&:before {
+						content: "01";
+					}
+				}
+			}
+		}
+		&.second {
+			.holder {
+				article {
+					&:before {
+						content: "02";
+					}
+				}
+			}
+		}
+		&.third {
+			.holder {
+				article {
+					&:before {
+						content: "03";
+					}
+				}
+			}
+		}
+	}
+
+	.active {
+		.glow {
+			span {
+				&.left {
+					opacity: 0;
+					@include transform($x: calc(100vw), $y: -200vh);
+					@include transition(2000ms 1000ms cubic-bezier(.645,.045,.355,1));
+				}
+				&.right {
+					opacity: 0;
+					@include transform($x: calc(-100vw), $y: -200vh);
+					@include transition(2000ms 500ms cubic-bezier(.645,.045,.355,1));
+				}
+			}
+		}
+	}
+
+	.portrait {
+		.timeline-holder {
+			section {
+				.decoration {
+					.stars-holder {
+						left: -200px; right: -200px;
+					}
+				}
+				.sliced {
+					width: 1054px; height: 592px;
+				}
+				&.decade {
+					.holder {
+						background-image: url(../../pictures/1-1.jpg);
+						h3 {
+							left: 66px; top: 344px;
+							@include breakpoint(640) {
+								left: 30px; top: 140px;
+								width: 260px;
+								font-size: 40px; line-height: 56px;
+							}
+						}
+						article {
+							right: 66px; left: 66px; bottom: 80px; 
+							width: auto;
+							@include breakpoint(640) {
+								left: 30px; bottom: 50px;
+							}
+							&:before {
+								top: auto; bottom: -110px; left: 0px; right: auto;
+								font-size: 348px; line-height: 348px; letter-spacing: -0.1em;
+							}
+						}
+					}
+					.clipper { 
+						display: none;
+					}
+				}
+				&.year {
+					hgroup {
+						right: calc(50% - 60px); top: calc(50% - 80px);
+						width: 440px;
+						@include breakpoint(640) {
+							right: auto; left: 0px;
+						}
+						h3 {
+							height: 205px;
+							font-size: 205px; line-height: 205px;
+							@include breakpoint(640) {
+								height: 122px;
+								font-size: 122px; line-height: 122px; 
+							}
+						}
+						h4 {
+							left: 145px; top: calc(100% - 20px); bottom: auto;
+							@include breakpoint(640) {
+								left: 30px; top: calc(100% - 10px);
+								font-size: 20px; line-height: 23px;
+							}
+						}
+					}
+					.holder {
+						.trigger {
+							top: calc(50% + 296px);
+							@include breakpoint(640) {
+								top: calc(50% + 192px);
+								width: 60px; height: 60px;
+								span {
+									&:after {
+										width: 28px;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			&:after {
+				content: "";
+				display: block; position: absolute; left: -9999px; top: 0px; z-index: 99; opacity: 0;
+				width: 100%; height: 100%;
+				background: rgba($color-black, 0.65);
+				@include transition(left 0ms 675ms, opacity 500ms 175ms cubic-bezier(0.215, 0.610, 0.355, 1.000));
+			}
+			&.faded {
+				&:after {
+					left: 0px; opacity: 1;
+					@include transition(left 0ms, opacity 500ms cubic-bezier(0.215, 0.610, 0.355, 1.000));
+				}
+			}
+		}
+		.timeline-bullets {
+			right: 22px; width: 22px;
+			height: 592px;
+			@include transition(500ms 175ms cubic-bezier(0.215, 0.610, 0.355, 1.000));
+			@include breakpoint(640) {
+				right: 0px;
+			}
+			ul {
+				li {
+					top: 0px; left: 0px; 
+					width: 22px; height: calc(33.33% - 8px);
+					background: #0A1F2D;
+					@include transform();
+					span {
+						right: 0px; top: 0px;
+						width: 120px;
+						padding: 16px 12px 24px 20px;
+						//@include micro-clearfix();
+						@include box-sizing();
+						@include transform();
+						strong {
+						    float: right; position: relative;
+						    line-height: 22px; color: $color-white;
+						    @include origin(right bottom);
+						    @include transform($r: -90deg, $x: 12px, $y: -16px);
+						   	@include transition(500ms 175ms cubic-bezier(0.215, 0.610, 0.355, 1.000));
+						}
+						em {
+							position: relative; clear: both;
+							font-size: 10px; line-height: 16px; color: $color-white;
+							@include transform($x: 12px);
+							@include transition(500ms cubic-bezier(0.215, 0.610, 0.355, 1.000));
+						}
+						&:before {
+							content: "";
+							display: block; position: absolute; right: 0px; top: 0px;
+							width: 22px; height: 115px;
+							background: #E6FA05;
+							@include origin(center right);
+							@include transform($sx: 0);
+							//@include transform($sx: 0);
+							@include transition(500ms 175ms cubic-bezier(0.215, 0.610, 0.355, 1.000));
+						}
+					}
+					&:before {
+						content: "";
+						display: block; position: absolute; right: 0px; top: 0px;
+						width: 22px; height: 100%;
+						background: #0A1F2D;
+						border-radius: 0px;
+						@include origin(center right);
+						//@include transform($sx: 0);
+						@include transition(500ms 175ms cubic-bezier(0.215, 0.610, 0.355, 1.000));
+					}
+					&:after {
+						display: none;
+					}
+					&:nth-child(2) {
+						top: calc(33.33% + 4px);
+					}
+					&:nth-child(3) {
+						top: auto; bottom: 0px;
+					}
+					&.active {
+						span {
+							@include transform();
+							strong {
+								color: $color-black;
+								@include transform($r: -90deg, $x: 12px, $y: -16px);
+							}
+							em {
+								opacity: 0;
+								color: $color-black;
+							}
+							&:before {
+								@include transform();
+							}
+						}
+						&:before {
+							@include transform();
+						}
+					}
+				}
+			}
+			.progress {
+				display: none;
+			}
+			&:before {
+				display: none;
+			}
+			&.expanded {
+				@include transform($x: 22px, $y: -50%);
+				@include transition(500ms cubic-bezier(0.215, 0.610, 0.355, 1.000));
+				@include breakpoint(640) {
+					@include transform($y: -50%);
+				}
+				ul {
+					li {
+						span {
+							strong {
+								@include transform();
+								@include transition(500ms cubic-bezier(0.215, 0.610, 0.355, 1.000));
+							}
+							em {
+								opacity: 1;
+								@include transform();
+								@include transition(500ms 175ms cubic-bezier(0.215, 0.610, 0.355, 1.000));
+							}
+						}
+						&.active {
+							span {
+								&:before {
+									@include transform($sx: 5.45);
+									@include transition(500ms cubic-bezier(0.215, 0.610, 0.355, 1.000));
+								}
+							}
+						}
+						&:before {
+							@include transform($sx: 5.45);
+							@include transition(500ms cubic-bezier(0.215, 0.610, 0.355, 1.000));
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.content-popup {
+		position: absolute; left: 0px; top: 0px; z-index: 9999;
+		width: 100%; height: 100%;
+		@include transform($y: 100%);
+		@include transition(1000ms cubic-bezier(.645,.045,.355,1));
+		.content {
+			height: 100vh; overflow: auto;
+			padding-top: 75vh;
+			@include box-sizing();
+			@include breakpoint(640) {
+				padding-top: 25vh;
+			}
+			article {
+				position: relative;
+				min-height: 25vh;
+				padding: 80px 80px 40px;
+				background: $color-white;
+				@include breakpoint(640) {
+					min-height: 75vh;
+					padding: 150px 30px;
+				}
+				p {
+					margin-bottom: 22px;
+					font-family: $font-book; font-size: 16px; line-height: 22px;
+					&:last-child {
+						margin-bottom: 0px;
+					}
+				}
+				.close-btn {
+					display: none !important;
+				}
+				&:before {
+					content: "";
+					display: block; position: absolute; left: 50%; top: 18px;
+					width: 96px; height: 4px;
+					background: $color-black;
+					border-radius: 2px;
+					@include transform($x: -50%);
+				}
+			}
+		}
+		.close-btn {
+			position: absolute; right: 30px; top: 40px; display: none; z-index: 2;
+			width: 20px; height: 20px;
+			text-indent: -9999px;
+			background: url(../img/icon-close.svg) center no-repeat; background-size: 100% 100%;
+			outline: none;
+		}
+		&.opened {
+			@include transform();
+		}
+		&.tablet {
+			.close-btn {
+				display: none;
+			}
+		}
+	}
+
+	body {
+		&:after {
+			content: "";
+			display: block; position: absolute; left: -9999px; top: 0px; z-index: 9998; opacity: 0;
+			width: 100%; height: 100%;
+			background: rgba($color-black, 0.65);
+			@include transition(left 0ms 1000ms, opacity 1000ms cubic-bezier(.645,.045,.355,1));
+		}
+		&.faded {
+			&:after {
+				left: 0px; opacity: 1;
+				@include transition(left 0ms, opacity 500ms cubic-bezier(.645,.045,.355,1));
+			}
+		}
+	}
