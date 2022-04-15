@@ -906,10 +906,10 @@
 			}
 		}
 	}
-
+    
 	.timeline-bullets {
 		position: absolute; right: 50px; top: 50%;
-		width: 5px; height: 492px;
+		width: 5px; height: 360px;
 		line-height: normal;
 		@include transform($y: -50%);
 		.progress {
@@ -1019,6 +1019,12 @@
 			}
 		}
 	}
+    
+    @media (min-height: 750px) {
+        .timeline-bullets {
+            height: 492px;
+        }
+    }
 
 	.switching {
 		.timeline-bullets {
