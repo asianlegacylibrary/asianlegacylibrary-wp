@@ -1,6 +1,198 @@
 /*
-= HOME PAGE
+= TIMELINE
 ------------------------------------------------------------------------------------- */
+
+	.not-ios-chrome {
+		.test {
+			&:after {
+				content: "";
+				position: absolute; top: -50%; left: -50%; right: -50%; bottom: -50%; 
+				width: 200%; height: 200vh;
+				background: url(../img/noise.png) left top repeat; 
+				animation: noise-anim 200ms infinite;
+				@include transition(2000ms cubic-bezier(.645,.045,.355,1));	
+			}
+		}
+		.active {
+			.test {
+				&:after {
+					opacity: 1;
+					@include transition(2000ms cubic-bezier(.645,.045,.355,1));	
+				}
+			}
+		}
+	}
+
+	
+	.decade {
+		& + .year {
+			&:not(.up) { 
+				.sliced {
+					&:after {
+						opacity: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.timeline-holder {
+		.sliced {
+		    position: absolute; left: 0px; top: 0px; opacity: 1; z-index: 2; overflow: hidden;
+		    width: 100%; height: 100%;
+		     -webkit-mask-image: -webkit-radial-gradient(white, black);
+		    &:after {
+		    	//opacity: 0;
+		    }
+		    img {
+		    	display: block; position: absolute; left: 50%; top: 50%;
+		    	min-width: 100%; min-height: 100%;
+		    	@include transform($x: -50%, $y: -50%);
+		    }
+			.tile { 
+			    float: left; opacity: 0; overflow: hidden;
+			    -webkit-mask-image: -webkit-radial-gradient(white, black);
+			    @include visibility();
+			    @include transition(1500ms cubic-bezier(0.645, 0.045, 0.355, 1.000));
+			    @include transition-property(opacity);
+			    &:nth-of-type(6) {
+			    	@include transition-delay(100ms);
+			    }
+			    &:nth-of-type(13) {
+			    	@include transition-delay(200ms);
+			    }
+			    &:nth-of-type(12) {
+			    	@include transition-delay(300ms);
+			    }
+			    &:nth-of-type(7) {
+			    	@include transition-delay(400ms);
+			    }
+			    &:nth-of-type(11) {
+			    	@include transition-delay(500ms);
+			    }    
+			    &:nth-of-type(8) {
+			    	@include transition-delay(600ms);
+			    }
+			    &:nth-of-type(5) {
+			    	@include transition-delay(700ms);
+			    }
+			    &:nth-of-type(4) {
+			    	@include transition-delay(800ms);
+			    }    
+			    &:nth-of-type(9) {
+			    	@include transition-delay(900ms);
+			    }
+			    &:nth-of-type(2) {
+			    	@include transition-delay(1000ms);
+			    }
+			    &:nth-of-type(14) {
+			    	@include transition-delay(1100ms);
+			    }
+			    &:nth-of-type(16) {
+			    	@include transition-delay(1200ms);
+			    }
+			    &:nth-of-type(3) {
+			    	@include transition-delay(1300ms);
+			    }
+			    &:nth-of-type(15) {
+			    	@include transition-delay(1400ms);
+			    }
+			    &:nth-of-type(10) {
+			    	@include transition-delay(1500ms);
+			    }
+			    &:nth-of-type(16) {
+			    	@include transition-delay(1500ms);
+			    }
+			    &:nth-of-type(17) {
+			    	@include transition-delay(900ms);
+			    }
+			    &:nth-of-type(18) {
+			    	@include transition-delay(350ms);
+			    }
+			    &:nth-of-type(19) {
+			    	@include transition-delay(1200ms);
+			    }
+			    &:nth-of-type(20) {
+			    	@include transition-delay(100ms);
+			    }
+			    &:first-of-type {
+			    	@include transition-delay(1600ms);
+			    }    
+			}  
+		}
+	}
+
+	.timeline-holder {
+		.active {
+			.sliced {
+				.tile { 
+				    &:nth-of-type(6) {
+				    	@include transition-delay(1100ms);
+				    }
+				    &:nth-of-type(13) {
+				    	@include transition-delay(1200ms);
+				    }
+				    &:nth-of-type(12) {
+				    	@include transition-delay(1300ms);
+				    }
+				    &:nth-of-type(7) {
+				    	@include transition-delay(1400ms);
+				    }
+				    &:nth-of-type(11) {
+				    	@include transition-delay(1500ms);
+				    }    
+				    &:nth-of-type(8) {
+				    	@include transition-delay(1600ms);
+				    }
+				    &:nth-of-type(5) {
+				    	@include transition-delay(1700ms);
+				    }
+				    &:nth-of-type(4) {
+				    	@include transition-delay(1800ms);
+				    }    
+				    &:nth-of-type(9) {
+				    	@include transition-delay(1900ms);
+				    }
+				    &:nth-of-type(2) {
+				    	@include transition-delay(2000ms);
+				    }
+				    &:nth-of-type(14) {
+				    	@include transition-delay(2100ms);
+				    }
+				    &:nth-of-type(16) {
+				    	@include transition-delay(2200ms);
+				    }
+				    &:nth-of-type(3) {
+				    	@include transition-delay(2300ms);
+				    }
+				    &:nth-of-type(15) {
+				    	@include transition-delay(2400ms);
+				    }
+				    &:nth-of-type(10) {
+				    	@include transition-delay(2500ms);
+				    }
+				    &:nth-of-type(16) {
+				    	@include transition-delay(1500ms);
+				    }
+				    &:nth-of-type(17) {
+				    	@include transition-delay(1900ms);
+				    }
+				    &:nth-of-type(18) {
+				    	@include transition-delay(1350ms);
+				    }
+				    &:nth-of-type(19) {
+				    	@include transition-delay(2200ms);
+				    }
+				    &:nth-of-type(20) {
+				    	@include transition-delay(1100ms);
+				    }
+				    &:first-of-type {
+				    	@include transition-delay(2600ms);
+				    }    
+				}
+			}  
+		}
+	}
 
 	@keyframes blinking-anim {
 		0% { opacity: 0; }
@@ -76,8 +268,9 @@
 	}
 
 	.timeline-holder {
-		position: fixed; left: 0px; top: 0px;
+		left: 0px; top: 0px;
 		width: 100%; height: 100%;
+		line-height: normal;
 		background: $color-yankees-blue;
 		section {
 			position: absolute; left: 0px; top: 0px; overflow: hidden;
@@ -559,7 +752,7 @@
 							}
 						}
 					}
-					position: absolute; left: 50%; top: 0;
+					position: absolute; left: 50%; top: 0; z-index: 9998;
 					width: 590px; height: 100vh;
 					padding: 0 75px 0 0;
 					@include box-sizing();
@@ -717,6 +910,7 @@
 	.timeline-bullets {
 		position: absolute; right: 50px; top: 50%;
 		width: 5px; height: 492px;
+		line-height: normal;
 		@include transform($y: -50%);
 		.progress {
 			position: absolute; left: 0px; top: 0px;
@@ -752,7 +946,7 @@
 					}
 					em {
 						display: block; opacity: 0;
-						font-style: normal; text-transform: uppercase; font-size: 14px; font-family: $font-book; color: $color-white;
+						font-style: normal; text-transform: uppercase; font-size: 14px; font-family: $font-book; color: $color-white; line-height: normal;
 						@include transition(500ms cubic-bezier(.645,.045,.355,1));		
 					}
 				}
@@ -1073,6 +1267,7 @@
 						}
 					}
 					.holder {
+						z-index: auto;
 						.trigger {
 							top: calc(50% + 296px);
 							@include breakpoint(640) {
@@ -1103,7 +1298,7 @@
 			}
 		}
 		.timeline-bullets {
-			right: 22px; width: 22px;
+			right: 22px; width: 22px; z-index: 9997;
 			height: 592px;
 			@include transition(500ms 175ms cubic-bezier(0.215, 0.610, 0.355, 1.000));
 			@include breakpoint(640) {
@@ -1271,11 +1466,30 @@
 			}
 		}
 		.close-btn {
-			position: absolute; right: 30px; top: 40px; display: none; z-index: 2;
+			position: absolute; right: 34px; top: 42px; z-index: 2;
 			width: 20px; height: 20px;
 			text-indent: -9999px;
-			background: url(../img/icon-close.svg) center no-repeat; background-size: 100% 100%;
 			outline: none;
+			&:before,
+			&:after {
+				content: "";
+				display: block; position: absolute; left: 0px; top: 0px;
+				width: 100%; height: 100%;	
+				background: url(../img/icon-close-light.svg) center no-repeat; background-size: 100% 100%;
+				@include transition(350ms ease-in-out);
+			}
+			&:after {
+				opacity: 0;
+				background-image: url(../img/icon-close.svg);
+			}
+			&.dark {
+				&:before {
+					opacity: 0;
+				}
+				&:after {
+					opacity: 1;
+				}
+			}
 		}
 		&.opened {
 			@include transform();
@@ -1292,7 +1506,7 @@
 			content: "";
 			display: block; position: absolute; left: -9999px; top: 0px; z-index: 9998; opacity: 0;
 			width: 100%; height: 100%;
-			background: rgba($color-black, 0.65);
+			background: rgba($color-black, 0.8);
 			@include transition(left 0ms 1000ms, opacity 1000ms cubic-bezier(.645,.045,.355,1));
 		}
 		&.faded {

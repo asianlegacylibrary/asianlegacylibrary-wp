@@ -162,6 +162,8 @@
 		}
 	}
 
+	
+
 	body{
 		&.going-down{
 			header{
@@ -895,6 +897,29 @@
 					-ms-transform: none !important;
 					-o-transform: none !important;
 					transform: none !important;
+				}
+			}
+		}
+	}
+
+	body {
+		&.switching.page-template-tpl_timeline {
+			header {
+				.holder {
+					.logo {
+						> span {
+							@include transition(2000ms cubic-bezier(.645,.045,.355,1));
+						}
+					}
+					nav  {
+						.main-nav {
+							li {
+								a {
+									@include transition(2000ms cubic-bezier(.645,.045,.355,1));				
+								}
+							}
+						}
+					}
 				}
 			}
 		}
