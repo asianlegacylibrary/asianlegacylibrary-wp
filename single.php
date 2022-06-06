@@ -19,11 +19,6 @@
 
 			<main>
 				<div class="entry">
-					<?php if ( has_excerpt() ) : ?>
-					<div class="post-excerpt">
-						<?php the_excerpt(); ?>
-					</div>
-					<?php endif; ?>
 					<?php /* if ( has_post_thumbnail() ) { ?>
 					<figure class="featured-image">
 						<img src="<?php echo $featured_img_url; ?>" alt="<?php the_title(); ?>">
