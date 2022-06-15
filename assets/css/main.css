@@ -8061,3 +8061,7 @@ body.page.init-anim .page-hero .sliced .tile {
     margin-top: -40px; }
   .wp-block-columns.images-no-margin .wp-block-image {
     margin-bottom: 0; }
+
+ul.child-categories {
+  padding: 20px;
+}

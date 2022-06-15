@@ -16,21 +16,45 @@ if (!is_active_sidebar('sidebar-1')) {
 		<h3><?php _e('Categories','all_wp_theme'); ?></h3>
 		<ul class="category-list">
 		<?php
-		$categories = get_categories( array(
+
+		$parentCategories = get_categories( array(
 			'orderby' => 'name',
-			'order'   => 'ASC'
+			'order'   => 'ASC',
+            'parent'  => 0
 		) );
 
-		foreach( $categories as $category ) {
-			$category_link = sprintf( 
+		foreach ($parentCategories as $category) {
+            $categoryClass = 'category-id-' . $category->term_id;
+			$categoryLink = sprintf(
 				'<a href="%1$s" alt="%2$s">%3$s</a>',
 				esc_url( get_category_link( $category->term_id ) ),
 				esc_attr( sprintf( __( '%s', 'all_wp_theme' ), $category->name ) ),
 				esc_html( $category->name )
 			);
+            $childCategoryLinks = [];
+            $childCategories = get_categories( array(
+                'orderby' => 'name',
+                'order'   => 'ASC',
+                'parent'  => $category->term_id
+            ) );
+            if (!empty($childCategories)) {
+                foreach ($childCategories as $childCategory) {
+                    $childCategoryLinks[] = sprintf(
+                        '<a href="%1$s" alt="%2$s">%3$s</a>',
+                        esc_url( get_category_link( $childCategory->term_id ) ),
+                        esc_attr( sprintf( __( '%s', 'all_wp_theme' ), $childCategory->name ) ),
+                        esc_html( $childCategory->name )
+                    );
+                }
+            }
+            $childCategoryHtml = '';
+            if (!empty($childCategoryLinks)) {
+                $childCategoryHtml = '<ul class="child-categories"><li>' . implode('</li><li>', $childCategoryLinks) . '</li></ul>';
+            }
+			echo '<li class="' . $categoryClass . '">' . sprintf( esc_html__( '%s', 'all_wp_theme' ), $categoryLink ) . $childCategoryHtml . '</li> ';
+		}
 
-			echo '<li>' . sprintf( esc_html__( '%s', 'all_wp_theme' ), $category_link ) . '</li> ';
-		} ?>
+        ?>
 		</ul>
 	</div>
 
