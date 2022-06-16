@@ -13,7 +13,7 @@ define('THEME_ASSETS', get_template_directory_uri() . '/assets/');
 function enqueueStylesAndScripts() {
     
     // STYLES
-    wp_register_style('main', THEME_ASSETS . 'css/main.css');
+    wp_register_style('main', THEME_ASSETS . 'css/main.css', false, '1.0');
     wp_enqueue_style('main');
     
     // FOOTER SCRIPTS
