@@ -38,28 +38,38 @@
 						</a></li>
 					</ul>
 				</div>
-				<?php 
-					$categories = get_the_category($post->ID);?>
-					<?php 
-						$category_ids = array();
-						foreach($categories as $individual_category) $category_ids[] = $individual_category->term_id;
-						$args=array(
-							'category__in' => $category_ids,
-							'post__not_in' => array($post->ID),
-							'posts_per_page'=> 2
-						);
-						$RelatedPosts = new wp_query( $args );
-					if( $RelatedPosts->have_posts() ) : ?>
+				<?php
+
+                    $excludePostIds = array($post->ID);
+					$categories = get_the_category($post->ID);
+                    $categoryIds = array();
+                    foreach ($categories as $individual_category) {
+                        $categoryIds[] = $individual_category->term_id;
+                    }
+                    $args = array(
+                        'category__in' => $categoryIds,
+                        'posts_per_page' => 3
+                    );
+                    $relatedPosts = new wp_query( $args );
+                    $shownStories = 0;
+
+					if ( $relatedPosts->have_posts() ) : ?>
 						<div class="related-posts">
 							<h3><?php _e('Related Stories','all_wp_theme'); ?></h3>
 							<div class="blog-roll">
-								<?php while ($RelatedPosts->have_posts()) :  $RelatedPosts->the_post(); ?>
+								<?php while ($relatedPosts->have_posts()) :  $relatedPosts->the_post(); ?>
+                                    <?php if ($shownStories > 1) { continue; } ?>
+                                    <?php if (in_array(get_the_ID(), $excludePostIds)) { continue; } ?>
 									<?php echo get_template_part('partials/item','news'); ?>
+                                    <?php $shownStories ++; ?>
 								<?php endwhile; ?>
 							</div>
 						</div>
 					<?php endif;
-				wp_reset_postdata(); ?>
+
+				    wp_reset_postdata();
+
+                ?>
 				<script type="text/javascript">
 					function GetReferrer() {
 						var preUrl = document.referrer;
