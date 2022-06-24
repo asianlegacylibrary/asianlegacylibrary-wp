@@ -12,12 +12,14 @@ require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'inits' . DIRECTORY_SEPAR
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'inits' . DIRECTORY_SEPARATOR . 'acf.php';
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'inits' . DIRECTORY_SEPARATOR . 'loadmore.php';
 
+
 /**
  * Register widget area.
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-function the_theme_widgets_init() {
+function the_theme_widgets_init()
+{
 	register_sidebar( array(
 		'name'          => 'Sidebar',
 		'id'            => 'sidebar-1',
@@ -37,7 +39,8 @@ add_theme_support('post-thumbnails');
  *  Remove all the filters and actions from
  * the /wp-includes/default-filters.php file 
  **/
-	function microdot_remove_emoji_support() {
+	function microdot_remove_emoji_support()
+    {
 		remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
 		remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
 		remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
@@ -51,7 +54,8 @@ add_theme_support('post-thumbnails');
 
 	// Remove the `wp_emoji` plugin added to TinyMCE in
 	// the /wp-includes/class-wp-editor.php file
-	function microdot_remove_emoji_from_tinymce( $plugins ) {
+	function microdot_remove_emoji_from_tinymce( $plugins )
+    {
 		$key = array_search( 'wpemoji', $plugins );
 
 		if( $key !== false ) {
@@ -64,7 +68,8 @@ add_theme_support('post-thumbnails');
 
 	// Removed the DNS prefetch for the Emoji CDN via the filter found in
 	// the /wp-includes/general-template.php file
-	function microdot_filter_wp_resource_hints( $urls, $relation_type ) {
+	function microdot_filter_wp_resource_hints( $urls, $relation_type )
+    {
 		if( $relation_type === 'dns-prefetch') {
 			$key = array_search( 'https://s.w.org/images/core/emoji/2/svg/', $urls );
 			if( $key !== false ) {
@@ -77,13 +82,15 @@ add_theme_support('post-thumbnails');
 	add_filter('wp_resource_hints', 'microdot_filter_wp_resource_hints', 999, 2);
 
     // Move Yoast to bottom
-    function yoasttobottom() {
+    function yoasttobottom()
+    {
         return 'low';
     }
     add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
 
 	// Limit except length to 125 characters.
-	function get_excerpt( $count ) {
+	function get_excerpt( $count )
+    {
 		$permalink = get_permalink($post->ID);
 		$excerpt = get_the_content();
 		$excerpt = strip_tags($excerpt);
@@ -93,4 +100,44 @@ add_theme_support('post-thumbnails');
 		return $excerpt;
 	}
 
-?>
+    function wpPostsByCategory($atts)
+    {
+        extract( shortcode_atts( array( 'num_posts' => 2 ), $atts, 'num_posts' ) );
+        extract( shortcode_atts( array( 'category_id' => 75 ), $atts, 'category_id' ) );
+
+        // the query
+        $the_query = new WP_Query( array(
+            'cat' => $category_id,
+            'posts_per_page' => $num_posts
+        ) );
+
+        $string = '<div><br><h3>Related stories</h3></div>';
+        $string .= '<div class="blog-roll ts-fn-ln-114">';
+        // The Loop
+        if ( $the_query->have_posts() ) {
+            while ( $the_query->have_posts() ) {
+                $the_query->the_post();
+                $string .= '<article id="recent-post-' . get_the_ID() . '" class="ts-fn-ln-120">';
+                $string .= '<span class="meta">' . get_the_author() . ' - ' . get_the_time('jS M') . '</span>';
+                if ( has_post_thumbnail() ) {
+                    $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'small');
+                    $string .= '<figure class="has-image">';
+                    $string .= '<a href="' . get_the_permalink() . '" class="inner-post-thumbnail" style="background-image:url(' . $featured_img_url . ');"></a>';
+                    $string .= '</figure>';
+                }
+                $string .= '<h3><a href="' . get_the_permalink() .'" rel="bookmark">' . get_the_title() .'</a></h3>';
+                $string .= '</article>';
+            }
+
+            /* Restore original Post Data */
+            wp_reset_postdata();
+        } else {
+            // no recent posts found
+            $string .= '<div>No Recent Posts Found</div>';
+        }
+        $string .= '</div>';
+
+        return $string;
+    }
+    // Add a shortcode
+    add_shortcode('category_posts', 'wpPostsByCategory');
