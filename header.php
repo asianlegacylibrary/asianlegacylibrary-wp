@@ -34,6 +34,15 @@
 	})(window,document,'script','dataLayer','GTM-M7XFXCC');</script>
 	<!-- End Google Tag Manager -->
 
+    <!-- Global site tag (gtag.js) - Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10892327433"> </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js' , new Date() );
+        gtag('config', 'AW-10892327433');
+    </script>
+
 </head>
 
 <body <?php body_class(); ?>>
