@@ -34,7 +34,7 @@ function enqueueStylesAndScripts() {
     wp_enqueue_script('imagesloaded');
     wp_register_script('test', THEME_ASSETS . 'js/libs/test.js', FALSE, '1.11.0', TRUE);
     wp_enqueue_script('test');
-    wp_register_script('loadmore', THEME_ASSETS . 'js/load-more.js', FALSE, '1.11.0', TRUE);
+    wp_register_script('loadmore', THEME_ASSETS . 'js/load-more.js', FALSE, '1.11.1', TRUE);
     wp_enqueue_script('loadmore');
 	
     wp_register_script('init', THEME_ASSETS . 'js/init.js', array(), false, true);
