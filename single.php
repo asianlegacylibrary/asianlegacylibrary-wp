@@ -9,7 +9,7 @@
 		<div class="news-top">
 			
 			<div class="news-top-inner">
-				<small class="meta">HI <?php the_author(); ?> - <?php the_time('jS F Y'); ?></small>
+				<small class="meta"><?php the_author(); ?> - <?php the_time('jS F Y'); ?></small>
 				<h1><?php the_title(); ?></h1>
 			</div>
 		
