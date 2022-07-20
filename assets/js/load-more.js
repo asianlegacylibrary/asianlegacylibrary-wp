@@ -28,7 +28,7 @@ $(document).ready(function () {
                     'visibility': 'hidden',
                 });
                 $('.blog-roll').append(response);
-                postOffset += 6;
+                postOffset += 12;
                 if ($('.blog-roll article').length >= $('.blog-roll').data('counter')) {
                     $('.load-more').css('display', 'none');
                 }

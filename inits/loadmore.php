@@ -15,7 +15,7 @@
 			$args = array(
 				'post_type' 		=> 'post',
 				'cat' 				=> $id,
-				'posts_per_page' 	=> 6,
+				'posts_per_page' 	=> 12,
 				'offset' 			=> $offset,
 			);
 
@@ -24,7 +24,7 @@
 			$args = array(
 				'post_type' 		=> 'post',
 				'tag_id' 			=> $id,
-				'posts_per_page' 	=> 6,
+				'posts_per_page' 	=> 12,
 				'offset' 			=> $offset,
 			);
 
@@ -32,7 +32,7 @@
 
 			$args = array(
 				'post_type' 		=> 'post',
-				'posts_per_page' 	=> 6,
+				'posts_per_page' 	=> 12,
 				'offset' 			=> $offset,
 			);
 
@@ -40,7 +40,7 @@
 
 			$args = array(
 				'post_type' 		=> 'post',
-				'posts_per_page' 	=> 6,
+				'posts_per_page' 	=> 12,
 				'offset' 			=> $offset,
 				'meta_key' 			=> 'popular_posts',
 				'orderby' 			=> 'meta_value_num',
