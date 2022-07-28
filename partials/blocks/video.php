@@ -31,9 +31,9 @@ $external_video_platform 	= get_field('external_video_platform');
 $video_url_bits = explode('/', $external_video_url);
 $video_id = end($video_url_bits);
 $video_url = "https://player.vimeo.com/video/". $video_id . "?"; # note that the ? is necessary even when you have no params
-# echo var_dump('video_url', $video_url);
 
-# we replace the $external_video (which was iframe) with our iframe with the video_url 
+# we replace the $external_video (which was the embed code from vimeo, an iframe)
+# with the iframe we create using the video_url 
 
 
 ?>
@@ -43,7 +43,6 @@ $video_url = "https://player.vimeo.com/video/". $video_id . "?"; # note that the
 		<?php if($external_video) : ?>
 		<div class="video">
 			<div class="external-video">
-				<!--<?php #echo $external_video; ?> -->
 				<iframe src="<?php echo $video_url; ?>" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 			</div>
 			<span class="with-effect" style="background-image: url(<?php echo $poster_image['url']; ?>)"><span class="play"></span></span>
