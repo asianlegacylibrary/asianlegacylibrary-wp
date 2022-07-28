@@ -31,7 +31,7 @@ $external_video_platform 	= get_field('external_video_platform');
 $video_url_bits = explode('/', $external_video_url);
 $video_id = end($video_url_bits);
 $video_url = "https://player.vimeo.com/video/". $video_id . "?";
-echo var_dump('video_url', $video_url);
+# echo var_dump('video_url', $video_url);
 
 # we replace the $external_video (which was iframe) with our iframe with the video_url 
 
