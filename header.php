@@ -61,6 +61,18 @@
         /></noscript>
     <!-- End Facebook Pixel Code -->
     
+	<!-- 
+		MAILCHIMP POP-UP Code
+		Popup created and maintained in Mailchimp. Limited customizability but should be fine for our purposes.
+	-->
+	<script id="mcjs">
+		!function(c,h,i,m,p)
+		{
+			m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)
+		}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/1b327336d6024b90615b2dd07/837ed7c2f3396b460e2c6d191.js");
+	</script>
+    <!-- End Mailchimp pop-up code --> 
+
 </head>
 
 <body <?php body_class(); ?>>
