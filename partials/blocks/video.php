@@ -34,7 +34,7 @@ $video_url = "https://player.vimeo.com/video/". $video_id . "?"; # note that the
 
 # we replace the $external_video (which was the embed code from vimeo, an iframe)
 # with the iframe we create using the video_url 
-
+# THIS IS THE NEW THINGS!
 
 ?>
 
