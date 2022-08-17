@@ -28,6 +28,7 @@
 				'acf/imageheading',
 				'acf/darkwrapper',
 				'acf/customvideo',
+				'acf/custombutton',
 				'acf/textualcontent'
 			);
 		}
@@ -46,6 +47,7 @@
 				'core/list',
 				'acf/slider',
 				'acf/customvideo',
+				'acf/custombutton',
 				'acf/textualcontent'
 			);
 		}
@@ -145,6 +147,20 @@
 			'category'          => 'layout',
 			'icon'              => 'video-alt3',
 			'keywords'          => array( 'video', 'image', 'media' ),
+			'supports' 			=> array(
+				'align' => true,
+			),
+		));
+
+		acf_register_block_type(array(
+			'name'              => 'custombutton',
+			'title'             => __('Custom ALL Button'),
+			'description'       => __('A custom button block.'),
+			'render_template'   => 'partials/blocks/buttony-button.php',
+			'post_types' 		=> array('page','post'),
+			'category'          => 'layout',
+			'icon'              => 'video-alt3',
+			'keywords'          => array( 'text', 'content' ),
 			'supports' 			=> array(
 				'align' => false,
 			),

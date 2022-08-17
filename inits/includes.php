@@ -15,8 +15,11 @@ function enqueueStylesAndScripts() {
     // STYLES
     wp_register_style('main', THEME_ASSETS . 'css/main.css', false, '1.0');
     wp_enqueue_style('main');
+
+    wp_register_style('child-style', THEME_ASSETS . 'css/asianlegacylibrary-styles.css', false, '1.0');
+    wp_enqueue_style('child-style');
     
-    // FOOTER SCRIPTS
+    // FOOTER SCRIPTS2
     wp_deregister_script('jquery'); 
     wp_register_script('jquery', THEME_ASSETS . 'js/libs/jquery.min.js', FALSE, '1.11.0', TRUE);
     wp_enqueue_script('jquery');
