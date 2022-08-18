@@ -152,6 +152,7 @@
 			),
 		));
 
+		# registering a new btn block ---------------------
 		acf_register_block_type(array(
 			'name'              => 'custombutton',
 			'title'             => __('Custom ALL Button'),
