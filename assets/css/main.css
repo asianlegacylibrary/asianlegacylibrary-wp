@@ -1388,6 +1388,9 @@ select:-webkit-autofill:active {
 .mobile.landscape body.page-id-1756 .landscape-message,
 .mobile.landscape body.page-id-1469 .landscape-message,
 .mobile.landscape body.page-id-1682 .landscape-message,
+.mobile.landscape body.page-id-2464 .landscape-message,
+.mobile.landscape body.page-id-3922 .landscape-message,
+.mobile.landscape body.page-id-3929 .landscape-message,
 .mobile.landscape body.parent-pageid-13 .landscape-message,
 .mobile.landscape body.parent-pageid-1662 .landscape-message,
 .mobile.landscape body.parent-pageid-1756 .landscape-message,
@@ -8061,7 +8064,3 @@ body.page.init-anim .page-hero .sliced .tile {
     margin-top: -40px; }
   .wp-block-columns.images-no-margin .wp-block-image {
     margin-bottom: 0; }
-
-ul.child-categories {
-  padding: 20px;
-}
