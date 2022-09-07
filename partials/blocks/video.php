@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Video Block Template.
+ * Video Block Template. SUBMODULE IS UPDATED IF YOU SEE THIS ON WP ENGINE :)
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
