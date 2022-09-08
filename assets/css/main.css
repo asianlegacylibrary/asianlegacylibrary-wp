@@ -814,7 +814,7 @@ body:not(.home) {
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
-    background-color: #efefef;
+    background-color: #efefef; /* JC, 2022-09-08, added purely for testing purposes, delete! */
 }
 
 @media (max-width: 768px) {
