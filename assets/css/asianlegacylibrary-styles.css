@@ -8,5 +8,5 @@
 }
 html:not(.home),
 body:not(.home) {
-    background-color: blue;
+    background-color: brown;
 }
