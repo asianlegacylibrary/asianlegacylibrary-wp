@@ -8,5 +8,5 @@
 }
 html:not(.home),
 body:not(.home) {
-    background-color: greenyellow;
+    background-color: yellow;
 }
