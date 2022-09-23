@@ -6,6 +6,7 @@
 .wp-block-buttons .wp-block-button .wp-block-button__link {
     padding: 0.3em;
 }
+/* adding this for no other reason that to be able to quickly check if updates are working */
 html:not(.home),
 body:not(.home) {
     background-color: aqua;
