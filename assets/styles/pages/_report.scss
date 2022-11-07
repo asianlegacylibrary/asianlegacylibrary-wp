@@ -91,6 +91,7 @@
                 }
             }
             .image-heading-columns {
+                padding-bottom: 0;
                 .col {
                     p {
                         max-width: 700px;
@@ -102,10 +103,23 @@
         &::after {
             display: none;
         }
+        .image-heading-columns {
+            padding-bottom: 240px;
+            gap: 0;
+            .col {
+                &:first-child {
+                    width: 40%;
+                    flex: 0 1 auto;
+                }
+                &:nth-child(2) {
+                    width: 50%;
+                }
+            }
+        }
     }
 
     .is-layout-flex {
-        margin-top: 180px;
+        
         .wp-block-column {
             min-width: 50%;
         }

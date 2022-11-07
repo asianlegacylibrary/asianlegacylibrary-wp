@@ -6693,16 +6693,25 @@ body.faded:after {
   left: auto;
   right: 0; }
 
-.annual-content-holder .image-heading-holder .image-heading-outer .image-heading-columns .col p {
-  max-width: 700px; }
+.annual-content-holder .image-heading-holder .image-heading-outer .image-heading-columns {
+  padding-bottom: 0; }
+  .annual-content-holder .image-heading-holder .image-heading-outer .image-heading-columns .col p {
+    max-width: 700px; }
 
 .annual-content-holder .image-heading-holder::after {
   display: none; }
 
-.annual-content-holder .is-layout-flex {
-  margin-top: 180px; }
-  .annual-content-holder .is-layout-flex .wp-block-column {
-    min-width: 50%; }
+.annual-content-holder .image-heading-holder .image-heading-columns {
+  padding-bottom: 240px;
+  gap: 0; }
+  .annual-content-holder .image-heading-holder .image-heading-columns .col:first-child {
+    width: 40%;
+    flex: 0 1 auto; }
+  .annual-content-holder .image-heading-holder .image-heading-columns .col:nth-child(2) {
+    width: 50%; }
+
+.annual-content-holder .is-layout-flex .wp-block-column {
+  min-width: 50%; }
 
 .annual-content-holder .annual-report__three-columns {
   display: grid;
