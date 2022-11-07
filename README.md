@@ -4,4 +4,3 @@ This is HTML/CSS/JS project with static content, html pages/components written i
 
 ## SCSS compiler
 Run `npm run scss:watch` for scss preprocessing and watching scss file changes.
-<!-- branch testing>
