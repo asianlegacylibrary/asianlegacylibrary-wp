@@ -77,6 +77,7 @@
         navOpened: false,
         header: $('header'),
         footer: $('footer'),
+        contentVisible: false,
         init: function() {
 
         /*
@@ -323,7 +324,8 @@
 
                 var timer,
                     atTop = true,
-                    atBottom = false;
+                    atBottom = false,
+                    atContentTop = true;
                 
                 $(window).on('mousewheel wheel', function(e) {
                     //if (!all.mapViewed && !$('.nav-trigger').hasClass('close-btn')) {
@@ -337,12 +339,36 @@
                                 if (activeSection.hasClass('with-auto-height') && activeSection.children('.holder').scrollTop() < activeSection.find('article').outerHeight() - all.windowH) {} 
                                 else if (activeSection.hasClass('with-auto-height') && activeSection.children('.holder').scrollTop() >= activeSection.find('article').outerHeight() - all.windowH && !atBottom) {}
                                 else {moving(activeSection, activeSection.next());}
+                            } else if (activeSection.index() == section.length - 1 && all.body.hasClass('annual-report')) {
+                                if (activeSection.hasClass('with-auto-height') && activeSection.children('.holder').scrollTop() < activeSection.find('article').outerHeight() - all.windowH) {} 
+                                else if (activeSection.hasClass('with-auto-height') && activeSection.children('.holder').scrollTop() >= activeSection.find('article').outerHeight() - all.windowH && !atBottom) {}
+                                else  {
+                                    $('.sections-holder, .bgrs-holder').css(all.transformSetter('0px', '-100%', 1, 1))
+                                    $('.content-outer').css(all.transformSetter('0px', '0', 1, 1))
+                                    all.body.css('height', 'auto').addClass('sticky-header');
+                                    setTimeout(function() {
+                                        $('.content-outer').css({
+                                            'height': 'auto'
+                                        })
+                                    }, 1000);
+                                    all.contentVisible = true;
+                                }
                             }
+                                
                         } else {
                             if (activeSection.index() > 0 && !running && !all.navOpened) {
                                 if (activeSection.hasClass('with-auto-height') && activeSection.children('.holder').scrollTop() > 0) {}
                                 else if (activeSection.hasClass('with-auto-height') && activeSection.children('.holder').scrollTop() <= 0 && !atTop) {}
                                 else {moving(activeSection, activeSection.prev());}
+                            } if (atContentTop) {
+                                 $('.sections-holder, .bgrs-holder').css(all.transformSetter('0px', '0px', 1, 1))
+                                 $('.content-outer').css(all.transformSetter('0px', '100vh', 1, 1))
+                                all.body.css('height', '');
+                                all.body.css('height', 'auto').removeClass('sticky-header');
+                                $('.content-outer').css({
+                                    'height': ''
+                                })
+                                all.contentVisible = false;
                             }
                         }
                         if (activeSection.hasClass('with-auto-height') && !running) 
@@ -351,7 +377,6 @@
                 });
 
                 $(window).on('scrollFinished', function() {
-
                     var activeSection = $('.sections-holder section.active');
                     if (activeSection.hasClass('with-auto-height')) {
                         if (activeSection.children('.holder').scrollTop() <= 0) {
@@ -362,6 +387,16 @@
                             atTop = false;
                         }
                     }
+                })
+
+                $(window).on('scroll', function() {
+                    if ($('.annual-report').length) {
+                        if ($(window).scrollTop() <= 0) {
+                            atContentTop = true;
+                        } else {
+                            atContentTop = false;
+                        }
+                    }                    
                 })
 
                 // $(document).keydown(function(e) { 
@@ -394,11 +429,38 @@
                             if (activeSection.index() < section.length - 1 && !running && !all.navOpened) {
                                 if (activeSection.hasClass('with-auto-height') && activeSection.children('.holder').scrollTop() < activeSection.find('article').outerHeight() - all.windowH) {} 
                                 else {moving(activeSection, activeSection.next());}
+                            } else if (activeSection.index() == section.length - 1 && all.body.hasClass('annual-report')) {
+                                if (activeSection.hasClass('with-auto-height') && activeSection.children('.holder').scrollTop() < activeSection.find('article').outerHeight() - all.windowH) {} 
+                                else {
+                                    $('.content-outer').show();
+                                    all.body.addClass('sticky-header');
+                                    setTimeout(function() {
+                                        $('.content-outer').css(all.transformSetter('0px', '0', 1, 1))
+                                        $('.sections-holder, .bgrs-holder').css(all.transformSetter('0px', '-100%', 1, 1))
+                                        $(window).scrollTop(0)
+                                    }, 50)
+                                    setTimeout(function() {
+                                        all.body.css('height', 'auto');
+                                        $('.content-outer').css({
+                                            'height': 'auto'
+                                        })
+                                    }, 1050)
+                                    all.contentVisible = true;
+                                }
                             }
                         } else if (direction == 'down') {
-                            if (activeSection.index() > 0 && !running && !all.navOpened) {
+                            if (activeSection.index() > 0 && !running && !all.navOpened && !all.contentVisible) {
                                 if (activeSection.hasClass('with-auto-height') && activeSection.children('.holder').scrollTop() > 0) {}
                                 else {moving(activeSection, activeSection.prev());}
+                            } else if (atContentTop) {
+                                 $('.sections-holder, .bgrs-holder').css(all.transformSetter('0px', '0px', 1, 1))
+                                 $('.content-outer').css(all.transformSetter('0px', '100vh', 1, 1))
+                                all.body.css('height', '');
+                                $('.content-outer').css({
+                                    'height': ''
+                                })
+                                all.body.removeClass('sticky-header');
+                                all.contentVisible = false;
                             }
                         }
                     }
@@ -406,13 +468,78 @@
 
                 $('.scroll-indicator').click(function(e) {
                     e.preventDefault();
-                    if (!$('.sections-holder section.active').is(':last-child'))
-                    moving($('.sections-holder section.active'), $('.sections-holder section.active').next());
+                    if (!all.body.hasClass('annual-report')) {
+                        if (!$('.sections-holder section.active').is(':last-child'))
+                        moving($('.sections-holder section.active'), $('.sections-holder section.active').next());
+                    } else {
+                        if (!$('.sections-holder section.active').is(':last-of-type')) {
+                            if (!$('.sections-holder section.active').is(':last-child'))
+                            moving($('.sections-holder section.active'), $('.sections-holder section.active').next());
+                        } else {
+                            if (all.device != 'desktop') {
+                                $('.content-outer').show();
+                                all.body.addClass('sticky-header');
+                                setTimeout(function() {
+                                    $('.content-outer').css(all.transformSetter('0px', '0', 1, 1))
+                                    $('.sections-holder, .bgrs-holder').css(all.transformSetter('0px', '-100%', 1, 1))
+                                    $(window).scrollTop(0)
+                                }, 50)
+                                setTimeout(function() {
+                                    all.body.css('height', 'auto');
+                                    $('.content-outer').css({
+                                        'height': 'auto'
+                                    })
+                                }, 1050)
+                                all.contentVisible = true;
+                                atBottom = atTop = false;
+                            } else {
+                                $('.sections-holder, .bgrs-holder').css(all.transformSetter('0px', '-100%', 1, 1))
+                                $('.content-outer').css(all.transformSetter('0px', '0', 1, 1))
+                                all.body.css('height', 'auto').addClass('sticky-header');
+                                setTimeout(function() {
+                                    $('.content-outer').css({
+                                        'height': 'auto'
+                                    })
+                                }, 1000);
+                                atBottom = atTop = false;
+                            }
+                        }
+                    }
                 })
 				$('.mobile-scroll-indicator').click(function(e) {
                     e.preventDefault();
-                    if (!$('.sections-holder section.active').is(':last-child'))
-                    moving($('.sections-holder section.active'), $('.sections-holder section.active').next());
+                    if (!all.body.hasClass('annual-report')) {
+                        if (!$('.sections-holder section.active').is(':last-child'))
+                        moving($('.sections-holder section.active'), $('.sections-holder section.active').next());
+                    } else {
+                        if (all.device != 'desktop') {
+                            $('.content-outer').show();
+                            all.body.addClass('sticky-header');
+                            setTimeout(function() {
+                                $('.content-outer').css(all.transformSetter('0px', '0', 1, 1))
+                                $('.sections-holder, .bgrs-holder').css(all.transformSetter('0px', '-100%', 1, 1))
+                                $(window).scrollTop(0)
+                            }, 50)
+                            setTimeout(function() {
+                                all.body.css('height', 'auto');
+                                $('.content-outer').css({
+                                    'height': 'auto'
+                                })
+                            }, 1050)
+                            all.contentVisible = true;
+                            atBottom = atTop = false;
+                        } else {
+                            $('.sections-holder, .bgrs-holder').css(all.transformSetter('0px', '-100%', 1, 1))
+                            $('.content-outer').css(all.transformSetter('0px', '0', 1, 1))
+                            all.body.css('height', 'auto').addClass('sticky-header');
+                            setTimeout(function() {
+                                $('.content-outer').css({
+                                    'height': 'auto'
+                                })
+                            }, 1000);
+                            atBottom = atTop = false;
+                        }
+                    }
                 })
 
                 sideNav.find('a').click(function(e) {
@@ -523,11 +650,19 @@
 							if (!all.body.hasClass('sticky-header')) {	
 								all.body.addClass('sticky-header');	
 							}	
-						} else {	
+						} else if (!all.body.hasClass('annual-report')) {	
 							all.body.removeClass('sticky-header');	
 						}
 
-                        if( !all.body.hasClass('home')) {
+                        if( !all.body.hasClass('home') && !all.body.hasClass('annual-report')) {
+                            all.distanceFromTop <= 0 ?
+                                all.body.removeClass('going-up').removeClass('going-down') :
+                                all.distanceFromTop > all.lastDistanceFromTop && !all.header.hasClass('stay-in-view') ?
+                                    all.body.addClass('going-down').removeClass('going-up') :
+                                    all.body.addClass('going-up').removeClass('going-down')
+                        }
+
+                        if(all.body.hasClass('annual-report') && all.contentVisible) {
                             all.distanceFromTop <= 0 ?
                                 all.body.removeClass('going-up').removeClass('going-down') :
                                 all.distanceFromTop > all.lastDistanceFromTop && !all.header.hasClass('stay-in-view') ?

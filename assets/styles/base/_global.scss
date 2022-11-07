@@ -5,12 +5,13 @@
 	html,
 	body {
 		&.home,
-		&.overlay-active {
+		&.overlay-active,
+		&.annual-report {
 			overflow: hidden; position: relative;
 			width: 100%; height: 100%;
 		}
 		//background: #122F43;
-		&:not(.home) {
+		&:not(.home):not(.annual-report) {
 			overflow-x: hidden; position: relative;
 			background-color: #F9F9F9;
 		}
@@ -297,3 +298,5 @@ figure.has-image a,
 		}
 	}
 }
+
+

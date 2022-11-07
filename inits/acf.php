@@ -50,10 +50,13 @@
 		
 	}
 
-
-
+    // Body class
 	function add_acf_body_class($class) {
-		$value = get_field('header_style');
+        if(is_page_template('templates/tpl_annual_report.php')) {
+            $value = 'annual-report light';
+        } else {
+            $value = get_field('header_style');
+        }
 		$class[] = $value;
 		return $class;
 	}
