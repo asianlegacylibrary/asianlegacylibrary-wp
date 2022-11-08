@@ -340,9 +340,10 @@
                                 else if (activeSection.hasClass('with-auto-height') && activeSection.children('.holder').scrollTop() >= activeSection.find('article').outerHeight() - all.windowH && !atBottom) {}
                                 else {moving(activeSection, activeSection.next());}
                             } else if (activeSection.index() == section.length - 1 && all.body.hasClass('annual-report')) {
-                                if (activeSection.hasClass('with-auto-height') && activeSection.children('.holder').scrollTop() < activeSection.find('article').outerHeight() - all.windowH) {} 
-                                else if (activeSection.hasClass('with-auto-height') && activeSection.children('.holder').scrollTop() >= activeSection.find('article').outerHeight() - all.windowH && !atBottom) {}
+                                if (activeSection.hasClass('with-auto-height') && activeSection.children('.holder').scrollTop() < activeSection.find('article').outerHeight() - all.windowH && activeSection.find('article').outerHeight() > all.windowH) {} 
+                                else if (activeSection.hasClass('with-auto-height') && activeSection.children('.holder').scrollTop() >= activeSection.find('article').outerHeight() - all.windowH && !atBottom && activeSection.find('article').outerHeight() > all.windowH) {}
                                 else  {
+                                    console.log(1);
                                     $('.sections-holder, .bgrs-holder').css(all.transformSetter('0px', '-100%', 1, 1))
                                     $('.content-outer').css(all.transformSetter('0px', '0', 1, 1))
                                     all.body.css('height', 'auto').addClass('sticky-header');

@@ -33,6 +33,27 @@
             }
         }
     }
+    .page-entry {
+        p {
+            &.smaller-font {
+                strong {
+                    font-size: 25px; line-height: 35px;
+                }
+                font-size: 20px; line-height: 38px; color: #8A9399;
+            }
+        }
+        
+    }
+
+    .text-content-outer {
+        margin-bottom: 200px;
+        .text-content {
+            .wp-block-columns {
+                margin-left: 80px; margin-right: 80px;
+            }
+        }
+    }
+
 }
 
 
@@ -77,10 +98,12 @@
                 }
 
                 &.offset-left {
-                    right: 120px;
+                    right: 0;
+                    margin-left: -120px;
                 }
                 &.offset-right {
-                    left: 120px;
+                    left: 0;
+                    margin-right: -120px;
                 }
                 &.extended-right {
                     &::after {
@@ -93,9 +116,17 @@
                         width: calc(100% + 120px);
                         left: auto;
                         right: 0;
+                    }   
+                }
+                &.title-offset-bottom {
+                    hgroup {
+                        h3 {
+                            padding: 268px 162px 44px 60px;
+                        }
                     }
-                    
-                    
+                }
+                &.position-offset-top {
+                    margin-top: -440px;
                 }
             }
             .image-heading-columns {
@@ -106,13 +137,26 @@
                     }
                 }
             }
+            &.image-wide {
+                margin-right: -120px; margin-left: -120px;
+                .block-bgr {
+                    height: 740px;
+                }
+                hgroup {
+                    left: 120px;
+                    h3 {
+                        padding: 110px 60px!important;
+                        color: #fff;
+                    }
+                }
+            }
         } 
            
         &::after {
             display: none;
         }
         .image-heading-columns {
-            padding-bottom: 240px;
+            padding-bottom: 240px; 
             gap: 0;
             .col {
                 &:first-child {
@@ -135,10 +179,100 @@
         }
     }
 
+    .annual-report__colums-with-background {
+        &.offset-left {
+            margin-left: 40px;
+            .wp-block-column {
+                &:first-child {
+                    width: 50%;
+                    position: relative;
+                    padding-bottom: 100px;
+                    
+                    &::after {
+                        content: "";
+                        position: absolute; top: 290px; left: auto; right: 0;  
+                        width: calc(100% + 160px); height: calc(100% - 290px);
+                        background-color: $color-chartreuse;
+                        z-index: -1;
+                    }
+                    p {
+                        color: #525A5F!important;
+                        max-width: 440px;
+                        strong {
+                            color: #122F43;
+                        }
+                    }
+                    h4 {
+                        color: #122F43!important; font-weight: 500;
+                        text-transform: uppercase;
+                        margin-top: 70px;
+                        font-size: 22px; line-height: 32px; font-weight: 500;
+                    }
+                    .wp-block-image {
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+        }
+        &.offset-right {
+            // margin-left: 0; margin-right: 0;
+            .wp-block-column {
+                &:first-child {
+                    min-width: 40%;
+                }
+                &:nth-child(2) {
+                    margin-right: 40px;
+                    padding: 120px;
+                    width: 50%;
+                    position: relative;
+                    
+                    p {
+                        color: #525A5F!important;
+                        max-width: 440px;
+                    }
+                    h4 {
+                        color: #122F43!important; font-weight: 500;
+                        text-transform: uppercase;
+                        &.green-color {
+                            color: $color-chartreuse;
+                        }
+                    }
+                    .with-offset {
+                        right: 180px; top: -90px;
+                    }
+
+                    figure {
+                       margin-bottom: 30px;
+                       &:nth-child(2) {
+                        max-width: 440px;
+                       }
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute; top: 290px; left: 0;
+                        width: 100%; height: calc(100% - 290px);
+                        background-color: $color-chartreuse;
+                        z-index: -1;
+                    }
+                    
+                }
+                
+            }
+        }
+
+        h4 {
+            &.green-color {
+                color: $color-chartreuse;
+            }
+        }
+    }
+
     .annual-report__three-columns {
         display: grid; 
         grid-template-columns: 1fr 1fr 1fr;
-        margin-left: 0; margin-right: 0;
+        margin-left: 0; margin-right: 0; margin-bottom: 260px;
+
         .wp-block-column {
             margin-left: 0!important;
             h5 {
@@ -168,21 +302,58 @@
             }
         }
     }
+
+    .wp-block-media-text {
+        &.image-top-offset {
+            .wp-block-media-text__media {
+                margin-bottom: 120px;
+            }
+        }
+        &.has-media-on-the-right {
+            margin-bottom: 180px;
+        }
+    }
+
 }
 
 .annual-content-holder {
     .dark-content-outer {
-        padding-top: 0;
+        padding-top: 0; margin-bottom: 0;
+        padding-bottom: 200px;
+        &.bgr-position-top {
+            margin-bottom: -150px;
+        }
+        &.margin-top {
+            margin-top: -240px; padding-bottom: 630px;
+            .dark-content {
+                h4 {
+                    text-transform: uppercase;
+                }
+                h3 {
+                    &.has-text-align-center {
+                        text-transform: uppercase;
+                    }
+                }
+                .image-heading-holder {
+                    
+                    &.is-extended {
+                        margin-top: 180px;
+                        .image-heading-columns {
+                            
+                            .col {
+                                p {
+                                    color: #525A5F!important;
+                                }
+                            }
+                        }
+                    }
+                    
+                    
+                }
+            }
+        }
+       
     }
-    // .dark-content {
-    //     .image-heading-holder {
-    //         &.annual-report-block__text-img {
-    //             &::after {
-    //                 left: auto; right: 0;
-    //             }
-    //         }
-    //     }
-    // }
 }
 
 
