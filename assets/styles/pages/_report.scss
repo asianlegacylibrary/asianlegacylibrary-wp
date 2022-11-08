@@ -131,6 +131,10 @@
         margin-left: 0; margin-right: 0;
         .wp-block-column {
             margin-left: 0!important;
+            h5 {
+                text-transform: uppercase;
+                margin-top: 36px;
+            }
         }
         .wp-block-media-text__media {
             &.image-top-offset {

@@ -6720,6 +6720,9 @@ body.faded:after {
   margin-right: 0; }
   .annual-content-holder .annual-report__three-columns .wp-block-column {
     margin-left: 0 !important; }
+    .annual-content-holder .annual-report__three-columns .wp-block-column h5 {
+      text-transform: uppercase;
+      margin-top: 36px; }
   .annual-content-holder .annual-report__three-columns .wp-block-media-text__media.image-top-offset {
     margin-bottom: 120px !important; }
 
