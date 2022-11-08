@@ -6650,6 +6650,9 @@ body.faded:after {
   font-size: 25px;
   line-height: 160%; }
 
+.annual-report .wp-block-media-text .wp-block-media-text__content h4 {
+  color: #e6fa05; }
+
 .annual-content-holder .wrapper {
   padding-top: 150px; }
 
@@ -6712,6 +6715,10 @@ body.faded:after {
 
 .annual-content-holder .is-layout-flex .wp-block-column {
   min-width: 50%; }
+
+.annual-content-holder .is-layout-flex.annual-report__single-columns {
+  margin-left: 0;
+  margin-right: 0; }
 
 .annual-content-holder .annual-report__three-columns {
   display: grid;

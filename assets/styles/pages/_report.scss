@@ -25,6 +25,14 @@
             }
         }
     }
+
+    .wp-block-media-text {
+        .wp-block-media-text__content {
+            h4 {
+                color: $color-chartreuse;
+            }
+        }
+    }
 }
 
 
@@ -119,9 +127,11 @@
     }
 
     .is-layout-flex {
-        
         .wp-block-column {
             min-width: 50%;
+        }
+        &.annual-report__single-columns {
+            margin-left: 0; margin-right: 0;
         }
     }
 
