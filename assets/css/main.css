@@ -6842,6 +6842,17 @@ body.faded:after {
 .annual-content-holder .annual-report__smaller-text-column .wp-block-media-text__content p {
   max-width: 410px; }
 
+.annual-content-holder .annual-report__smaller-text-column .wp-block-media-text__content h3.boxed {
+  padding-top: 60px;
+  padding-bottom: 140px;
+  margin-left: -200px;
+  margin-top: -100px;
+  margin-bottom: 120px; }
+  .annual-content-holder .annual-report__smaller-text-column .wp-block-media-text__content h3.boxed::before {
+    left: -10%;
+    top: 0;
+    width: 100%; }
+
 .annual-content-holder .wp-block-media-text.image-top-offset .wp-block-media-text__media {
   margin-bottom: 120px; }
 
