@@ -516,3 +516,92 @@
 		}
 	}
 }
+
+.tablet {
+    &.portrait {
+        .annual-report {
+            .text-content-outer {
+                margin-bottom: 300px;
+            }
+
+            .is-layout-flex {
+                flex-direction: column;
+            }
+        }
+        .annual-content-holder {
+            .image-heading-holder {
+                .image-heading-outer {
+                    &.annual-report__block-text-img {
+                        hgroup {
+                            h3 {
+                                padding: 110px 76px 30px 60px;
+                                font-size: 30px; line-height: 45px;
+                            }
+                        }
+                        &:after {
+                            bottom: -90%;
+                            height: calc(100% + 250px);
+                        }
+                        &.title-offset-bottom {
+                            hgroup {
+                                h3 {
+                                    padding-top: 170px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .image-heading-columns {
+                    padding-left: 0; gap: 80px;
+                    margin-bottom: 100px;
+                    .col {
+                        &:first-child {
+                            margin-left: 30px;
+                        }
+                    }
+                    
+                }
+                &.single-column {
+                    .image-heading-columns {
+                        padding-bottom: 430px;
+                    }
+                }
+                
+            }
+
+            .annual-report__colums-with-background {
+                &.offset-right {
+                    .wp-block-column {
+                        &:nth-child(2) {
+                            width: 100%;
+                        }
+                    }
+                }
+                &.offset-left {
+                    .wp-block-column {
+                        &:first-child {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            .annual-report__three-columns {
+                grid-template-columns: 1fr;
+                margin-top: 180px;
+                grid-gap: 80px;
+            }
+
+            .annual-report__smaller-text-column {
+                .wp-block-media-text__content {
+                    h3 {
+                        &.boxed {
+                            margin-top: -220px;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}

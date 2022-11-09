@@ -7001,6 +7001,48 @@ body.faded:after {
 .mobile .annual-report .content-outer {
   display: none; }
 
+.tablet.portrait .annual-report .text-content-outer {
+  margin-bottom: 300px; }
+
+.tablet.portrait .annual-report .is-layout-flex {
+  flex-direction: column; }
+
+.tablet.portrait .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img hgroup h3 {
+  padding: 110px 76px 30px 60px;
+  font-size: 30px;
+  line-height: 45px; }
+
+.tablet.portrait .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img:after {
+  bottom: -90%;
+  height: calc(100% + 250px); }
+
+.tablet.portrait .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.title-offset-bottom hgroup h3 {
+  padding-top: 170px; }
+
+.tablet.portrait .annual-content-holder .image-heading-holder .image-heading-columns {
+  padding-left: 0;
+  gap: 80px;
+  margin-bottom: 100px; }
+  .tablet.portrait .annual-content-holder .image-heading-holder .image-heading-columns .col:first-child {
+    margin-left: 30px; }
+
+.tablet.portrait .annual-content-holder .image-heading-holder.single-column .image-heading-columns {
+  padding-bottom: 430px; }
+
+.tablet.portrait .annual-content-holder .annual-report__colums-with-background.offset-right .wp-block-column:nth-child(2) {
+  width: 100%; }
+
+.tablet.portrait .annual-content-holder .annual-report__colums-with-background.offset-left .wp-block-column:first-child {
+  width: 100%; }
+
+.tablet.portrait .annual-content-holder .annual-report__three-columns {
+  grid-template-columns: 1fr;
+  margin-top: 180px;
+  grid-gap: 80px; }
+
+.tablet.portrait .annual-content-holder .annual-report__smaller-text-column .wp-block-media-text__content h3.boxed {
+  margin-top: -220px; }
+
 /*
 = PAGE HERO BLOCK STYLES
 ------------------------------------------------------------------------------------- */
