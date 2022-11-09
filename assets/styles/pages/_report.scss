@@ -50,12 +50,20 @@
         .text-content {
             .wp-block-columns {
                 margin-left: 0; margin-right: 80px;
+                @include breakpoint(640) {
+                    margin-right: 0;
+                }
             }
         }
         @include breakpoint(768) {
             margin-bottom: 300px;
         }
+        @include breakpoint(640) {
+            margin-bottom: 120px;
+        }
     }
+
+ 
 
 }
 
@@ -76,6 +84,9 @@
                 &.right-padding {
                     padding-right: 80px; 
                     color: #525A5F;
+                    @include breakpoint(640) {
+                        padding-right: 0;
+                    }
                 }
             }
         }
@@ -113,6 +124,9 @@
                     margin-left: -120px;
                     hgroup {
                         left: 200px;
+                        @include breakpoint(640) {
+                            left: 80px;
+                        }
                     }
                     
                 }
@@ -140,6 +154,9 @@
                             @include breakpoint(768) {
                                 padding-top: 170px;
                             }
+                            @include breakpoint(640) {
+                                padding-right: 60px;
+                            }
                         }
                     }
                 }
@@ -157,6 +174,9 @@
             }
             &.image-wide {
                 margin-right: -120px; margin-left: -120px;
+                @include breakpoint(640) {
+                    padding-bottom: 0;
+                }
                 .block-bgr {
                     height: 740px;
                 }
@@ -165,6 +185,13 @@
                     h3 {
                         padding: 110px 60px!important;
                         color: #fff;
+                        @include breakpoint(640) {
+                            font-size: 35px;
+                        }
+                    }
+                    @include breakpoint(640) {
+                        left: 10px;
+                        padding: 110px 30px!important;
                     }
                 }
             }
@@ -177,18 +204,33 @@
         .image-heading-columns {
             padding-bottom: 240px; 
             gap: 0;
+            @include breakpoint(640) {
+                padding-bottom: 120px;
+            }
             .col {
                 &:first-child {
                     width: 40%;
                     flex: 0 1 auto;
+                    @include breakpoint(640) {
+                        width: 100%;
+                    }
                 }
                 &:nth-child(2) {
                     width: 50%;
+                    @include breakpoint(640) {
+                        width: 100%;
+                    }
+                    
                 }
+                
             }
             @include breakpoint(768) {
                 padding-left: 0; 
                 gap: 80px;
+            }
+            @include breakpoint(640) {
+                flex-direction: column;
+                gap: 50px;
             }
         }
 
@@ -222,11 +264,18 @@
     .annual-report__colums-with-background {
         &.offset-left {
             margin-left: 40px;
+            @include breakpoint(640) {
+                margin-left: 0;
+            }
             .wp-block-column {
                 &:first-child {
                     width: 50%;
                     position: relative;
                     padding-bottom: 100px;
+                    @include breakpoint(640) {
+                        width: 100%;
+                        min-height: 100%;
+                    }
                     
                     &::after {
                         content: "";
@@ -234,6 +283,9 @@
                         width: calc(100% + 160px); height: calc(100% - 290px);
                         background-color: $color-chartreuse;
                         z-index: -1;
+                        @include breakpoint(640) {
+                            left: -40px;
+                        }
                     }
                     p {
                         color: #525A5F!important;
@@ -250,6 +302,7 @@
                     }
                     .wp-block-image {
                         margin-bottom: 30px;
+                       
                     }
                 }
             }
@@ -265,6 +318,12 @@
                     padding: 120px;
                     width: 50%;
                     position: relative;
+                    @include breakpoint(640) {
+                        margin-right: -40px; margin-left: -40px;
+                        padding: 30px;
+                        width: 100%;
+                        min-width: 100%;
+                    }
                     
                     p {
                         color: #525A5F!important;
@@ -279,6 +338,14 @@
                     }
                     .with-offset {
                         right: 180px; top: -90px;
+                        @include breakpoint(640) {
+                            right: 0; top: -10px; 
+                        }
+                        img {
+                            @include breakpoint(640) {
+                                margin: 0 10px;
+                            }
+                        }
                     }
 
                     figure {
@@ -286,6 +353,12 @@
                        &:nth-child(2) {
                         max-width: 440px;
                        }
+                       img {
+                        @include breakpoint(640) {
+                            margin: 0 10px;
+                        }
+                        
+                    }
                     }
 
                     &::after {
@@ -317,6 +390,11 @@
             margin-top: 180px; 
             grid-gap: 80px;
         }
+        @include breakpoint(640) {
+            margin-top: 50px; margin-bottom: 0;
+            padding-bottom: 120px;
+
+        }
 
         .wp-block-column {
             margin-left: 0!important;
@@ -329,8 +407,13 @@
             &.image-top-offset {
                 margin-bottom: 120px!important;
             }
-            
-
+        }
+        .wp-block-image {
+            img {
+                @include breakpoint(640) {
+                    margin: 0 20px 0 0;
+                }
+            }
         }
     }
 
@@ -356,6 +439,10 @@
                     }
                     @include breakpoint(768) {
                         margin-top: -220px;
+                    }
+                    @include breakpoint(640) {
+                        margin-top: -190px; margin-left: 0;
+
                     }
                     
 
