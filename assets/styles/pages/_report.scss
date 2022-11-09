@@ -52,6 +52,9 @@
                 margin-left: 0; margin-right: 80px;
             }
         }
+        @include breakpoint(768) {
+            margin-bottom: 300px;
+        }
     }
 
 }
@@ -84,6 +87,10 @@
                     bottom: auto; top: -60px;
                     h3 {
                         padding: 120px 76px 54px 60px;
+                        @include breakpoint(768) {
+                            padding: 110px 76px 30px 60px;
+                            font-size: 30px; line-height: 45px;
+                        }
                     }
                 }
                 &::after {
@@ -95,6 +102,10 @@
                     width: 100%;
                     height: 100%;
                     background-color: #e6fa05;
+                    @include breakpoint(768) {
+                        bottom: -100%;
+                        height: calc(100% + 240px);
+                    }
                 }
 
                 &.offset-left {
@@ -126,6 +137,9 @@
                     hgroup {
                         h3 {
                             padding: 268px 162px 44px 60px;
+                            @include breakpoint(768) {
+                                padding-top: 170px;
+                            }
                         }
                     }
                 }
@@ -158,6 +172,7 @@
            
         &::after {
             display: none;
+            
         }
         .image-heading-columns {
             padding-bottom: 240px; 
@@ -171,11 +186,18 @@
                     width: 50%;
                 }
             }
+            @include breakpoint(768) {
+                padding-left: 0; 
+                gap: 80px;
+            }
         }
 
         &.single-column {
             .image-heading-columns {
                 padding-bottom: 300px;
+                @include breakpoint(768) {
+                    padding-bottom: 430px;
+                }
                 .col {
                     width: 100%;
                 }
@@ -290,6 +312,11 @@
         display: grid; 
         grid-template-columns: 1fr 1fr 1fr;
         margin-left: 0; margin-right: 0; margin-bottom: 260px;
+        @include breakpoint(768) {
+            grid-template-columns: 1fr;
+            margin-top: 180px; 
+            grid-gap: 80px;
+        }
 
         .wp-block-column {
             margin-left: 0!important;
@@ -326,6 +353,9 @@
                         left: -10%;
                         top: 0;
                         width: 100%;
+                    }
+                    @include breakpoint(768) {
+                        margin-top: -220px;
                     }
                     
 

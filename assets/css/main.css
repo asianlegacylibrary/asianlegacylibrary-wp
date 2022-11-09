@@ -6666,6 +6666,9 @@ body.faded:after {
   .annual-report .text-content-outer .text-content .wp-block-columns {
     margin-left: 0;
     margin-right: 80px; }
+  @media (max-width: 768px) {
+    .annual-report .text-content-outer {
+      margin-bottom: 300px; } }
 
 .annual-content-holder .wrapper {
   padding-top: 150px; }
@@ -6685,6 +6688,11 @@ body.faded:after {
   top: -60px; }
   .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img hgroup h3 {
     padding: 120px 76px 54px 60px; }
+    @media (max-width: 768px) {
+      .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img hgroup h3 {
+        padding: 110px 76px 30px 60px;
+        font-size: 30px;
+        line-height: 45px; } }
 
 .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img::after {
   content: "";
@@ -6695,6 +6703,10 @@ body.faded:after {
   width: 100%;
   height: 100%;
   background-color: #e6fa05; }
+  @media (max-width: 768px) {
+    .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img::after {
+      bottom: -100%;
+      height: calc(100% + 240px); } }
 
 .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.offset-left {
   right: 0;
@@ -6716,6 +6728,9 @@ body.faded:after {
 
 .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.title-offset-bottom hgroup h3 {
   padding: 268px 162px 44px 60px; }
+  @media (max-width: 768px) {
+    .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.title-offset-bottom hgroup h3 {
+      padding-top: 170px; } }
 
 .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.position-offset-top {
   margin-top: -440px; }
@@ -6747,9 +6762,16 @@ body.faded:after {
     flex: 0 1 auto; }
   .annual-content-holder .image-heading-holder .image-heading-columns .col:nth-child(2) {
     width: 50%; }
+  @media (max-width: 768px) {
+    .annual-content-holder .image-heading-holder .image-heading-columns {
+      padding-left: 0;
+      gap: 80px; } }
 
 .annual-content-holder .image-heading-holder.single-column .image-heading-columns {
   padding-bottom: 300px; }
+  @media (max-width: 768px) {
+    .annual-content-holder .image-heading-holder.single-column .image-heading-columns {
+      padding-bottom: 430px; } }
   .annual-content-holder .image-heading-holder.single-column .image-heading-columns .col {
     width: 100%; }
 
@@ -6838,6 +6860,11 @@ body.faded:after {
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 260px; }
+  @media (max-width: 768px) {
+    .annual-content-holder .annual-report__three-columns {
+      grid-template-columns: 1fr;
+      margin-top: 180px;
+      grid-gap: 80px; } }
   .annual-content-holder .annual-report__three-columns .wp-block-column {
     margin-left: 0 !important; }
     .annual-content-holder .annual-report__three-columns .wp-block-column h5 {
@@ -6862,6 +6889,9 @@ body.faded:after {
     left: -10%;
     top: 0;
     width: 100%; }
+  @media (max-width: 768px) {
+    .annual-content-holder .annual-report__smaller-text-column .wp-block-media-text__content h3.boxed {
+      margin-top: -220px; } }
 
 .annual-content-holder .wp-block-media-text.image-top-offset .wp-block-media-text__media {
   margin-bottom: 120px; }
