@@ -49,7 +49,7 @@
         margin-bottom: 200px;
         .text-content {
             .wp-block-columns {
-                margin-left: 80px; margin-right: 80px;
+                margin-left: 0; margin-right: 80px;
             }
         }
     }
@@ -100,6 +100,10 @@
                 &.offset-left {
                     right: 0;
                     margin-left: -120px;
+                    hgroup {
+                        left: 200px;
+                    }
+                    
                 }
                 &.offset-right {
                     left: 0;
@@ -166,6 +170,20 @@
                 &:nth-child(2) {
                     width: 50%;
                 }
+            }
+        }
+
+        &.single-column {
+            .image-heading-columns {
+                padding-bottom: 300px;
+                .col {
+                    width: 100%;
+                }
+            }
+        }
+        &.column-aligned-left {
+            .image-heading-columns {
+                padding-left: 0;
             }
         }
     }
@@ -341,6 +359,7 @@
             .dark-content {
                 h4 {
                     text-transform: uppercase;
+                    font-size: 22px; line-height: 32px; font-style: bold;
                 }
                 h3 {
                     &.has-text-align-center {

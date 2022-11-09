@@ -6664,7 +6664,7 @@ body.faded:after {
 .annual-report .text-content-outer {
   margin-bottom: 200px; }
   .annual-report .text-content-outer .text-content .wp-block-columns {
-    margin-left: 80px;
+    margin-left: 0;
     margin-right: 80px; }
 
 .annual-content-holder .wrapper {
@@ -6699,6 +6699,8 @@ body.faded:after {
 .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.offset-left {
   right: 0;
   margin-left: -120px; }
+  .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.offset-left hgroup {
+    left: 200px; }
 
 .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.offset-right {
   left: 0;
@@ -6745,6 +6747,14 @@ body.faded:after {
     flex: 0 1 auto; }
   .annual-content-holder .image-heading-holder .image-heading-columns .col:nth-child(2) {
     width: 50%; }
+
+.annual-content-holder .image-heading-holder.single-column .image-heading-columns {
+  padding-bottom: 300px; }
+  .annual-content-holder .image-heading-holder.single-column .image-heading-columns .col {
+    width: 100%; }
+
+.annual-content-holder .image-heading-holder.column-aligned-left .image-heading-columns {
+  padding-left: 0; }
 
 .annual-content-holder .is-layout-flex .wp-block-column {
   min-width: 50%; }
@@ -6869,7 +6879,10 @@ body.faded:after {
     margin-top: -240px;
     padding-bottom: 630px; }
     .annual-content-holder .dark-content-outer.margin-top .dark-content h4 {
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      font-size: 22px;
+      line-height: 32px;
+      font-style: bold; }
     .annual-content-holder .dark-content-outer.margin-top .dark-content h3.has-text-align-center {
       text-transform: uppercase; }
     .annual-content-holder .dark-content-outer.margin-top .dark-content .image-heading-holder.is-extended {
