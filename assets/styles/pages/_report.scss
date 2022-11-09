@@ -63,7 +63,11 @@
         }
     }
 
- 
+    .wp-block-image {
+        &.no-margin-bottom {
+            margin-top: 20px;
+        }
+    }
 
 }
 
@@ -275,6 +279,7 @@
                     @include breakpoint(640) {
                         width: 100%;
                         min-height: 100%;
+                        margin-bottom: 40px;
                     }
                     
                     &::after {
@@ -487,6 +492,9 @@
                     
                     &.is-extended {
                         margin-top: 180px;
+                        @include breakpoint(640) {
+                            margin-bottom: 50px;
+                        }
                         .image-heading-columns {
                             
                             .col {
@@ -497,6 +505,17 @@
                         }
                     }
                     
+                    
+                }
+            }
+        }
+
+        .dark-content  {
+            > .wp-block-columns {
+                &:last-child {
+                    @include breakpoint(640) {
+                        margin-bottom: 20px;
+                    }
                     
                 }
             }
