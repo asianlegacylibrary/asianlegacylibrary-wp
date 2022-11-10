@@ -22,6 +22,7 @@
         .large-text {
             p {
                 font-size: 25px; line-height: 160%;
+                color: #000;
             }
         }
     }
@@ -41,6 +42,27 @@
                 }
                 font-size: 20px; line-height: 38px; color: #8A9399;
             }
+            &.larger-font {
+                font-size: 32px; line-height: 48px; color: #000;
+            }
+            &.white-medium-text {
+                font-size: 25px; line-height: 40px; color: #fff;
+            }
+        }
+        
+    }
+
+    .wrapper {
+        padding-right: 0;
+        padding-left: 0;
+        @include breakpoint(1024) {
+            padding-right: 30px; padding-left: 30px;
+        }
+        @include breakpoint(768) {
+            padding-right: 60px; padding-left: 60px;
+        }
+        @include breakpoint(640) {
+            padding-right: 30px; padding-left: 30px;
         }
         
     }
@@ -61,6 +83,20 @@
         @include breakpoint(640) {
             margin-bottom: 120px;
         }
+        .wrapper {
+            max-width: 1260px;
+
+        }
+        &.different-font-size {
+            .wrapper {
+                padding-left: 30px; padding-right: 30px;
+            }
+            p {
+                font-size: 18px; line-height: 28px; 
+                max-width: 450px;
+                color: #525A5F;
+            }
+        }
     }
 
     .wp-block-image {
@@ -68,7 +104,16 @@
             margin-top: 20px;
         }
     }
-
+    .page-entry {
+        p {
+            font-size: 16px; line-height: 22px;
+        }
+    }
+    .wp-block-columns {
+        &.wide {
+            gap: 0;
+        }
+    }
 }
 
 
@@ -85,9 +130,10 @@
         .col {
             p {
                 max-width: 700px;
+                font-size: 18px; line-height: 30px; color: #000;
                 &.right-padding {
                     padding-right: 80px; 
-                    color: #525A5F;
+                    color: #122F43;
                     @include breakpoint(640) {
                         padding-right: 0;
                     }
@@ -117,9 +163,17 @@
                     width: 100%;
                     height: 100%;
                     background-color: #e6fa05;
+                    @include breakpoint(1024) {
+                        bottom: -60%;
+                        height: calc(100% + 200px);
+                    }
                     @include breakpoint(768) {
                         bottom: -100%;
-                        height: calc(100% + 240px);
+                        height: calc(100% + 300px);
+                    }
+                    @include breakpoint(640) {
+                        bottom: -110%;
+                        height: calc(100% + 400px);
                     }
                 }
 
@@ -150,6 +204,19 @@
                         left: auto;
                         right: 0;
                     }   
+                }
+                &.larger-height {
+                    &::after {
+                        height: 130%;
+                        bottom: -70%;
+                        @include breakpoint(768) {
+                            bottom: -90%;
+                            height: 150%;
+                        }
+                        @include breakpoint(640) {
+                            bottom: -120%;
+                        }
+                    }
                 }
                 &.title-offset-bottom {
                     hgroup {
@@ -239,6 +306,7 @@
         }
 
         &.single-column {
+
             .image-heading-columns {
                 padding-bottom: 300px;
                 @include breakpoint(768) {
@@ -266,12 +334,24 @@
     }
 
     .annual-report__colums-with-background {
+        @include breakpoint(1024) {
+            flex-direction: column;
+        }
+        @include breakpoint(768) {
+            flex-direction: row;
+        }
+        .wp-block-column {
+            p {
+                font-size: 18px; line-height: 30px;
+            }
+        }
         &.offset-left {
             margin-left: 40px;
             @include breakpoint(640) {
                 margin-left: 0;
             }
             .wp-block-column {
+                min-width: auto;
                 &:first-child {
                     width: 50%;
                     position: relative;
@@ -295,15 +375,16 @@
                     p {
                         color: #525A5F!important;
                         max-width: 440px;
+                        font-size: 16px; line-height: 22px;
                         strong {
                             color: #122F43;
                         }
                     }
                     h4 {
-                        color: #122F43!important; font-weight: 500;
+                        color: #122F43!important; 
                         text-transform: uppercase;
                         margin-top: 70px;
-                        font-size: 22px; line-height: 32px; font-weight: 500;
+                        font-size: 22px; line-height: 32px; font-weight: bold;
                     }
                     .wp-block-image {
                         margin-bottom: 30px;
@@ -333,6 +414,7 @@
                     p {
                         color: #525A5F!important;
                         max-width: 440px;
+                        font-size: 16px; line-height: 22px;
                     }
                     h4 {
                         color: #122F43!important; font-weight: 500;
@@ -342,6 +424,7 @@
                         }
                     }
                     .with-offset {
+                        width: 633px;
                         right: 180px; top: -90px;
                         @include breakpoint(640) {
                             right: 0; top: -10px; 
@@ -431,11 +514,11 @@
     .annual-report__smaller-text-column {
         .wp-block-media-text__content {
             p {
-                max-width: 410px;
+                max-width: 500px;
             }
             h3 {
                 &.boxed {
-                    padding-top: 60px; padding-bottom: 140px;
+                    padding-top: 60px; padding-bottom: 120px;
                     margin-left: -200px; margin-top: -100px; margin-bottom: 120px;
                     &::before {
                         left: -10%;
@@ -511,6 +594,28 @@
         }
 
         .dark-content  {
+            p {
+                &.white-medium-text {
+                    font-size: 25px; line-height: 40px; color: #fff;
+                }
+            }
+           
+
+
+
+            h4 {
+                font-weight: bold;
+            }
+            
+
+            .wp-block-media-text {
+                .wp-block-media-text__content {
+                    p {
+                        font-size: 18px; line-height: 30px;
+                    }
+                }
+            }
+
             > .wp-block-columns {
                 &:last-child {
                     @include breakpoint(640) {
@@ -519,8 +624,17 @@
                     
                 }
             }
+            
         }
-       
+       &.bigger-font {
+            p {
+                font-size: 18px; line-height: 30px;
+                color: #fff;
+                &.standard-font {
+                    font-size: 25px; line-height: 40px;
+                }
+            }
+       }
     }
 }
 
@@ -541,11 +655,13 @@
         .annual-report {
             .text-content-outer {
                 margin-bottom: 300px;
+               
             }
 
-            .is-layout-flex {
-                flex-direction: column;
-            }
+            // .is-layout-flex {
+            //     flex-direction: column;
+            // }
+            
         }
         .annual-content-holder {
             .image-heading-holder {
@@ -557,10 +673,7 @@
                                 font-size: 30px; line-height: 45px;
                             }
                         }
-                        &:after {
-                            bottom: -90%;
-                            height: calc(100% + 250px);
-                        }
+                       
                         &.title-offset-bottom {
                             hgroup {
                                 h3 {
@@ -571,11 +684,16 @@
                     }
                 }
                 .image-heading-columns {
-                    padding-left: 0; gap: 80px;
-                    margin-bottom: 100px;
+                    padding-left: 0; gap: 40px;
+                    margin-top: -40px;
                     .col {
                         &:first-child {
-                            margin-left: 30px;
+                            padding-left: 30px;
+                        }
+                        p {
+                            &.right-padding {
+                                padding-right: 20px;
+                            }
                         }
                     }
                     
@@ -583,6 +701,15 @@
                 &.single-column {
                     .image-heading-columns {
                         padding-bottom: 430px;
+                        .col {
+                            img {
+                                &.larger-font {
+                                    height: 42px!important;
+                                }
+                                
+                            }
+                            
+                        }
                     }
                 }
                 
@@ -609,6 +736,9 @@
                 grid-template-columns: 1fr;
                 margin-top: 180px;
                 grid-gap: 80px;
+                p {
+                    font-size: 16px; line-height: 22px;
+                }
             }
 
             .annual-report__smaller-text-column {
