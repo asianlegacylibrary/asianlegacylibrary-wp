@@ -705,9 +705,10 @@
                 .image-heading-outer {
                     &.annual-report__block-text-img {
                         hgroup {
+                            top: -80px;
                             h3 {
-                                padding: 110px 76px 30px 60px;
-                                font-size: 30px; line-height: 45px;
+                                padding: 80px 76px 30px 60px;
+                                font-size: 50px; line-height: 64px;
                             }
                         }
                        
