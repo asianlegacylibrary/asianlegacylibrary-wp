@@ -19,6 +19,13 @@
 	}
     .page-entry,
     .block-editor-writing-flow {
+        ul {
+            li {
+                &::before {
+                    display: none;
+                }
+            }
+        }
         .large-text {
             p {
                 font-size: 25px; line-height: 160%;
@@ -106,7 +113,7 @@
     }
     .page-entry {
         p {
-            font-size: 16px; line-height: 22px;
+            font-size: 18px; line-height: 30px;
         }
     }
     .wp-block-columns {
@@ -153,19 +160,22 @@
         }
     }
     &.page-entry {
-        .col {
-            p {
-                max-width: 700px;
-                font-size: 18px; line-height: 30px; color: #000;
-                &.right-padding {
-                    padding-right: 80px; 
-                    color: #122F43;
-                    @include breakpoint(640) {
-                        padding-right: 0;
+        .report-content-wrapper {
+            .col {
+                p {
+                    max-width: 700px;
+                    font-size: 18px; line-height: 30px; color: #000;
+                    &.right-padding {
+                        padding-right: 80px; 
+                        color: #122F43;
+                        @include breakpoint(640) {
+                            padding-right: 0;
+                        }
                     }
                 }
             }
         }
+      
     }
     .image-heading-holder {
         .image-heading-outer {
@@ -335,7 +345,6 @@
         }
 
         &.single-column {
-
             .image-heading-columns {
                 padding-bottom: 300px;
                 @include breakpoint(768) {
@@ -344,6 +353,7 @@
                 .col {
                     width: 100%;
                     p {
+                        max-width: 700px;
                         img {
                             @include breakpoint(640) {
                                 height: 30px;
@@ -631,6 +641,19 @@
         }
 
         .dark-content  {
+            .col {
+                p {
+                    max-width: 700px;
+                    font-size: 18px; line-height: 30px; color: #000;
+                    &.right-padding {
+                        padding-right: 80px; 
+                        color: #122F43;
+                        @include breakpoint(640) {
+                            padding-right: 0;
+                        }
+                    }
+                }
+            }
             p {
                 &.white-medium-text {
                     font-size: 25px; line-height: 40px; color: #fff;

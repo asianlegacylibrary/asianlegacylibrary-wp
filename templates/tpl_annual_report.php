@@ -198,7 +198,7 @@ get_header(); ?>
 
 	<div class="content-outer inner-page-content page-entry annual-content-holder">
 		
-		<div class="wrapper ">
+		<div class="wrapper report-content-wrapper">
 			
 			<?php the_content(); ?>
 		
