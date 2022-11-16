@@ -13,7 +13,7 @@ jobs:
               with:
                   # Deploy vars
                   WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
-                  WPE_ENV: STG_ENV
+                  WPE_ENV: asianlegacystg
                   # Deploy Options
                   # SRC_PATH: "wp-content/themes/asianlegacylibrary-wp/"
                   REMOTE_PATH: 'wp-content/themes/asianlegacylibrary-wp/'
