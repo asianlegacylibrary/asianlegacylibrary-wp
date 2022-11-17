@@ -38,6 +38,10 @@
         .wp-block-media-text__content {
             h4 {
                 color: $color-chartreuse;
+                font-weight: normal!important;
+            }
+            h3 {
+                margin-bottom: 30px;
             }
         }
     }
@@ -95,6 +99,10 @@
 
         }
         &.different-font-size {
+            margin-left: 60px;
+            @include breakpoint(1024) {
+                margin-left: 0;
+            }
             .wrapper {
                 padding-left: 30px; padding-right: 30px;
             }
@@ -130,6 +138,7 @@
             }
             
             .wp-block-image {
+                height: 520px;
                 margin-bottom: 50px;
                 &:before {
                     display: none!important;
@@ -184,6 +193,7 @@
                     bottom: auto; top: -60px;
                     h3 {
                         padding: 120px 76px 54px 60px;
+                       
                         @include breakpoint(768) {
                             padding: 110px 76px 30px 60px;
                             font-size: 30px; line-height: 45px;
@@ -197,7 +207,7 @@
                     bottom: -50%;
                     z-index: -1;
                     width: 100%;
-                    height: 100%;
+                    height: 120%;
                     background-color: #e6fa05;
                     @include breakpoint(1024) {
                         bottom: -60%;
@@ -210,6 +220,29 @@
                     @include breakpoint(640) {
                         bottom: -110%;
                         height: calc(100% + 400px);
+                    }
+                }
+
+                &.more-space-left {
+                    hgroup {
+                        h3 {
+                            padding-right: 280px!important;
+                        }
+                    } 
+                }
+                &.more-top-space {
+                    hgroup {
+                        h3 {
+                            padding-top: 340px!important;
+                            
+                        }
+                    }
+                }
+                &.largest-space-left {
+                    hgroup {
+                        h3 {
+                            padding-right: 215px!important;
+                        }
                     }
                 }
 
@@ -243,7 +276,7 @@
                 }
                 &.larger-height {
                     &::after {
-                        height: 130%;
+                        height: 140%;
                         bottom: -70%;
                         @include breakpoint(768) {
                             bottom: -90%;
@@ -305,6 +338,7 @@
                     }
                 }
             }
+           
         } 
            
         &::after {
@@ -390,6 +424,9 @@
             p {
                 font-size: 18px; line-height: 30px;
             }
+            h3 {
+                margin-bottom: 30px!important;
+            }
         }
         &.offset-left {
             margin-left: 40px;
@@ -410,8 +447,8 @@
                     
                     &::after {
                         content: "";
-                        position: absolute; top: 290px; left: auto; right: 0;  
-                        width: calc(100% + 160px); height: calc(100% - 290px);
+                        position: absolute; top: 170px; left: auto; right: 0;  
+                        width: calc(100% + 160px); height: calc(100% - 200px);
                         background-color: $color-chartreuse;
                         z-index: -1;
                         @include breakpoint(640) {
@@ -430,6 +467,7 @@
                         color: #122F43!important; 
                         text-transform: uppercase;
                         margin-top: 70px;
+                        margin-bottom: 20px;
                         font-size: 22px; line-height: 32px; font-weight: bold;
                     }
                     .wp-block-image {
@@ -463,10 +501,12 @@
                         font-size: 16px; line-height: 22px;
                     }
                     h4 {
-                        color: #122F43!important; font-weight: 500;
+                        color: #122F43!important; font-weight: normal!important;
                         text-transform: uppercase;
+                        margin-bottom: 0;
                         &.green-color {
                             color: $color-chartreuse;
+                            font-weight: normal!important;
                         }
                     }
                     .with-offset {
@@ -512,6 +552,10 @@
         h4 {
             &.green-color {
                 color: $color-chartreuse;
+                font-weight: normal!important;
+            }
+            h3 {
+                margin-bottom: 30px!important;
             }
         }
     }
@@ -713,6 +757,9 @@
 .tablet {
     &.portrait {
         .annual-report {
+            .content-outer {
+                padding-top: 100px;
+            }
             .text-content-outer {
                 margin-bottom: 300px;
                
@@ -739,6 +786,13 @@
                             hgroup {
                                 h3 {
                                     padding-top: 170px;
+                                }
+                            }
+                        }
+                        &.more-top-space {
+                            hgroup {
+                                h3 {
+                                    padding-top: 250px!important;
                                 }
                             }
                         }
@@ -778,6 +832,9 @@
             }
 
             .annual-report__colums-with-background {
+                h4 {
+                    font-weight: normal;
+                }
                 &.offset-right {
                     .wp-block-column {
                         &:nth-child(2) {

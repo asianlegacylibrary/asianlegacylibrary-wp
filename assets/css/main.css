@@ -6656,7 +6656,11 @@ body.faded:after {
   color: #000; }
 
 .annual-report .wp-block-media-text .wp-block-media-text__content h4 {
-  color: #e6fa05; }
+  color: #e6fa05;
+  font-weight: normal !important; }
+
+.annual-report .wp-block-media-text .wp-block-media-text__content h3 {
+  margin-bottom: 30px; }
 
 .annual-report .page-entry p.smaller-font {
   font-size: 20px;
@@ -6708,14 +6712,19 @@ body.faded:after {
       margin-bottom: 120px; } }
   .annual-report .text-content-outer .wrapper {
     max-width: 1260px; }
-  .annual-report .text-content-outer.different-font-size .wrapper {
-    padding-left: 30px;
-    padding-right: 30px; }
-  .annual-report .text-content-outer.different-font-size p {
-    font-size: 18px;
-    line-height: 28px;
-    max-width: 450px;
-    color: #525A5F; }
+  .annual-report .text-content-outer.different-font-size {
+    margin-left: 60px; }
+    @media (max-width: 1024px) {
+      .annual-report .text-content-outer.different-font-size {
+        margin-left: 0; } }
+    .annual-report .text-content-outer.different-font-size .wrapper {
+      padding-left: 30px;
+      padding-right: 30px; }
+    .annual-report .text-content-outer.different-font-size p {
+      font-size: 18px;
+      line-height: 28px;
+      max-width: 450px;
+      color: #525A5F; }
 
 .annual-report .wp-block-image.no-margin-bottom {
   margin-top: 20px; }
@@ -6734,6 +6743,7 @@ body.faded:after {
     margin-bottom: 50px;
     align-items: center !important; }
   .annual-report .wp-block-columns.with-graphics .wp-block-image {
+    height: 520px;
     margin-bottom: 50px; }
     .annual-report .wp-block-columns.with-graphics .wp-block-image:before {
       display: none !important; }
@@ -6785,7 +6795,7 @@ body.faded:after {
   bottom: -50%;
   z-index: -1;
   width: 100%;
-  height: 100%;
+  height: 120%;
   background-color: #e6fa05; }
   @media (max-width: 1024px) {
     .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img::after {
@@ -6799,6 +6809,15 @@ body.faded:after {
     .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img::after {
       bottom: -110%;
       height: calc(100% + 400px); } }
+
+.annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.more-space-left hgroup h3 {
+  padding-right: 280px !important; }
+
+.annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.more-top-space hgroup h3 {
+  padding-top: 340px !important; }
+
+.annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.largest-space-left hgroup h3 {
+  padding-right: 215px !important; }
 
 .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.offset-left {
   right: 0;
@@ -6822,7 +6841,7 @@ body.faded:after {
   right: 0; }
 
 .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.larger-height::after {
-  height: 130%;
+  height: 140%;
   bottom: -70%; }
   @media (max-width: 768px) {
     .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.larger-height::after {
@@ -6937,6 +6956,9 @@ body.faded:after {
   font-size: 18px;
   line-height: 30px; }
 
+.annual-content-holder .annual-report__colums-with-background .wp-block-column h3 {
+  margin-bottom: 30px !important; }
+
 .annual-content-holder .annual-report__colums-with-background.offset-left {
   margin-left: 40px; }
   @media (max-width: 640px) {
@@ -6956,11 +6978,11 @@ body.faded:after {
       .annual-content-holder .annual-report__colums-with-background.offset-left .wp-block-column:first-child::after {
         content: "";
         position: absolute;
-        top: 290px;
+        top: 170px;
         left: auto;
         right: 0;
         width: calc(100% + 160px);
-        height: calc(100% - 290px);
+        height: calc(100% - 200px);
         background-color: #e6fa05;
         z-index: -1; }
         @media (max-width: 640px) {
@@ -6977,6 +6999,7 @@ body.faded:after {
         color: #122F43 !important;
         text-transform: uppercase;
         margin-top: 70px;
+        margin-bottom: 20px;
         font-size: 22px;
         line-height: 32px;
         font-weight: bold; }
@@ -7005,10 +7028,12 @@ body.faded:after {
     line-height: 22px; }
   .annual-content-holder .annual-report__colums-with-background.offset-right .wp-block-column:nth-child(2) h4 {
     color: #122F43 !important;
-    font-weight: 500;
-    text-transform: uppercase; }
+    font-weight: normal !important;
+    text-transform: uppercase;
+    margin-bottom: 0; }
     .annual-content-holder .annual-report__colums-with-background.offset-right .wp-block-column:nth-child(2) h4.green-color {
-      color: #e6fa05; }
+      color: #e6fa05;
+      font-weight: normal !important; }
   .annual-content-holder .annual-report__colums-with-background.offset-right .wp-block-column:nth-child(2) .with-offset {
     width: 633px;
     right: 180px;
@@ -7039,7 +7064,11 @@ body.faded:after {
     z-index: -1; }
 
 .annual-content-holder .annual-report__colums-with-background h4.green-color {
-  color: #e6fa05; }
+  color: #e6fa05;
+  font-weight: normal !important; }
+
+.annual-content-holder .annual-report__colums-with-background h4 h3 {
+  margin-bottom: 30px !important; }
 
 .annual-content-holder .annual-report__three-columns {
   display: grid;
@@ -7156,6 +7185,9 @@ body.faded:after {
 .mobile .annual-report .content-outer {
   display: none; }
 
+.tablet.portrait .annual-report .content-outer {
+  padding-top: 100px; }
+
 .tablet.portrait .annual-report .text-content-outer {
   margin-bottom: 300px; }
 
@@ -7168,6 +7200,9 @@ body.faded:after {
 
 .tablet.portrait .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.title-offset-bottom hgroup h3 {
   padding-top: 170px; }
+
+.tablet.portrait .annual-content-holder .image-heading-holder .image-heading-outer.annual-report__block-text-img.more-top-space hgroup h3 {
+  padding-top: 250px !important; }
 
 .tablet.portrait .annual-content-holder .image-heading-holder .image-heading-columns {
   padding-left: 0;
@@ -7182,6 +7217,9 @@ body.faded:after {
   padding-bottom: 430px; }
   .tablet.portrait .annual-content-holder .image-heading-holder.single-column .image-heading-columns .col img.larger-font {
     height: 42px !important; }
+
+.tablet.portrait .annual-content-holder .annual-report__colums-with-background h4 {
+  font-weight: normal; }
 
 .tablet.portrait .annual-content-holder .annual-report__colums-with-background.offset-right .wp-block-column:nth-child(2) {
   width: 100%; }
