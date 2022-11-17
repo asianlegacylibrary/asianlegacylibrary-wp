@@ -134,12 +134,23 @@
             .wp-block-columns {
                 margin-bottom: 50px;
                 align-items: center!important; 
+                margin-left: 0; margin-right: 0;
 
             }
             
             .wp-block-image {
-                height: 520px;
+                width: 620px; height: 620px;
                 margin-bottom: 50px;
+                @include breakpoint(640) {
+                    width: 320px; height: 320px;
+                }
+                img {
+                    width: 620px; height: 620px;
+                    object-fit: scale-down;
+                    @include breakpoint(640) {
+                        width: 320px; height: 320px;
+                    }
+                }
                 &:before {
                     display: none!important;
                 }
@@ -242,6 +253,9 @@
                     hgroup {
                         h3 {
                             padding-right: 215px!important;
+                            @include breakpoint(640) {
+                                padding-right: 110px!important;
+                            }
                         }
                     }
                 }
