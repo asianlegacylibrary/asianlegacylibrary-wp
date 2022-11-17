@@ -20,5 +20,5 @@ jobs:
                   PHP_LINT: TRUE
                   FLAGS: -azvr --inplace --delete --exclude=".*"
                   # --exclude-from=.deployignore
-                  # SCRIPT: "path/yourscript.sh"
+                  SCRIPT: 'bash/deploy_dev.sh'
                   CACHE_CLEAR: TRUE
