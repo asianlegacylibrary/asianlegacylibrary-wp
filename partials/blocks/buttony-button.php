@@ -15,6 +15,7 @@ if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
 
+# custom btn block, may not be necessary, might be able to get away with CSS only update
 $button_text				= get_field('all_button_text');
 $button_link				= get_field('all_button_link');
 
