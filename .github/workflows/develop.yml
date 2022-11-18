@@ -20,5 +20,5 @@ jobs:
                   PHP_LINT: TRUE
                   FLAGS: -azvr --inplace --delete --exclude=".*"
                   # --exclude-from=.deployignore
-                  SCRIPT: 'bash/deploy_dev.sh'
+                  SCRIPT: 'wp-content/themes/asianlegacylibrary-wp/bash/deploy_dev.sh'
                   CACHE_CLEAR: TRUE
