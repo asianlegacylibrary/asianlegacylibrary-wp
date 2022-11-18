@@ -7,13 +7,19 @@ get_header(); ?>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); 
     $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'large');
+
+    $slide_1_content    = get_field('slide_1_content');
+    $slide_1_image      = get_field('slide_1_image');
+    $slide_2_content    = get_field('slide_2_content');
+    $slide_2_image      = get_field('slide_2_image');
+
 ?>
 
 		
 	<div class="bgrs-holder">
         <section class="active">
             <div class="sliced front initialized">
-  				<img src="<?php echo $featured_img_url; ?>" class="sliced-img"/>
+  				<img src="<?php echo $slide_1_image['url']; ?>" class="sliced-img"/>
 			</div>
             
 			<div class="decoration">
@@ -87,10 +93,10 @@ get_header(); ?>
 		</section>
         <section class="">
             <div class="sliced front ">
-  				<img src="<?php echo $featured_img_url; ?>" class="sliced-img"/>
+  				<img src="<?php echo $slide_2_image['url']; ?>" class="sliced-img"/>
 			</div>
             <div class="sliced back">
-  				<img src="<?php echo $featured_img_url; ?>" class="sliced-img"/>
+  				<img src="<?php echo $slide_2_image['url']; ?>" class="sliced-img"/>
 			</div>
             *<div class="decoration">
 				<div class="texts-holder">
@@ -168,7 +174,7 @@ get_header(); ?>
 		<section class="hero">
 			<div class="holder" data-delay-up="0" data-delay-anim-down="1000">
 				<article>
-					<h1>Asian Legacy <br>Library 2021 <br>Annual Report</h1>
+					<h1><?php echo $slide_1_content; ?></h1>
                     <div class="mobile-scroll-indicator"></div>
 				</article>
 			</div>
@@ -177,7 +183,7 @@ get_header(); ?>
         <section class="with-auto-height">
             <div class="holder" data-delay-anim-up="1250" data-delay-anim-down="1000">
                 <article>
-                    <p>Every preservation project is unique in that it represents a distinct cultural identity that needs to be understood and honored.</p>
+                    <p><?php echo $slide_2_content; ?></p>
                     <div class="mobile-scroll-indicator"></div>
                 </article>
             </div>
