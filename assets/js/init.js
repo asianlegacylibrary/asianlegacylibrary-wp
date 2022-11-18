@@ -167,6 +167,12 @@
         snap: {
             init: function() {
 
+                if (all.device === 'mobile') {
+                    // <br> tags are entered in the Wordpress admin content because of the desktop
+                    // It is creating weird line breaks on mobile so we're removing them
+                    $('.page-template-tpl_annual_report h5 > br').replaceWith(' ');
+                }
+
                 var sideNav = $('.side-nav'),
                     section = $('.sections-holder section'),
                     running = false,

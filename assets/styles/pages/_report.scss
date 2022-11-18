@@ -131,24 +131,30 @@
         &.with-graphics {
             margin-bottom: 50px!important;
             align-items: center!important; 
+            margin-left: 0; margin-right: 0;
             .wp-block-columns {
                 margin-bottom: 50px;
                 align-items: center!important; 
-                margin-left: 0; margin-right: 0;
+                margin-left: 0!important; margin-right: 0!important;
+                .wp-block-column {
+                    margin-left: 0;
+                }
 
             }
             
             .wp-block-image {
-                width: 620px; height: 620px;
+                overflow: visible;
+                width: 555px; height: 540px;
                 margin-bottom: 50px;
                 @include breakpoint(640) {
-                    width: 320px; height: 320px;
+                    width: auto; height: auto;
+                    margin-right: 10px; margin-left: 10px;
                 }
                 img {
-                    width: 620px; height: 620px;
+                    width: 555px; height: 540px;
                     object-fit: scale-down;
                     @include breakpoint(640) {
-                        width: 320px; height: 320px;
+                        width: auto; height: auto;
                     }
                 }
                 &:before {
@@ -157,12 +163,28 @@
                 &:after {
                     display: none!important;
                 }
+                figcaption {
+                    position: relative;
+                    z-index: 2;
+                    margin: 0;
+                    text-align: center;
+                    padding: 20px 0;
+                    background-color: #122f43;
+                    color: #fff;
+                    font-size: 25px;
+                    font-weight: 600!important;
+                    line-height: 30px;
+                    /* max-width: 200px; */
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
             }
             @include breakpoint(1024) {
                 margin-left: 60px!important; margin-right: 60px!important;
             }
             @include breakpoint(640) {
-                margin-left: 30px; margin-right: 30px;
+                margin-left: 0!important; margin-right: 0!important;
                 
             }
         }
@@ -172,7 +194,7 @@
 
 .annual-content-holder {
     .wrapper {
-        padding-top: 150px;
+        padding-top: 190px;
     }
     .wide-content {
         .wrapper {
@@ -245,6 +267,9 @@
                     hgroup {
                         h3 {
                             padding-top: 340px!important;
+                            @include breakpoint(640) {
+                                padding-top: 220px!important;
+                            }
                             
                         }
                     }
@@ -635,6 +660,7 @@
                     }
                     @include breakpoint(640) {
                         margin-top: -190px; margin-left: 0;
+                        width: 120%;
 
                     }
                     
@@ -663,6 +689,9 @@
         padding-bottom: 200px;
         &.bgr-position-top {
             margin-bottom: -150px;
+            @include breakpoint(640) {
+                margin-bottom: -200px;
+            }
         }
         &.margin-top {
             margin-top: -240px; padding-bottom: 630px;
@@ -807,6 +836,8 @@
                             hgroup {
                                 h3 {
                                     padding-top: 250px!important;
+                                  
+                                   
                                 }
                             }
                         }
