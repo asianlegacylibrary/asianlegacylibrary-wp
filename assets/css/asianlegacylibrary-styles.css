@@ -8,12 +8,12 @@
 }
 
 .wp-block-buttons .wp-block-button .wp-block-button__link {
-    padding: 1em;
-    border: 1px solid #000;
+    padding: 0.6em;
+    border: 1px solid #222;
     background-color: aliceblue;
 }
 /* adding this for no other reason that to be able to quickly check if updates are working */
 html:not(.home),
 body:not(.home) {
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
 }
