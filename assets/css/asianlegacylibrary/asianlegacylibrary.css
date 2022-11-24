@@ -7,11 +7,9 @@
   padding: 0.3em; }
 
 .wp-block-buttons .wp-block-button .wp-block-button__link {
-  padding: 0.5em;
-  border: 1px solid #222;
-  background-color: aliceblue; }
+  padding: 0.3em; }
 
 /* adding this for no other reason that to be able to quickly check if updates are working */
 html:not(.home),
 body:not(.home) {
-  /* background-color: whitesmoke; */ }
+  /* background-color: aqua;*/ }
