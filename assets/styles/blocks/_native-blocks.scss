@@ -107,6 +107,9 @@
 			}
 		}
 	}
+	&.no-margin-bottom {
+		margin-bottom: 0;
+	}
 	figcaption {
 		display: block; position: relative; z-index: 2;
 		margin: 0; padding: 20px 0;
@@ -275,5 +278,8 @@
         .wp-block-image {
             margin-bottom: 0;
         }
+    }
+    &.wide {
+        margin-left: 0; margin-right: 0;
     }
 }

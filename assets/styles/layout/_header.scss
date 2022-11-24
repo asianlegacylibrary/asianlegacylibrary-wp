@@ -342,6 +342,11 @@
 						}
 					}
 				}
+				.nav-trigger {
+					span {
+						background-color: $color-black;
+					}
+				}
 				&:before {
 					@include transform();
 				}
@@ -700,7 +705,7 @@
 
 	// Header variations for other pages
 	body {
-		&:not(.home) {
+		&:not(.home, .annual-report) {
 			header {
 				.holder {
 					.logo,
