@@ -16,7 +16,8 @@ function enqueueStylesAndScripts() {
     wp_register_style('main', THEME_ASSETS . 'css/main.css', false, '1.0');
     wp_enqueue_style('main');
 
-    wp_register_style('child-style', THEME_ASSETS . 'css/asianlegacylibrary-styles.css', false, '1.0');
+    # enqueue-ing a new style sheet for ALL updates -----------------------------------------------
+    wp_register_style('child-style', THEME_ASSETS . 'css/asianlegacylibrary/asianlegacylibrary.css', false, '1.0');
     wp_enqueue_style('child-style');
     
     // FOOTER SCRIPTS2
