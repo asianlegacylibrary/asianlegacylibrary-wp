@@ -4,7 +4,7 @@ on:
         branches:
             - develop
 env:
-    WPE_SERVER: asianlegacystg
+    WPE_SERVER: asianlegacydev
     WP_CONTENT_FOLDER: themes
     WP_PLUGIN_NAME: asianlegacylibrary-wp
     BASH_SCRIPT_NAME: deploy_development.sh

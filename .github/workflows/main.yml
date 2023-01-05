@@ -2,7 +2,7 @@ name: Deploy to STG (asianlegacystg) on WP Engine
 on:
     push:
         branches:
-            - main_use_once_we_have_develop_and_main_branches_and_servers_worked_out
+            - main
 env:
     WPE_SERVER: asianlegacystg
     WP_CONTENT_FOLDER: themes
