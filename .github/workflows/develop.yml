@@ -1,8 +1,13 @@
-name: Deploy to WP Engine
+name: Deploy to DEV (asianlegacydev) on WP Engine
 on:
     push:
         branches:
             - develop
+env:
+    WPE_SERVER: asianlegacydev
+    WP_CONTENT_FOLDER: themes
+    WP_PLUGIN_NAME: asianlegacylibrary-wp
+    BASH_SCRIPT_NAME: deploy_development.sh
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -13,12 +18,12 @@ jobs:
               with:
                   # Deploy vars
                   WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
-                  WPE_ENV: STG_ENV
+                  WPE_ENV: ${{ env.WPE_SERVER }}
                   # Deploy Options
                   # SRC_PATH: "wp-content/themes/asianlegacylibrary-wp/"
-                  REMOTE_PATH: 'wp-content/themes/asianlegacylibrary-wp/'
-                  # PHP_LINT: TRUE
+                  REMOTE_PATH: 'wp-content/${{ env.WP_CONTENT_FOLDER }}/${{ env.WP_PLUGIN_NAME }}/'
+                  PHP_LINT: TRUE
                   FLAGS: -azvr --inplace --delete --exclude=".*"
                   # --exclude-from=.deployignore
-                  # SCRIPT: "path/yourscript.sh"
+                  SCRIPT: 'wp-content/${{ env.WP_CONTENT_FOLDER }}/${{ env.WP_PLUGIN_NAME }}/deploy-scripts/${{ env.BASH_SCRIPT_NAME }}'
                   CACHE_CLEAR: TRUE

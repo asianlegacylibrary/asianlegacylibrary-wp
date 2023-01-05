@@ -1,13 +1,15 @@
+/*
+    Asian Legacy Library Styles
+    Created: 2022-08-17
+*/
 .is-style-fill > a,
 .is-style-outline > a {
-    padding: 0.3em;
-}
+  padding: 0.3em; }
 
 .wp-block-buttons .wp-block-button .wp-block-button__link {
-    padding: 0.3em;
-}
+  padding: 0.3em; }
+
 /* adding this for no other reason that to be able to quickly check if updates are working */
 html:not(.home),
 body:not(.home) {
-    background-color: seagreen;
-}
+  /* background-color: aqua;*/ }
