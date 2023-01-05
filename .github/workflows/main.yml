@@ -23,7 +23,7 @@ jobs:
                   # SRC_PATH: "wp-content/themes/asianlegacylibrary-wp/"
                   REMOTE_PATH: 'wp-content/${{ env.WP_CONTENT_FOLDER }}/${{ env.WP_PLUGIN_NAME }}/'
                   PHP_LINT: TRUE
-                  FLAGS: -azvr --inplace --delete --exclude=".*"
+                  FLAGS: -azvr --inplace --delete --exclude=".*" --exclude="node_modules"
                   # --exclude-from=.deployignore
                   SCRIPT: 'wp-content/${{ env.WP_CONTENT_FOLDER }}/${{ env.WP_PLUGIN_NAME }}/deploy-scripts/${{ env.BASH_SCRIPT_NAME }}'
                   CACHE_CLEAR: TRUE
