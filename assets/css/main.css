@@ -9606,9 +9606,10 @@ body.faded:after {
 ------------------------------------------------------------------------------------- */
 /* JC added this Jan 20, 2023 // temp fix to stop behavior on all pages except annual report
 -- Get No Format (Drasko) to look at this...
-/* .content-outer:not(.annual-content-holder) {
+*/
+.content-outer:not(.annual-content-holder) {
     transform: none !important;
-} */
+}
 .annual-report header .holder .logo,
 .annual-report header .holder nav,
 .annual-report header .holder .nav-trigger {
