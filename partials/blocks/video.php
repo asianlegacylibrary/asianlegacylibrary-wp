@@ -18,7 +18,7 @@ if( !empty($block['className']) ) {
 $video_file 				= get_field('video_file');
 $poster_image 				= get_field('poster_image');
 $video_caption 				= get_field('video_caption');
-$external_video 			= get_field('external_video');
+# $external_video 			= get_field('external_video');
 
 # UPDATED VIDEO field for video block, need to remove the embed iframe field from ACF and from here ------------------
 # add new ACF for video URL, afterwards we can delete some of these unused ---------------------
@@ -40,9 +40,9 @@ $video_url = "https://player.vimeo.com/video/". $video_id . "?"; # note that the
 
 ?>
 
-<section class="<?php echo esc_attr($className); ?> <?php if($external_video) : echo 'external'; else : echo 'local'; endif; ?> <?php echo $external_video_platform; ?>">
+<section class="<?php echo esc_attr($className); ?> <?php if($external_video_url) : echo 'external'; else : echo 'local'; endif; ?> <?php echo $external_video_platform; ?>">
 	<figure class="video-wrapper">
-		<?php if($external_video) : ?>
+		<?php if($external_video_url) : ?>
 		<div class="video">
 			<div class="external-video">
 				<!-- we've replaced the video embed with our own, using a much simpler URL from vimeo, then we build the iframe here
