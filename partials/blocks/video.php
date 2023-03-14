@@ -20,6 +20,7 @@ $poster_image 				= get_field('poster_image');
 $video_caption 				= get_field('video_caption');
 $external_video 			= get_field('external_video');
 
+# UPDATED VIDEO field for video block, need to remove the embed iframe field from ACF and from here ------------------
 # add new ACF for video URL, afterwards we can delete some of these unused ---------------------
 $external_video_url 		= get_field('external_video_url');
 
@@ -34,7 +35,8 @@ $video_url = "https://player.vimeo.com/video/". $video_id . "?"; # note that the
 
 # we replace the $external_video (which was the embed code from vimeo, an iframe)
 # with the iframe we create using the video_url 
-# THIS IS THE NEW THINGS! and seriously will the submodule in wp engine ever update?
+# ----------------------------------------------------------------------------------------
+
 
 ?>
 
@@ -43,6 +45,8 @@ $video_url = "https://player.vimeo.com/video/". $video_id . "?"; # note that the
 		<?php if($external_video) : ?>
 		<div class="video">
 			<div class="external-video">
+				<!-- we've replaced the video embed with our own, using a much simpler URL from vimeo, then we build the iframe here
+					this makes it much easier for translators and people creating news posts to add video links  -->
 				<iframe src="<?php echo $video_url; ?>" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 			</div>
 			<span class="with-effect" style="background-image: url(<?php echo $poster_image['url']; ?>)"><span class="play"></span></span>
