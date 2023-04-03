@@ -9610,7 +9610,12 @@ body > div.content-outer.inner-page-content.page-entry
 styles applied:
 transform: translateX(0px) translateY(100vh) translateZ(0px) rotate(0deg) scale(1, 1);
 */
-.content-outer:not(.annual-content-holder) {
+.content-outer:not(.annual-content-holder),
+.content-outer:not(.annual-report) {
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
     transform: none !important;
 }
 /* end attempted update ---------------- */
