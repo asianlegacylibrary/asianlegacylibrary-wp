@@ -4,12 +4,39 @@
 */
 .is-style-fill > a,
 .is-style-outline > a {
-  padding: 0.3em; }
+    padding: 0.3em;
+}
 
 .wp-block-buttons .wp-block-button .wp-block-button__link {
-  padding: 0.3em; }
+    padding: 0.3em;
+}
 
 /* adding this for no other reason that to be able to quickly check if updates are working */
 html:not(.home),
 body:not(.home) {
-  /* background-color: aqua;*/ }
+    /* background-color: aqua;*/
+}
+
+/*
+= ANNUAL REPORT
+------------------------------------------------------------------------------------- */
+/* JC added this Jan 20, 2023 // temp fix to stop behavior on all pages except annual report
+-- Get No Format (Drasko) to look at this...
+body > div.content-outer.inner-page-content.page-entry
+styles applied:
+transform: translateX(0px) translateY(100vh) translateZ(0px) rotate(0deg) scale(1, 1);
+*/
+.content-outer:not(.annual-content-holder),
+.content-outer:not(.annual-report) {
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
+    transform: none !important;
+}
+/* end attempted update ---------------- */
+
+/* quick fix for history timeline issue, disappearing when scrolling up */
+body.page-template-tpl_timeline {
+    height: 100% !important;
+}
