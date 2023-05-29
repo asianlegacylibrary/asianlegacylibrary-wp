@@ -29,7 +29,7 @@ transform: translateX(0px) translateY(100vh) translateZ(0px) rotate(0deg) scale(
 .content-outer:not(.annual-report) 
 */
 
-.content-outer:not(.annual-content-holder) {
+.content-outer:not(:is(.annual-content-holder)) {
     -webkit-transform: none !important;
     -moz-transform: none !important;
     -ms-transform: none !important;
