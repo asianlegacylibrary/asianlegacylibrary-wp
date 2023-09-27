@@ -38,6 +38,68 @@
 }
 
 
+
+/* @ts 2023-09-27 { new fonts */
+
+@font-face {
+	font-family: 'paitub';
+	src: url('../font/paitu/paitub.eot');
+	src: url('../font/paitu/paitub.eot?#iefix') format('embedded-opentype'),
+			url('../font/paitu/paitub.otf') format('otf'),
+			url('../font/paitu/paitub.svg#paitub') format('svg'),
+			url('../font/paitu/paitub.ttf') format('truetype'),
+			url('../font/paitu/paitub.woff') format('woff'),
+			url('../font/paitu/paitub.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'paitubi';
+	src: url('../font/paitu/paitubi.eot');
+	src: url('../font/paitu/paitubi.eot?#iefix') format('embedded-opentype'),
+			url('../font/paitu/paitubi.otf') format('otf'),
+			url('../font/paitu/paitubi.svg#paitubi') format('svg'),
+			url('../font/paitu/paitubi.ttf') format('truetype'),
+			url('../font/paitu/paitubi.woff') format('woff'),
+			url('../font/paitu/paitubi.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'paitui';
+	src: url('../font/paitu/paitui.eot');
+	src: url('../font/paitu/paitui.eot?#iefix') format('embedded-opentype'),
+			url('../font/paitu/paitui.otf') format('otf'),
+			url('../font/paitu/paitui.svg#paitui') format('svg'),
+			url('../font/paitu/paitui.ttf') format('truetype'),
+			url('../font/paitu/paitui.woff') format('woff'),
+			url('../font/paitu/paitui.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'paitur';
+	src: url('../font/paitu/paitur.eot');
+	src: url('../font/paitu/paitur.eot?#iefix') format('embedded-opentype'),
+			url('../font/paitu/paitur.otf') format('otf'),
+			url('../font/paitu/paitur.svg#paitur') format('svg'),
+			url('../font/paitu/paitur.ttf') format('truetype'),
+			url('../font/paitu/paitur.woff') format('woff'),
+			url('../font/paitu/paitur.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'sanskrit_2003-30_07_2019';
+	src: url('../font/sanskrit/sanskrit_2003-30_07_2019.eot');
+	src: url('../font/sanskrit/sanskrit_2003-30_07_2019.eot?#iefix') format('embedded-opentype'),
+			url('../font/sanskrit/sanskrit_2003-30_07_2019.otf') format('otf'),
+			url('../font/sanskrit/sanskrit_2003-30_07_2019.svg#sanskrit_2003-30_07_2019') format('svg'),
+			url('../font/sanskrit/sanskrit_2003-30_07_2019.ttf') format('truetype'),
+			url('../font/sanskrit/sanskrit_2003-30_07_2019.woff') format('woff'),
+			url('../font/sanskrit/sanskrit_2003-30_07_2019.woff2') format('woff2');
+}
+	
+/* @ts 2023-09-27 new fonts } */
+
+
+
 $font-bold: 	'foliobold', 'Noto Sans', Arial, Helvetica, sans-serif;
 $font-medium: 	'foliomedium', 'Noto Sans', Arial, Helvetica,  sans-serif;
 $font-book: 	'foliobook', 'Noto Sans', Arial, Helvetica,  sans-serif;
