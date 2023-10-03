@@ -42,3 +42,15 @@ transform: translateX(0px) translateY(100vh) translateZ(0px) rotate(0deg) scale(
 body.page-template-tpl_timeline {
     height: 100% !important;
 }
+
+h3.text-xl {
+    font-family: 'paitub';
+    font-size: 1.2em;
+}
+.resource-search {
+    font-family: 'paitur', 'sanskrit_2003_30_07_2019';
+}
+.resource-search strong {
+    letter-spacing: 0.09em;
+    font-size: 1.3em;
+}
