@@ -54,3 +54,10 @@ h3.text-xl {
     letter-spacing: 0.09em;
     font-size: 1.3em;
 }
+
+.black-button {
+    color: #e6fa05;
+    background: black;
+    padding: 4px;
+}
+
