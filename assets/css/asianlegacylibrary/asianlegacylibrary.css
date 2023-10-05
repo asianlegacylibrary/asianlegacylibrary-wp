@@ -56,8 +56,7 @@ h3.text-xl {
 }
 
 .black-button {
-    color: #e6fa05;
+    color: #e6fa05 !important;
     background: black;
     padding: 4px;
 }
-
