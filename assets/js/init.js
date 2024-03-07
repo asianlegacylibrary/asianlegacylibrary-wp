@@ -113,13 +113,25 @@
                     if (all.body.hasClass('home')) {
                         setTimeout(function() {
                             all.body.addClass('init-anim-finished');
-                            animation.goToAndPlay(0, true);                   
-                            animation1.goToAndPlay(0, true);                   
-                        }, 2000)
+                        }, 2000); 
+                        
+                        animation.goToAndPlay(0, true);                   
+                        animation1.goToAndPlay(0, true); 
+                        
+                        setTimeout(function() {
+                            animation.goToAndStop(0, false);
+                            animation1.goToAndStop(0, false);
+                        }, 8000); 
+                        
                     } else {
                         all.body.addClass('init-anim-finished');     
                         animation.goToAndPlay(0, true);                   
-                        animation1.goToAndPlay(0, true);                   
+                        animation1.goToAndPlay(0, true); 
+                        
+                        setTimeout(function() {
+                            animation.goToAndStop(0, false);
+                            animation1.goToAndStop(0, false);
+                        }, 8000);
                     }
                 }
             });
