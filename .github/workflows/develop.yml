@@ -17,7 +17,7 @@ jobs:
               uses: wpengine/github-action-wpe-site-deploy@v3.0
               with:
                   # Deploy vars
-                  WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
+                  WPE_SSHG_KEY_PRIVATE: ${{ secrets.WP_DEPLOY_SSH }}
                   WPE_ENV: ${{ env.WPE_SERVER }}
                   # Deploy Options
                   # SRC_PATH: "wp-content/themes/asianlegacylibrary-wp/"
