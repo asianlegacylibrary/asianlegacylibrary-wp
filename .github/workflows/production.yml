@@ -7,7 +7,7 @@ env:
     WPE_SERVER: asianlegacylib
     WP_CONTENT_FOLDER: themes
     WP_PLUGIN_NAME: asianlegacylibrary-wp
-    BASH_SCRIPT_NAME: deploy_prod.sh
+    BASH_SCRIPT_NAME: deploy_production.sh
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -23,4 +23,3 @@ jobs:
                   FLAGS: -azvr --inplace --delete --exclude=".*" --exclude="node_modules"
                   SCRIPT: 'wp-content/${{ env.WP_CONTENT_FOLDER }}/${{ env.WP_PLUGIN_NAME }}/deploy-scripts/${{ env.BASH_SCRIPT_NAME }}'
                   CACHE_CLEAR: TRUE
-				  
