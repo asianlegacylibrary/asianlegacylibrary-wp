@@ -12,3 +12,30 @@
     Description: Asian Legacy Library Wordpress Theme
 
 */
+@media (min-width:801px)  {
+    header .holder .logo{
+        width: 160px;
+    }
+    header .holder nav .main-nav li a{
+        padding: 38px 8px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width:961px)  {
+    header .holder .logo{
+        width: 200px;
+    }
+    header .holder nav .main-nav li a{
+        padding: 38px 12px;
+    }
+}
+
+@media (min-width:1231px) {
+    header .holder .logo{
+        width: 330px;
+    }
+    header .holder nav .main-nav li a{
+        padding: 38px 15px;
+    }
+}
