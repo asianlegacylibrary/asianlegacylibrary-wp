@@ -12,6 +12,11 @@ require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'inits' . DIRECTORY_SEPAR
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'inits' . DIRECTORY_SEPARATOR . 'acf.php';
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'inits' . DIRECTORY_SEPARATOR . 'loadmore.php';
 
+// load css into the website's front-end
+function asianlegacylibrary_enqueue_style() {
+    wp_enqueue_style( 'asianlegacylibrary-style', get_template_directory_uri().'/style.css' ); 
+}
+add_action( 'wp_enqueue_scripts', 'asianlegacylibrary_enqueue_style' );
 
 /**
  * Register widget area.
