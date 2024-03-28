@@ -18,12 +18,12 @@
 		<section class="<?php if ($row_index == 1) echo 'active' ?>">
 			<?php if($image_identifier_1) : ?>
 			<div class="sliced front <?php if ($row_index == 1) echo 'initialized' ?>">
-  				<img src="<?php echo $block_image['url']; ?>" class="sliced-img"/>
+  				<img src="<?php echo $block_image['url']; ?>" alt="sliced-img-front" class="sliced-img"/>
 			</div>
 			<?php endif; ?>
 			<?php if($image_identifier_2) : ?>
 			<div class="sliced back">
-  				<img src="<?php echo $block_image['url']; ?>" class="sliced-img"/>
+  				<img src="<?php echo $block_image['url']; ?>" alt="sliced-img-back" class="sliced-img"/>
 			</div>
 			<?php endif; ?>
 			<div class="decoration">
