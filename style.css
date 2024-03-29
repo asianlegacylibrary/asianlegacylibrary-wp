@@ -21,7 +21,6 @@
         font-size: 14px;
     }
 }
-
 @media (min-width:961px)  {
     header .holder .logo{
         width: 200px;
@@ -30,7 +29,6 @@
         padding: 38px 12px;
     }
 }
-
 @media (min-width:1231px) {
     header .holder .logo{
         width: 330px;
@@ -38,4 +36,49 @@
     header .holder nav .main-nav li a{
         padding: 38px 15px;
     }
+}
+
+
+/* main menu design start */
+header .holder{
+    overflow: visible !important;
+}
+header .holder nav .main-nav{
+    overflow: visible !important;
+}
+ul.menu__sub-list {
+    top: auto;
+    width: 220px;
+    position: absolute;
+    z-index: 9900;
+    text-align: left;
+}
+@media (min-width:819px)  {
+    ul.menu__sub-list { 
+        display: none !important;
+    }
+}
+@media (max-width:819px)  {
+    .main-nav ul.menu__sub-list { 
+        display: none !important;
+    }
+}
+header .holder nav .main-nav li:hover ul.menu__sub-list {
+    display: block !important;
+}
+.header.stay-in-view{
+    transform: none !important;
+    background: #e6fa05;
+}
+header .holder nav .main-nav li {
+    float: left;
+    position: relative;
+}
+header.stay-in-view {
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
+    transform: none !important;
+    background: #e6fa05;
 }
