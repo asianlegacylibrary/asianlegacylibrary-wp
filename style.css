@@ -83,3 +83,26 @@ header.stay-in-view {
     transform: none !important;
     background: #e6fa05;
 }
+ul.menu__sub-list {
+    background-color: #000000;
+    padding: 10px 0;
+}
+header .holder nav .main-nav ul.menu__sub-list li a {
+    color: #ffffff !important;
+    padding: 10px 20px;
+}
+header .holder nav .main-nav ul.menu__sub-list li a:after {
+    background: #e6fa05;
+}
+header .holder nav .main-nav li.active ul.menu__sub-list li a:after {
+    width: 0;
+}
+header .holder nav .main-nav li ul.menu__sub-list li a:hover:after {
+    width: 100%;
+}
+header .holder nav .main-nav ul.menu__sub-list li {
+    width: 100%;
+}
+.tablet header .holder .sub-nav ul, .mobile header .holder .sub-nav ul{
+    width: 100%;
+}
