@@ -1138,7 +1138,7 @@
                             text = curr.prev().text(),
                             currIndex = curr.parents('li').index();
                         curr.parents('li').addClass('with-sub-nav');
-                        /*curr.remove();*/
+                        /* curr.remove(); */
                         $('<div class="sub-nav" data-order="' + currIndex + '"><a class="back-btn">' + text + '</a></div>').appendTo('header .holder').append(cloned);
                     })
 

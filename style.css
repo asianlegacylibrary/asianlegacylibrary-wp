@@ -21,6 +21,7 @@
         font-size: 14px;
     }
 }
+
 @media (min-width:961px)  {
     header .holder .logo{
         width: 200px;
@@ -29,6 +30,7 @@
         padding: 38px 12px;
     }
 }
+
 @media (min-width:1231px) {
     header .holder .logo{
         width: 330px;
@@ -37,7 +39,6 @@
         padding: 38px 15px;
     }
 }
-
 
 /* main menu design start */
 header .holder{

@@ -94,13 +94,13 @@
 			<nav>
 				<ul class="main-nav">
 					<?php 
-					wp_nav_menu(
-							    array(
-							        'menu' => 'Main Menu',
-							        'container' => false, 'items_wrap' => '%3$s',
-							        'walker' => new CustomMenuHierarchyClass()
-							    )
-							); ?>
+						wp_nav_menu(
+						    array(
+						        'menu' => 'Main Menu',
+						        'container' => false, 'items_wrap' => '%3$s',
+						        'walker' => new CustomMenuHierarchyClass()
+						    )
+						); ?>
 				</ul>
 			</nav>
 			<a href="#" class="nav-trigger">

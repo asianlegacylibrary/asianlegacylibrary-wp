@@ -164,7 +164,6 @@ if (!class_exists('CustomMenuHierarchyClass')) {
 			    );
 			    $class_names = implode(' ', $classes);
 
-			    // build html
 			    if ($display_depth === 1) : 
 
 			        $output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
